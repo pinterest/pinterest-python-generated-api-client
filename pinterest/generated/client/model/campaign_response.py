@@ -390,9 +390,7 @@ class CampaignResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              CampaignCommon,
-              CampaignId,
-              CampaignResponseAllOf,
+
           ],
           'oneOf': [
           ],

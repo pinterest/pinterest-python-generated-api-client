@@ -369,8 +369,7 @@ class CatalogsFeed(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              CatalogsDbItem,
-              FeedFields,
+
           ],
           'oneOf': [
           ],

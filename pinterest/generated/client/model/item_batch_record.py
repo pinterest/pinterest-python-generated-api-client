@@ -315,6 +315,7 @@ class ItemBatchRecord(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
+
           ],
           'oneOf': [
               ItemCreateBatchRecord,

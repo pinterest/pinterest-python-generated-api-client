@@ -494,8 +494,7 @@ class ItemAttributes(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              ItemAttributesAllOf,
-              UpdatableItemAttributes,
+
           ],
           'oneOf': [
           ],

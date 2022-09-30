@@ -391,8 +391,7 @@ class AdGroupCreateRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              AdGroupCommon,
-              AdGroupCreateRequestAllOf,
+
           ],
           'oneOf': [
           ],

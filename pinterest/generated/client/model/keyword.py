@@ -345,7 +345,7 @@ class Keyword(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              KeywordsCommon,
+
           ],
           'oneOf': [
           ],

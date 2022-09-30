@@ -315,6 +315,7 @@ class CatalogsProductGroupFilters(ModelComposed):
               CatalogsProductGroupFiltersAnyOf,
           ],
           'allOf': [
+
           ],
           'oneOf': [
           ],

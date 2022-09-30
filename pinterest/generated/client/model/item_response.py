@@ -321,6 +321,7 @@ class ItemResponse(ModelComposed):
               ItemResponseAnyOf1,
           ],
           'allOf': [
+
           ],
           'oneOf': [
           ],

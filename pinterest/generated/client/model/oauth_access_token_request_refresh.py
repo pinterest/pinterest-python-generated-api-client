@@ -329,8 +329,7 @@ class OauthAccessTokenRequestRefresh(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              OauthAccessTokenRequest,
-              OauthAccessTokenRequestRefreshAllOf,
+
           ],
           'oneOf': [
           ],

@@ -328,6 +328,7 @@ class CatalogsProductGroupCreateRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
+
           ],
           'oneOf': [
               ProductGroupsCreateRequestFeedBaseCase,

@@ -337,7 +337,7 @@ class OauthAccessTokenResponseRefresh(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              OauthAccessTokenResponse,
+
           ],
           'oneOf': [
           ],

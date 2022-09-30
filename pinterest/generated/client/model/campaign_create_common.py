@@ -369,8 +369,7 @@ class CampaignCreateCommon(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              CampaignCommon,
-              CampaignCreateCommonAllOf,
+
           ],
           'oneOf': [
           ],

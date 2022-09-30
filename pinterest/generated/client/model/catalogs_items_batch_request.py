@@ -339,6 +339,7 @@ class CatalogsItemsBatchRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
+
           ],
           'oneOf': [
               CatalogsItemsCreateBatchRequest,

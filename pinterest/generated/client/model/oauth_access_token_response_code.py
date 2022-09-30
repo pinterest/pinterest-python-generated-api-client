@@ -347,8 +347,7 @@ class OauthAccessTokenResponseCode(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              OauthAccessTokenResponse,
-              OauthAccessTokenResponseCodeAllOf,
+
           ],
           'oneOf': [
           ],

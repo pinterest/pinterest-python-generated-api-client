@@ -443,8 +443,7 @@ class AdGroupResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              AdGroupCommon,
-              AdGroupResponseAllOf,
+
           ],
           'oneOf': [
           ],

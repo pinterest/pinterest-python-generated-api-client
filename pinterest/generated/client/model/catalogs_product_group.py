@@ -358,6 +358,7 @@ class CatalogsProductGroup(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
+
           ],
           'oneOf': [
               CatalogsProductGroupFeedBasedCase,

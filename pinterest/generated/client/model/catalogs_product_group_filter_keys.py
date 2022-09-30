@@ -489,6 +489,7 @@ class CatalogsProductGroupFilterKeys(ModelComposed):
               ProductType4Filter,
           ],
           'allOf': [
+
           ],
           'oneOf': [
           ],
