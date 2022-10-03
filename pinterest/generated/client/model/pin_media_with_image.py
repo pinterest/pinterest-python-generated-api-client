@@ -323,8 +323,7 @@ class PinMediaWithImage(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              PinMedia,
-              PinMediaWithImageAllOf,
+
           ],
           'oneOf': [
           ],

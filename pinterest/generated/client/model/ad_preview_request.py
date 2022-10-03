@@ -315,6 +315,7 @@ class AdPreviewRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
+
           ],
           'oneOf': [
               AdPreviewCreateFromImage,

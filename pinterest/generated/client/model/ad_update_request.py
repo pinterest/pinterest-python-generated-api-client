@@ -392,8 +392,7 @@ class AdUpdateRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              AdCommon,
-              AdUpdateRequest1,
+
           ],
           'oneOf': [
           ],

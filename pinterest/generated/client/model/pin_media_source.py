@@ -358,6 +358,7 @@ class PinMediaSource(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
+
           ],
           'oneOf': [
               PinMediaSourceImageBase64,

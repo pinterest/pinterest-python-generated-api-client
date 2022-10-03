@@ -398,8 +398,7 @@ class AdGroupUpdateRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              AdGroupCommon,
-              AdGroupUpdateRequestAllOf,
+
           ],
           'oneOf': [
           ],

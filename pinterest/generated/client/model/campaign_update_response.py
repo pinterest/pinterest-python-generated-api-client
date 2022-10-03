@@ -307,7 +307,7 @@ class CampaignUpdateResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              CampaignCreateResponse,
+
           ],
           'oneOf': [
           ],

@@ -339,8 +339,7 @@ class CatalogsFeedProcessingResult(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              CatalogsDbItem,
-              CatalogsFeedProcessingResultFields,
+
           ],
           'oneOf': [
           ],

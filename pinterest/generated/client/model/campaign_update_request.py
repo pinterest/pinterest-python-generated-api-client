@@ -382,10 +382,7 @@ class CampaignUpdateRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              CampaignCommon,
-              CampaignCreateCommon,
-              CampaignId,
-              CampaignUpdateRequestAllOf,
+
           ],
           'oneOf': [
           ],

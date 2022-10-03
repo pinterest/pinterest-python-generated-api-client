@@ -316,6 +316,7 @@ class CatalogsListProductsByFilterRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
+
           ],
           'oneOf': [
               CatalogsListProductsByFilterRequestOneOf,

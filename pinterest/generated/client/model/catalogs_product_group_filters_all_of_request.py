@@ -321,6 +321,7 @@ class CatalogsProductGroupFiltersAllOfRequest(ModelComposed):
               CatalogsProductGroupFiltersAllOfRequestAnyOf1,
           ],
           'allOf': [
+
           ],
           'oneOf': [
           ],

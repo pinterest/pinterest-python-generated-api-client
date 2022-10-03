@@ -339,8 +339,7 @@ class PinMediaWithVideo(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              PinMedia,
-              PinMediaWithVideoAllOf,
+
           ],
           'oneOf': [
           ],

@@ -375,8 +375,7 @@ class CampaignCreateRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              CampaignCreateCommon,
-              CampaignCreateRequestAllOf,
+
           ],
           'oneOf': [
           ],

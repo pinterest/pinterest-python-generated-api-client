@@ -381,7 +381,7 @@ class AdCreateRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              AdCommon,
+
           ],
           'oneOf': [
           ],

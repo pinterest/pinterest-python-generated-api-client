@@ -398,9 +398,7 @@ class CampaignCreateResponseData(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              CampaignCreateCommon,
-              CampaignCreateResponseDataAllOf,
-              CampaignResponse,
+
           ],
           'oneOf': [
           ],

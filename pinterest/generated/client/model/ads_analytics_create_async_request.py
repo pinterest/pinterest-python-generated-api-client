@@ -480,8 +480,7 @@ class AdsAnalyticsCreateAsyncRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              AdsAnalyticsCreateAsyncRequestAllOf,
-              AdsAnalyticsCreateAsyncRequestAllOf1,
+
           ],
           'oneOf': [
           ],

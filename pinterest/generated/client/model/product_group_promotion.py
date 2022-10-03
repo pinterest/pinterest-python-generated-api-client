@@ -398,7 +398,7 @@ class ProductGroupPromotion(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              ProductGroupPromotionCommon,
+
           ],
           'oneOf': [
           ],

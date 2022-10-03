@@ -332,8 +332,7 @@ class AudienceUpdateRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              AudienceCommon,
-              AudienceUpdateRequest1,
+
           ],
           'oneOf': [
           ],

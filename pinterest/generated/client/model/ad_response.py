@@ -500,8 +500,7 @@ class AdResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              AdCommon,
-              AdResponseAllOf,
+
           ],
           'oneOf': [
           ],

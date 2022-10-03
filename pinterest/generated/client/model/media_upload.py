@@ -321,7 +321,7 @@ class MediaUpload(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              MediaUploadAllOf,
+
           ],
           'oneOf': [
           ],
