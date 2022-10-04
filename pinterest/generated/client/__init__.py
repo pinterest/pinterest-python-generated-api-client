@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.1.0-wip"
+__version__ = "0.1.2-wip"
 
 # import ApiClient
 from pinterest.generated.client.api_client import ApiClient

@@ -419,7 +419,7 @@ conf = pinterest.generated.client.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 5.5.0\n"\
-               "SDK Package Version: 0.1.0-wip".\
+               "SDK Package Version: 0.1.2-wip".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):
