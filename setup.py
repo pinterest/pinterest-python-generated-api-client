@@ -31,7 +31,11 @@ setup(
     description="Pinterest REST API",
     author="Pinterest, Inc.",
     author_email="pinterest-api@pinterest.com",
+<<<<<<< Updated upstream
     url="",
+=======
+    url="https://github.com/pinterest/pinterest-python-generated-api-client/",
+>>>>>>> Stashed changes
     keywords=["OpenAPI", "OpenAPI-Generator", "Pinterest REST API"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),

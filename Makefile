@@ -1,5 +1,5 @@
 
-all: clean sdist ## Run all targets in this make file
+all: clean build ## Run all targets in this make file
 
 clean: clean-build clean-pyc ## Clean
 
@@ -14,6 +14,6 @@ clean-pyc:					## Clean python binaries
 	find . -name '*.pyo' -exec rm -f {} +
 	find . -name '*~' -exec rm -f {} +
 
-sdist: 						## Build command
+build: 						## Build command
 	python setup.py sdist
 	ls -l dist
