@@ -31,7 +31,7 @@ setup(
     description="Pinterest REST API",
     author="Pinterest, Inc.",
     author_email="pinterest-api@pinterest.com",
-    url="https://github.com/pinterest/pinterest-python-generated-api-client/",
+    url="https://github.com/pinterest/pinterest-python-generated-api-client",
     keywords=["OpenAPI", "OpenAPI-Generator", "Pinterest REST API"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
