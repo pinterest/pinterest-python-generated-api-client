@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **value** | **str** | Keyword value (120 chars max). | 
 **archived** | **bool** |  | [optional] 
 **id** | **str** | Keyword ID . | [optional] 
-**parent_id** | **str** | Keyword parent entity ID (advertiser, campaign, ad group, ad). | [optional] 
+**parent_id** | **str** | Keyword parent entity ID (advertiser, campaign, ad group). | [optional] 
 **parent_type** | **str** | Parent entity type | [optional] 
 **type** | **str** | Always keyword | [optional] 
 **bid** | **float** | Keyword custom bid | [optional] 

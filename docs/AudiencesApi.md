@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Create audience
 
-<strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/features/ads-management/'>Learn more</a>.</strong> <p/> Create an audience you can use in targeting for specific ad groups. Targeting combines customer information with the ways users interact with Pinterest to help you reach specific groups of users; you can include or exclude specific audience_ids when you create an ad group. <p/> For more, see <a class=\"reference external\" href=\"https://help.pinterest.com/en/business/article/audience-targeting\" target=\"_blank\">Audience targeting</a>.
+Create an audience you can use in targeting for specific ad groups. Targeting combines customer information with the ways users interact with Pinterest to help you reach specific groups of users; you can include or exclude specific audience_ids when you create an ad group. <p/> For more, see <a class=\"reference external\" href=\"https://help.pinterest.com/en/business/article/audience-targeting\" target=\"_blank\">Audience targeting</a>.
 
 ### Example
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 Get audience
 
-<strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/features/ads-management/'>Learn more</a>.</strong> <p/> Get a specific audience given the audience ID.
+Get a specific audience given the audience ID.
 
 ### Example
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 List audiences
 
-<strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/features/ads-management/'>Learn more</a>.</strong> <p/> Get list of audiences for the ad account.
+Get list of audiences for the ad account.
 
 ### Example
 
@@ -192,9 +192,7 @@ import time
 import pinterest.generated.client
 from pinterest.generated.client.api import audiences_api
 from pinterest.generated.client.model.paginated import Paginated
-from pinterest.generated.client.model.get_audiences_order_by import GetAudiencesOrderBy
 from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.audience_type import AudienceType
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
@@ -218,23 +216,12 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = audiences_api.AudiencesApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
-    audience_ids = [
-        "4",
-    ] # [str] | List of audience ids to use to filter the results. (optional)
-    audience_type = "4" # str | The type of audience to filter for. (optional)
-    audience_types = [
-        AudienceType("ACTALIKE"),
-    ] # [AudienceType] | The types of audience to filter for. (optional)
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
     entity_statuses = [
         "ACTIVE",
     ] # [str] | Entity status (optional)
-    flatten_rule = True # bool | Uniform the format of Audiences rules for presentation on Web UI. (optional)
     order = "ASCENDING" # str | The order in which to sort the items returned: “ASCENDING” or “DESCENDING” by ID. Note that higher-value IDs are associated with more-recently added items. (optional)
-    order_by = GetAudiencesOrderBy("NAME") # GetAudiencesOrderBy | The audience field to order results by. (optional)
     page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
-    search_query = "search_query_example" # str | String keywords to search for audiences by. (optional)
-    start_index = "4" # str | he starting index for returned list. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -248,7 +235,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List audiences
-        api_response = api_instance.audiences_list(ad_account_id, audience_ids=audience_ids, audience_type=audience_type, audience_types=audience_types, bookmark=bookmark, entity_statuses=entity_statuses, flatten_rule=flatten_rule, order=order, order_by=order_by, page_size=page_size, search_query=search_query, start_index=start_index)
+        api_response = api_instance.audiences_list(ad_account_id, bookmark=bookmark, entity_statuses=entity_statuses, order=order, page_size=page_size)
         pprint(api_response)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling AudiencesApi->audiences_list: %s\n" % e)
@@ -260,17 +247,10 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ad_account_id** | **str**| Unique identifier of an ad account. |
- **audience_ids** | **[str]**| List of audience ids to use to filter the results. | [optional]
- **audience_type** | **str**| The type of audience to filter for. | [optional]
- **audience_types** | [**[AudienceType]**](AudienceType.md)| The types of audience to filter for. | [optional]
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
  **entity_statuses** | **[str]**| Entity status | [optional]
- **flatten_rule** | **bool**| Uniform the format of Audiences rules for presentation on Web UI. | [optional]
  **order** | **str**| The order in which to sort the items returned: “ASCENDING” or “DESCENDING” by ID. Note that higher-value IDs are associated with more-recently added items. | [optional]
- **order_by** | **GetAudiencesOrderBy**| The audience field to order results by. | [optional]
  **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
- **search_query** | **str**| String keywords to search for audiences by. | [optional]
- **start_index** | **str**| he starting index for returned list. | [optional]
 
 ### Return type
 
@@ -301,7 +281,7 @@ Name | Type | Description  | Notes
 
 Update audience
 
-<strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/features/ads-management/'>Learn more</a>.</strong> <p/> Update (edit or remove) an existing targeting audience.
+Update (edit or remove) an existing targeting audience.
 
 ### Example
 

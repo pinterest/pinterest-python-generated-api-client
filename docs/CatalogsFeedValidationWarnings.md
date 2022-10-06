@@ -49,6 +49,7 @@ Name | Type | Description | Notes
 **utm_source_auto_corrected** | **int** | Some items include utm_source values that are formatted incorrectly and have been automatically corrected. | [optional] 
 **country_does_not_map_to_currency** | **int** | Some items include a currency that doesn&#39;t match the usual currency for the location where that product is sold or shipped. | [optional] 
 **min_ad_price_invalid** | **int** | Some items include min_ad_price values that are formatted incorrectly. | [optional] 
+**inconsistent_currency_values** | **int** | Some items include inconsistent currencies in price fields. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
