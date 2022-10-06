@@ -1271,9 +1271,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Response containing the requested catalogs items batch |  -  |
-**401** | Not authorized to access catalogs items batch |  -  |
+**401** | Not authenticated to access catalogs items batch |  -  |
 **403** | Not authorized to access catalogs items batch |  -  |
 **404** | Catalogs items batch not found |  -  |
+**405** | Method Not Allowed. |  -  |
 **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1355,7 +1356,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Response containing the requested catalogs items batch |  -  |
-**401** | Not authorized to post catalogs items |  -  |
+**400** | Invalid request parameters. |  -  |
+**401** | Not authenticated to post catalogs items |  -  |
 **403** | Not authorized to post catalogs items |  -  |
 **0** | Unexpected error |  -  |
 
@@ -1441,6 +1443,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Response containing the requested catalogs items |  -  |
+**400** | Invalid request parameters. |  -  |
 **401** | Not authorized to access catalogs items |  -  |
 **403** | Not authorized to access catalogs items |  -  |
 **0** | Unexpected error |  -  |

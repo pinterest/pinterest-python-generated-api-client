@@ -146,6 +146,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
                 collections_hero_destination_url="http://www.pinterest.com",
                 slideshow_collections_title="Title",
                 slideshow_collections_description="Description",
+                is_mdl=True,
             ),
         ],
     ) # ProductGroupPromotionCreateRequest | List of Product Group Promotions to create, size limit [1, 30].

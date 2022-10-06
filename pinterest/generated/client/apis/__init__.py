@@ -19,8 +19,10 @@ from pinterest.generated.client.api.ad_groups_api import AdGroupsApi
 from pinterest.generated.client.api.ads_api import AdsApi
 from pinterest.generated.client.api.audiences_api import AudiencesApi
 from pinterest.generated.client.api.boards_api import BoardsApi
+from pinterest.generated.client.api.bulk_api import BulkApi
 from pinterest.generated.client.api.campaigns_api import CampaignsApi
 from pinterest.generated.client.api.catalogs_api import CatalogsApi
+from pinterest.generated.client.api.conversion_events_api import ConversionEventsApi
 from pinterest.generated.client.api.customer_lists_api import CustomerListsApi
 from pinterest.generated.client.api.keywords_api import KeywordsApi
 from pinterest.generated.client.api.media_api import MediaApi
