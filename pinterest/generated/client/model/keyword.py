@@ -107,7 +107,7 @@ class Keyword(ModelComposed):
             'parent_id': (str,),  # noqa: E501
             'parent_type': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
-            'bid': (float,),  # noqa: E501
+            'bid': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -172,7 +172,7 @@ class Keyword(ModelComposed):
             parent_id (str): Keyword parent entity ID (advertiser, campaign, ad group).. [optional]  # noqa: E501
             parent_type (str): Parent entity type. [optional]  # noqa: E501
             type (str): Always keyword. [optional]  # noqa: E501
-            bid (float): Keyword custom bid. [optional]  # noqa: E501
+            bid (int, none_type): Keyword custom bid in microcurrency - null if inherited from parent ad group.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -279,7 +279,7 @@ class Keyword(ModelComposed):
             parent_id (str): Keyword parent entity ID (advertiser, campaign, ad group).. [optional]  # noqa: E501
             parent_type (str): Parent entity type. [optional]  # noqa: E501
             type (str): Always keyword. [optional]  # noqa: E501
-            bid (float): Keyword custom bid. [optional]  # noqa: E501
+            bid (int, none_type): Keyword custom bid in microcurrency - null if inherited from parent ad group.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
