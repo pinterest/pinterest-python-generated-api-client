@@ -90,7 +90,7 @@ class KeywordsCommon(ModelNormal):
         return {
             'match_type': (MatchTypeResponse,),  # noqa: E501
             'value': (str,),  # noqa: E501
-            'bid': (float,),  # noqa: E501
+            'bid': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -149,7 +149,7 @@ class KeywordsCommon(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            bid (float): Keyword custom bid. [optional]  # noqa: E501
+            bid (int, none_type): Keyword custom bid in microcurrency - null if inherited from parent ad group.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -237,7 +237,7 @@ class KeywordsCommon(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            bid (float): Keyword custom bid. [optional]  # noqa: E501
+            bid (int, none_type): Keyword custom bid in microcurrency - null if inherited from parent ad group.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
