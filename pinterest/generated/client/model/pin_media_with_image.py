@@ -35,12 +35,18 @@ def lazy_import():
     from pinterest.generated.client.model.pin_media import PinMedia
     from pinterest.generated.client.model.pin_media_with_image import PinMediaWithImage
     from pinterest.generated.client.model.pin_media_with_image_all_of import PinMediaWithImageAllOf
+    from pinterest.generated.client.model.pin_media_with_image_and_video import PinMediaWithImageAndVideo
+    from pinterest.generated.client.model.pin_media_with_images import PinMediaWithImages
     from pinterest.generated.client.model.pin_media_with_video import PinMediaWithVideo
+    from pinterest.generated.client.model.pin_media_with_videos import PinMediaWithVideos
     globals()['ImageDetails'] = ImageDetails
     globals()['PinMedia'] = PinMedia
     globals()['PinMediaWithImage'] = PinMediaWithImage
     globals()['PinMediaWithImageAllOf'] = PinMediaWithImageAllOf
+    globals()['PinMediaWithImageAndVideo'] = PinMediaWithImageAndVideo
+    globals()['PinMediaWithImages'] = PinMediaWithImages
     globals()['PinMediaWithVideo'] = PinMediaWithVideo
+    globals()['PinMediaWithVideos'] = PinMediaWithVideos
 
 
 class PinMediaWithImage(ModelComposed):
@@ -105,6 +111,9 @@ class PinMediaWithImage(ModelComposed):
         lazy_import()
         val = {
             'image': PinMediaWithImage,
+            'multiple_images': PinMediaWithImages,
+            'multiple_mixed': PinMediaWithImageAndVideo,
+            'multiple_videos': PinMediaWithVideos,
             'video': PinMediaWithVideo,
         }
         if not val:
