@@ -201,7 +201,6 @@ from pinterest.generated.client.model.google_product_category5_filter import Goo
 from pinterest.generated.client.model.google_product_category6_filter import GoogleProductCategory6Filter
 from pinterest.generated.client.model.granularity import Granularity
 from pinterest.generated.client.model.image_details import ImageDetails
-from pinterest.generated.client.model.image_metadata import ImageMetadata
 from pinterest.generated.client.model.inline_object import InlineObject
 from pinterest.generated.client.model.item_attributes import ItemAttributes
 from pinterest.generated.client.model.item_attributes_all_of import ItemAttributesAllOf
@@ -260,21 +259,14 @@ from pinterest.generated.client.model.pacing_delivery_type import PacingDelivery
 from pinterest.generated.client.model.paginated import Paginated
 from pinterest.generated.client.model.pin import Pin
 from pinterest.generated.client.model.pin_media import PinMedia
-from pinterest.generated.client.model.pin_media_metadata import PinMediaMetadata
 from pinterest.generated.client.model.pin_media_source import PinMediaSource
 from pinterest.generated.client.model.pin_media_source_image_base64 import PinMediaSourceImageBase64
 from pinterest.generated.client.model.pin_media_source_image_url import PinMediaSourceImageURL
 from pinterest.generated.client.model.pin_media_source_video_id import PinMediaSourceVideoID
 from pinterest.generated.client.model.pin_media_with_image import PinMediaWithImage
 from pinterest.generated.client.model.pin_media_with_image_all_of import PinMediaWithImageAllOf
-from pinterest.generated.client.model.pin_media_with_image_and_video import PinMediaWithImageAndVideo
-from pinterest.generated.client.model.pin_media_with_image_and_video_all_of import PinMediaWithImageAndVideoAllOf
-from pinterest.generated.client.model.pin_media_with_images import PinMediaWithImages
-from pinterest.generated.client.model.pin_media_with_images_all_of import PinMediaWithImagesAllOf
 from pinterest.generated.client.model.pin_media_with_video import PinMediaWithVideo
 from pinterest.generated.client.model.pin_media_with_video_all_of import PinMediaWithVideoAllOf
-from pinterest.generated.client.model.pin_media_with_videos import PinMediaWithVideos
-from pinterest.generated.client.model.pin_media_with_videos_all_of import PinMediaWithVideosAllOf
 from pinterest.generated.client.model.pin_promotion_summary_status import PinPromotionSummaryStatus
 from pinterest.generated.client.model.pinterest_tag_event_data import PinterestTagEventData
 from pinterest.generated.client.model.placement_group_type import PlacementGroupType
@@ -316,4 +308,3 @@ from pinterest.generated.client.model.tracking_urls import TrackingUrls
 from pinterest.generated.client.model.updatable_item_attributes import UpdatableItemAttributes
 from pinterest.generated.client.model.user_list_operation_type import UserListOperationType
 from pinterest.generated.client.model.user_list_type import UserListType
-from pinterest.generated.client.model.video_metadata import VideoMetadata
