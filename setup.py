@@ -10,10 +10,9 @@
 
 
 from setuptools import setup, find_packages  # noqa: H301
-from pathlib import Path
 
 NAME = "Pinterest Generated Client"
-VERSION = "0.1.4"
+VERSION = "0.1.1"
 # To install the library, run the following
 #
 # python setup.py install
@@ -25,8 +24,6 @@ REQUIRES = [
   "urllib3==1.26.12",
   "python-dateutil",
 ]
-
-long_description = (Path(__file__).parent / "README.md").read_text()
 
 setup(
     name=NAME,
@@ -40,6 +37,7 @@ setup(
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     license="MIT",
-    long_description=long_description,
-    long_description_content_type='text/markdown',
+    long_description="""\
+    Pinterest&#39;s REST API  # noqa: E501
+    """
 )
