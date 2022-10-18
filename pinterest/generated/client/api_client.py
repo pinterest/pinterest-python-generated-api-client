@@ -82,7 +82,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'pins-generated-client/python/0.1.3'
+        self.user_agent = 'pins-generated-client/python/0.1.2'
 
     def __enter__(self):
         return self
