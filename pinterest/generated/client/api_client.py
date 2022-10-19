@@ -40,6 +40,7 @@ from pinterest.generated.client.model_utils import (
 )
 
 APP_TYPE_DETAILED_VALUE = '12'
+DEFAULT_USER_AGENT = 'pins-generated-client/python/0.1.3'
 
 class ApiClient(object):
     """Generic API client for OpenAPI client library builds.
@@ -66,8 +67,8 @@ class ApiClient(object):
     _pool = None
 
     def __init__(self, configuration=None, header_name=None, header_value=None,
-                 cookie=None, pool_threads=1, app_type_detailed=APP_TYPE_DETAILED_VALUE):
-        self.app_type_detailed = app_type_detailed
+                 cookie=None, pool_threads=1, user_agent=DEFAULT_USER_AGENT):
+        self.app_type_detailed = APP_TYPE_DETAILED_VALUE
         if configuration is None:
             configuration = Configuration.get_default_copy()
         self.configuration = configuration
@@ -82,7 +83,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'pins-generated-client/python/0.1.2'
+        self.user_agent = user_agent
 
     def __enter__(self):
         return self
