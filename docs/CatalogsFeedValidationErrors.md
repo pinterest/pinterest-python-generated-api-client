@@ -34,6 +34,8 @@ Name | Type | Description | Notes
 **item_main_image_download_failure** | **int** | Some items&#39; main images can&#39;t be found. | [optional] 
 **pinjoin_content_unsafe** | **int** | Some items were not published because they don&#39;t meet Pinterest&#39;s Merchant Guidelines. | [optional] 
 **blocklisted_image_signature** | **int** | Some items were not published because they don&#39;t meet Pinterest&#39;s Merchant Guidelines. | [optional] 
+**list_price_invalid** | **int** | Some items have list price formatting errors in their product metadata, those items will not be published. | [optional] 
+**price_cannot_be_determined** | **int** | Some items were not published because price cannot be determined. The price, list price, and sale price are all different, so those items will not be published. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

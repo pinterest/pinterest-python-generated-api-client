@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **gender_invalid** | **int** | Some items have gender values that are formatted incorrectly, which may limit visibility in recommendations, search results and shopping experiences. | [optional] 
 **age_group_invalid** | **int** | Some items have age group values that are formatted incorrectly, which may limit visibility in recommendations, search results and shopping experiences. | [optional] 
 **size_type_invalid** | **int** | Some items have size type values that are formatted incorrectly, which may limit visibility in recommendations, search results and shopping experiences. | [optional] 
+**size_system_invalid** | **int** | Some items have size system values which are not one of the supported size systems. | [optional] 
 **link_format_warning** | **int** | Some items have an invalid product link which contains invalid UTM tracking paramaters. | [optional] 
 **duplicate_products** | **int** | Some products are duplicated. | [optional] 
 **sales_price_invalid** | **int** | Some items have sale price values that are higher than the original price of the item. | [optional] 
@@ -49,7 +50,13 @@ Name | Type | Description | Notes
 **utm_source_auto_corrected** | **int** | Some items include utm_source values that are formatted incorrectly and have been automatically corrected. | [optional] 
 **country_does_not_map_to_currency** | **int** | Some items include a currency that doesn&#39;t match the usual currency for the location where that product is sold or shipped. | [optional] 
 **min_ad_price_invalid** | **int** | Some items include min_ad_price values that are formatted incorrectly. | [optional] 
+**gtin_invalid** | **int** | Some items include incorrectly formatted GTINs. | [optional] 
 **inconsistent_currency_values** | **int** | Some items include inconsistent currencies in price fields. | [optional] 
+**sales_price_too_low** | **int** | Some items include sales price that is much lower than the list price. | [optional] 
+**shipping_width_invalid** | **int** | Some items include incorrectly formatted shipping_width. | [optional] 
+**shipping_height_invalid** | **int** | Some items include incorrectly formatted shipping_height. | [optional] 
+**sales_price_too_high** | **int** | Some items include a sales price that is higher than the list price. The sales price has been defaulted to the list price. | [optional] 
+**mpn_invalid** | **int** | Some items include incorrectly formatted MPNs. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

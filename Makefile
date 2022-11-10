@@ -21,8 +21,8 @@ build: 						## Build command
 pip_release_install:
 	pip install twine build
 
-publish_pypi_test: pip_release_install build
+publish_pypi_test: clean pip_release_install build
 	twine upload -r testpypi dist/*
 
-publish_pypi: pip_release_install build
-	twine upload -r dist/*
+publish_pypi: clean pip_release_install  build
+	twine upload -r pypi dist/*

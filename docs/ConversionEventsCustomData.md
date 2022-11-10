@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **num_items** | **int** | Total number of products of the event. For example, the total number of items purchased in a checkout event. | [optional] 
 **order_id** | **str, none_type** | The order ID | [optional] 
 **search_string** | **str, none_type** | The search string related to the user conversion event. | [optional] 
+**opt_out_type** | **str, none_type** | Flags for different privacy rights laws to opt out users of sharing personal information. Values should be comma separated. | [optional] 
 **np** | **str, none_type** | Named partner. Not required, this is for Pinterest internal use only. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
