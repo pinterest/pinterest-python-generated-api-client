@@ -92,7 +92,7 @@ This endpoint does not need any parameter.
 
 Get available delivery metrics' definitions
 
-<strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/features/ads-management/'>Learn more</a>.</strong> <p/> Get the definitions for the delivery metrics available for synchronous or asynchronous reports.
+Get the definitions for the delivery metrics available for synchronous or asynchronous reports.
 
 ### Example
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 Get metrics ready state
 
-<strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/features/ads-management/'>Learn more</a>.</strong> <p/> Learn whether conversion or non-conversion metrics are finalized and ready to query.
+Learn whether conversion or non-conversion metrics are finalized and ready to query.
 
 ### Example
 

@@ -29,7 +29,7 @@ Method | HTTP request | Description
 
 List products
 
-Get a list of product pins for a given Catalogs Product Group Id.  <a href='/docs/features/catalog-management/'>Learn more</a>
+Get a list of product pins for a given Catalogs Product Group Id owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
 
 ### Example
 
@@ -66,6 +66,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     product_group_id = "4" # str | Unique identifier of a product group
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
     page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -79,7 +80,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List products
-        api_response = api_instance.catalogs_product_group_pins_list(product_group_id, bookmark=bookmark, page_size=page_size)
+        api_response = api_instance.catalogs_product_group_pins_list(product_group_id, bookmark=bookmark, page_size=page_size, ad_account_id=ad_account_id)
         pprint(api_response)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_group_pins_list: %s\n" % e)
@@ -93,6 +94,7 @@ Name | Type | Description  | Notes
  **product_group_id** | **str**| Unique identifier of a product group |
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
  **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -125,7 +127,7 @@ Name | Type | Description  | Notes
 
 Create product group
 
-Create product group to use in Catalogs.  <a href='/docs/features/catalog-management/'>Learn more</a>
+Create product group to use in Catalogs owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
 
 ### Example
 
@@ -161,11 +163,21 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     catalogs_product_group_create_request = CatalogsProductGroupCreateRequest() # CatalogsProductGroupCreateRequest | Request object used to created a catalogs product group.
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Create product group
         api_response = api_instance.catalogs_product_groups_create(catalogs_product_group_create_request)
+        pprint(api_response)
+    except pinterest.generated.client.ApiException as e:
+        print("Exception when calling CatalogsApi->catalogs_product_groups_create: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Create product group
+        api_response = api_instance.catalogs_product_groups_create(catalogs_product_group_create_request, ad_account_id=ad_account_id)
         pprint(api_response)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_groups_create: %s\n" % e)
@@ -177,6 +189,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **catalogs_product_group_create_request** | [**CatalogsProductGroupCreateRequest**](CatalogsProductGroupCreateRequest.md)| Request object used to created a catalogs product group. |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -210,7 +223,7 @@ Name | Type | Description  | Notes
 
 Delete product group
 
-Delete a product group from being in use in Catalogs.  <a href='/docs/features/catalog-management/'>Learn more</a>
+Delete a product group owned by the \"operation user_account\" from being in use in Catalogs. - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
 
 ### Example
 
@@ -244,11 +257,20 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     product_group_id = "4" # str | Unique identifier of a product group
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Delete product group
         api_instance.catalogs_product_groups_delete(product_group_id)
+    except pinterest.generated.client.ApiException as e:
+        print("Exception when calling CatalogsApi->catalogs_product_groups_delete: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Delete product group
+        api_instance.catalogs_product_groups_delete(product_group_id, ad_account_id=ad_account_id)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_groups_delete: %s\n" % e)
 ```
@@ -259,6 +281,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **product_group_id** | **str**| Unique identifier of a product group |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -293,7 +316,7 @@ void (empty response body)
 
 Get product group
 
-Get a singe product group for a given Catalogs Product Group Id.  <a href='/docs/features/catalog-management/'>Learn more</a>
+Get a singe product group for a given Catalogs Product Group Id owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
 
 ### Example
 
@@ -328,11 +351,21 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     product_group_id = "4" # str | Unique identifier of a product group
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Get product group
         api_response = api_instance.catalogs_product_groups_get(product_group_id)
+        pprint(api_response)
+    except pinterest.generated.client.ApiException as e:
+        print("Exception when calling CatalogsApi->catalogs_product_groups_get: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get product group
+        api_response = api_instance.catalogs_product_groups_get(product_group_id, ad_account_id=ad_account_id)
         pprint(api_response)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_groups_get: %s\n" % e)
@@ -344,6 +377,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **product_group_id** | **str**| Unique identifier of a product group |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -378,7 +412,7 @@ Name | Type | Description  | Notes
 
 List product groups
 
-Get a list of product groups for a given Catalogs Feed Id.  <a href='/docs/features/catalog-management/'>Learn more</a>
+Get a list of product groups for a given Catalogs Feed Id owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
 
 ### Example
 
@@ -415,6 +449,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     feed_id = "4" # str | Unique identifier of a feed
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
     page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -428,7 +463,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List product groups
-        api_response = api_instance.catalogs_product_groups_list(feed_id, bookmark=bookmark, page_size=page_size)
+        api_response = api_instance.catalogs_product_groups_list(feed_id, bookmark=bookmark, page_size=page_size, ad_account_id=ad_account_id)
         pprint(api_response)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_groups_list: %s\n" % e)
@@ -442,6 +477,7 @@ Name | Type | Description  | Notes
  **feed_id** | **str**| Unique identifier of a feed |
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
  **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -476,7 +512,7 @@ Name | Type | Description  | Notes
 
 Get product counts
 
-Get a product counts for a given Catalogs Product Group.  <a href='/docs/features/catalog-management/'>Learn more</a>
+Get a product counts for a given Catalogs Product Group owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
 
 ### Example
 
@@ -511,11 +547,21 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     product_group_id = "4" # str | Unique identifier of a product group
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Get product counts
         api_response = api_instance.catalogs_product_groups_product_counts_get(product_group_id)
+        pprint(api_response)
+    except pinterest.generated.client.ApiException as e:
+        print("Exception when calling CatalogsApi->catalogs_product_groups_product_counts_get: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get product counts
+        api_response = api_instance.catalogs_product_groups_product_counts_get(product_group_id, ad_account_id=ad_account_id)
         pprint(api_response)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_groups_product_counts_get: %s\n" % e)
@@ -527,6 +573,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **product_group_id** | **str**| Unique identifier of a product group |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -558,7 +605,7 @@ Name | Type | Description  | Notes
 
 Update product group
 
-Update product group to use in Catalogs.  <a href='/docs/features/catalog-management/'>Learn more</a>
+Update product group owned by the \"operation user_account\" to use in Catalogs. - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
 
 ### Example
 
@@ -600,11 +647,21 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         is_featured=True,
         filters=CatalogsProductGroupFiltersAllOfRequest(),
     ) # CatalogsProductGroupUpdateRequest | Request object used to Update a catalogs product group.
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Update product group
         api_response = api_instance.catalogs_product_groups_update(product_group_id, catalogs_product_group_update_request)
+        pprint(api_response)
+    except pinterest.generated.client.ApiException as e:
+        print("Exception when calling CatalogsApi->catalogs_product_groups_update: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Update product group
+        api_response = api_instance.catalogs_product_groups_update(product_group_id, catalogs_product_group_update_request, ad_account_id=ad_account_id)
         pprint(api_response)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_groups_update: %s\n" % e)
@@ -617,6 +674,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **product_group_id** | **str**| Unique identifier of a product group |
  **catalogs_product_group_update_request** | [**CatalogsProductGroupUpdateRequest**](CatalogsProductGroupUpdateRequest.md)| Request object used to Update a catalogs product group. |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -651,7 +709,7 @@ Name | Type | Description  | Notes
 
 List processing results for a given feed
 
-Fetch a feed processing results owned by the owner user account. Please note that for now the bookmark parameter is not functional and only the first page will be available until it is implemented in some release in the near future.  <a href='/docs/features/catalog-management/'>Learn more</a>
+Fetch a feed processing results owned by the \"operation user_account\". Please note that for now the bookmark parameter is not functional and only the first page will be available until it is implemented in some release in the near future. - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
 
 ### Example
 
@@ -688,6 +746,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     feed_id = "4" # str | Unique identifier of a feed
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
     page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -701,7 +760,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List processing results for a given feed
-        api_response = api_instance.feed_processing_results_list(feed_id, bookmark=bookmark, page_size=page_size)
+        api_response = api_instance.feed_processing_results_list(feed_id, bookmark=bookmark, page_size=page_size, ad_account_id=ad_account_id)
         pprint(api_response)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling CatalogsApi->feed_processing_results_list: %s\n" % e)
@@ -715,6 +774,7 @@ Name | Type | Description  | Notes
  **feed_id** | **str**| Unique identifier of a feed |
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
  **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -747,7 +807,7 @@ Name | Type | Description  | Notes
 
 Create feed
 
-Create a new feed owned by the \"operating user_account\".  <a href='/docs/features/catalog-management/'>Learn more</a>
+Create a new feed owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
 
 ### Example
 
@@ -799,11 +859,21 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
             timezone="Africa/Abidjan",
         ),
     ) # CatalogsFeedsCreateRequest | Request object used to created a feed.
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Create feed
         api_response = api_instance.feeds_create(catalogs_feeds_create_request)
+        pprint(api_response)
+    except pinterest.generated.client.ApiException as e:
+        print("Exception when calling CatalogsApi->feeds_create: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Create feed
+        api_response = api_instance.feeds_create(catalogs_feeds_create_request, ad_account_id=ad_account_id)
         pprint(api_response)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling CatalogsApi->feeds_create: %s\n" % e)
@@ -815,6 +885,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **catalogs_feeds_create_request** | [**CatalogsFeedsCreateRequest**](CatalogsFeedsCreateRequest.md)| Request object used to created a feed. |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -849,7 +920,7 @@ Name | Type | Description  | Notes
 
 Delete feed
 
-Delete a feed owned by the \"operating user_account\".  <a href='/docs/features/catalog-management/'>Learn more</a>
+Delete a feed owned by the \"operating user_account\". - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
 
 ### Example
 
@@ -883,11 +954,20 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     feed_id = "4" # str | Unique identifier of a feed
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Delete feed
         api_instance.feeds_delete(feed_id)
+    except pinterest.generated.client.ApiException as e:
+        print("Exception when calling CatalogsApi->feeds_delete: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Delete feed
+        api_instance.feeds_delete(feed_id, ad_account_id=ad_account_id)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling CatalogsApi->feeds_delete: %s\n" % e)
 ```
@@ -898,6 +978,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **feed_id** | **str**| Unique identifier of a feed |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -931,7 +1012,7 @@ void (empty response body)
 
 Get feed
 
-Get a single feed owned by the \"operating user_account\".  <a href='/docs/features/catalog-management/'>Learn more</a>
+Get a single feed owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
 
 ### Example
 
@@ -966,11 +1047,21 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     feed_id = "4" # str | Unique identifier of a feed
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Get feed
         api_response = api_instance.feeds_get(feed_id)
+        pprint(api_response)
+    except pinterest.generated.client.ApiException as e:
+        print("Exception when calling CatalogsApi->feeds_get: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get feed
+        api_response = api_instance.feeds_get(feed_id, ad_account_id=ad_account_id)
         pprint(api_response)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling CatalogsApi->feeds_get: %s\n" % e)
@@ -982,6 +1073,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **feed_id** | **str**| Unique identifier of a feed |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -1014,7 +1106,7 @@ Name | Type | Description  | Notes
 
 List feeds
 
-Fetch feeds owned by the \"operating user_account\".  <a href='/docs/features/catalog-management/'>Learn more</a>
+Fetch feeds owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
 
 ### Example
 
@@ -1050,12 +1142,13 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     api_instance = catalogs_api.CatalogsApi(api_client)
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
     page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # List feeds
-        api_response = api_instance.feeds_list(bookmark=bookmark, page_size=page_size)
+        api_response = api_instance.feeds_list(bookmark=bookmark, page_size=page_size, ad_account_id=ad_account_id)
         pprint(api_response)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling CatalogsApi->feeds_list: %s\n" % e)
@@ -1068,6 +1161,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
  **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -1099,7 +1193,7 @@ Name | Type | Description  | Notes
 
 Update feed
 
-Update a feed owned by the \"operating user_account\".  <a href='/docs/features/catalog-management/'>Learn more</a>
+Update a feed owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
 
 ### Example
 
@@ -1151,11 +1245,21 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         ),
         status=CatalogsStatus("ACTIVE"),
     ) # CatalogsFeedsUpdateRequest | Request object used to update a feed.
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Update feed
         api_response = api_instance.feeds_update(feed_id, catalogs_feeds_update_request)
+        pprint(api_response)
+    except pinterest.generated.client.ApiException as e:
+        print("Exception when calling CatalogsApi->feeds_update: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Update feed
+        api_response = api_instance.feeds_update(feed_id, catalogs_feeds_update_request, ad_account_id=ad_account_id)
         pprint(api_response)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling CatalogsApi->feeds_update: %s\n" % e)
@@ -1168,6 +1272,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **feed_id** | **str**| Unique identifier of a feed |
  **catalogs_feeds_update_request** | [**CatalogsFeedsUpdateRequest**](CatalogsFeedsUpdateRequest.md)| Request object used to update a feed. |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -1200,7 +1305,7 @@ Name | Type | Description  | Notes
 
 Get catalogs items batch
 
-Get a single catalogs items batch created by the \"operating user_account\". <a href=\"/docs/features/catalog-management/#Using%20batch%20updates%20for%20catalog%20management\" target=\"_blank\">See detailed documentation here.</a>
+Get a single catalogs items batch owned by the \"operating user_account\". <a href=\"/docs/shopping/catalog/#Update%20items%20in%20batch\" target=\"_blank\">See detailed documentation here.</a> - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.
 
 ### Example
 
@@ -1235,11 +1340,21 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     batch_id = "595953100599279259-66753b9bb65c46c49bd8503b27fecf9e" # str | Id of a catalogs items batch to fetch
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Get catalogs items batch
         api_response = api_instance.items_batch_get(batch_id)
+        pprint(api_response)
+    except pinterest.generated.client.ApiException as e:
+        print("Exception when calling CatalogsApi->items_batch_get: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get catalogs items batch
+        api_response = api_instance.items_batch_get(batch_id, ad_account_id=ad_account_id)
         pprint(api_response)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling CatalogsApi->items_batch_get: %s\n" % e)
@@ -1251,6 +1366,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batch_id** | **str**| Id of a catalogs items batch to fetch |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -1284,7 +1400,7 @@ Name | Type | Description  | Notes
 
 Operate on item batch
 
-This endpoint supports multiple operations on a set of one or more catalog items. <a href=\"/docs/features/catalog-management/#Using%20batch%20updates%20for%20catalog%20management\" target=\"_blank\">See detailed documentation here.</a>
+This endpoint supports multiple operations on a set of one or more catalog items owned by the \"operation user_account\". <a href=\"/docs/shopping/catalog/#Update%20items%20in%20batch\" target=\"_blank\">See detailed documentation here.</a> - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.
 
 ### Example
 
@@ -1320,11 +1436,21 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     catalogs_items_batch_request = CatalogsItemsBatchRequest() # CatalogsItemsBatchRequest | Request object used to create catalogs items in a batch
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Operate on item batch
         api_response = api_instance.items_batch_post(catalogs_items_batch_request)
+        pprint(api_response)
+    except pinterest.generated.client.ApiException as e:
+        print("Exception when calling CatalogsApi->items_batch_post: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Operate on item batch
+        api_response = api_instance.items_batch_post(catalogs_items_batch_request, ad_account_id=ad_account_id)
         pprint(api_response)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling CatalogsApi->items_batch_post: %s\n" % e)
@@ -1336,6 +1462,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **catalogs_items_batch_request** | [**CatalogsItemsBatchRequest**](CatalogsItemsBatchRequest.md)| Request object used to create catalogs items in a batch |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -1368,7 +1495,7 @@ Name | Type | Description  | Notes
 
 Get catalogs items
 
-Get the items of the catalog created by the \"operating user_account\". <a href=\"/docs/features/catalog-management/#Using%20batch%20updates%20for%20catalog%20management\" target=\"_blank\">See detailed documentation here.</a>
+Get the items of the catalog owned by the \"operation user_account\". <a href=\"/docs/shopping/catalog/#Update%20items%20in%20batch\" target=\"_blank\">See detailed documentation here.</a> - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.
 
 ### Example
 
@@ -1405,11 +1532,21 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     country = "US" # str | Country for the Catalogs Items
     item_ids = ["CR123"] # [str] | Catalogs Item ids
     language = "EN" # str | Language for the Catalogs Items
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Get catalogs items
         api_response = api_instance.items_get(country, item_ids, language)
+        pprint(api_response)
+    except pinterest.generated.client.ApiException as e:
+        print("Exception when calling CatalogsApi->items_get: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get catalogs items
+        api_response = api_instance.items_get(country, item_ids, language, ad_account_id=ad_account_id)
         pprint(api_response)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling CatalogsApi->items_get: %s\n" % e)
@@ -1423,6 +1560,7 @@ Name | Type | Description  | Notes
  **country** | **str**| Country for the Catalogs Items |
  **item_ids** | **[str]**| Catalogs Item ids |
  **language** | **str**| Language for the Catalogs Items |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -1455,7 +1593,7 @@ Name | Type | Description  | Notes
 
 List item issues for a given processing result
 
-List item validation issues for a given feed processing result. Please note that for now query parameters 'item_numbers' and 'item_validation_issue' cannot be used simultaneously until it is implemented in some release in the future.  <a href='/docs/features/catalog-management/'>Learn more</a>
+List item validation issues for a given feed processing result owned by the \"operation user_account\". Please note that for now query parameters 'item_numbers' and 'item_validation_issue' cannot be used simultaneously until it is implemented in some release in the future. - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
 
 ### Example
 
@@ -1495,6 +1633,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
     item_numbers = [1,5] # [int] | Item number based on order of appearance in the Catalogs Feed. For example, '0' refers to first item found in a feed that was downloaded from a 'location' specified during feed creation. (optional)
     item_validation_issue = CatalogsItemValidationIssue("TITLE_MISSING") # CatalogsItemValidationIssue | Filter item validation issues that have a given type of item validation issue. (optional)
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -1508,7 +1647,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List item issues for a given processing result
-        api_response = api_instance.items_issues_list(processing_result_id, bookmark=bookmark, page_size=page_size, item_numbers=item_numbers, item_validation_issue=item_validation_issue)
+        api_response = api_instance.items_issues_list(processing_result_id, bookmark=bookmark, page_size=page_size, item_numbers=item_numbers, item_validation_issue=item_validation_issue, ad_account_id=ad_account_id)
         pprint(api_response)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling CatalogsApi->items_issues_list: %s\n" % e)
@@ -1524,6 +1663,7 @@ Name | Type | Description  | Notes
  **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
  **item_numbers** | **[int]**| Item number based on order of appearance in the Catalogs Feed. For example, &#39;0&#39; refers to first item found in a feed that was downloaded from a &#39;location&#39; specified during feed creation. | [optional]
  **item_validation_issue** | **CatalogsItemValidationIssue**| Filter item validation issues that have a given type of item validation issue. | [optional]
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -1556,7 +1696,7 @@ Name | Type | Description  | Notes
 
 List filtered products
 
-List products Pins that meet the criteria specified in the Catalogs Product Group Filter given in the request. Note: This endpoint has been implemented in POST to allow for complex filters. This specific POST endpoint is designed to be idempotent.  <a href='/docs/features/catalog-management/'>Learn more</a>
+List products Pins owned by the \"operation user_account\" that meet the criteria specified in the Catalogs Product Group Filter given in the request. - This endpoint has been implemented in POST to allow for complex filters. This specific POST endpoint is designed to be idempotent. - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
 
 ### Example
 
@@ -1594,6 +1734,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     catalogs_list_products_by_filter_request = CatalogsListProductsByFilterRequest() # CatalogsListProductsByFilterRequest | Object holding a group of filters for a catalog product group
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
     page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -1607,7 +1748,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List filtered products
-        api_response = api_instance.products_by_product_group_filter_list(catalogs_list_products_by_filter_request, bookmark=bookmark, page_size=page_size)
+        api_response = api_instance.products_by_product_group_filter_list(catalogs_list_products_by_filter_request, bookmark=bookmark, page_size=page_size, ad_account_id=ad_account_id)
         pprint(api_response)
     except pinterest.generated.client.ApiException as e:
         print("Exception when calling CatalogsApi->products_by_product_group_filter_list: %s\n" % e)
@@ -1621,6 +1762,7 @@ Name | Type | Description  | Notes
  **catalogs_list_products_by_filter_request** | [**CatalogsListProductsByFilterRequest**](CatalogsListProductsByFilterRequest.md)| Object holding a group of filters for a catalog product group |
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
  **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
