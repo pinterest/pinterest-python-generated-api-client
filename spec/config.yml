@@ -1,0 +1,16 @@
+generatorName: python
+generatorStability: STABLE
+generatorType: CLIENT
+generatorLanguage: python
+inputSpec: openapi.yaml
+packageVersion: 0.1.4
+projectName: Pinterest Generated Client
+templateDir: templates
+packageName: openapi_generated.pinterest_client
+httpUserAgent: pins-generated-client/python/0.1.4
+gitRepoId: pinterest-python-generated-api-client
+gitUserId: pinterest
+packageUrl: https://github.com/pinterest/pinterest-python-generated-api-client
+licenseInfo: MIT
+infoEmail: pinterest-api@pinterest.com
+
