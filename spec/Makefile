@@ -26,7 +26,7 @@ all: download_spec validate_spec generate_client  ## General external client
 
 download_spec:						## Download openapi.yaml from public pinterest github repo
 	@echo ====Download openapi.yaml from public pinterest github repo====
-	python utils/download_file.py  https://github.com/pinterest/api-description/blob/main/v5/openapi.yaml  './openapi.yaml'
+	python utils/download_file.py  https://raw.githubusercontent.com/pinterest/api-description/main/v5/openapi.yaml  './openapi.yaml'
 
 validate_spec: 						## Validates the openapi spec: sdk.yaml
 	@echo ====Validates the openapi spec: sdk.yaml====
