@@ -32,7 +32,7 @@ validate_spec: 						## Validates the openapi spec: sdk.yaml
 	@echo ====Validates the openapi spec: sdk.yaml====
 	openapi-generator validate -i openapi.yaml
 
-generate_client:			## Generates a python client internal
+generate_client:			## Generates a python client
 	@echo ====Generates a python client using the sdk.yaml spec====
 	openapi-generator generate -c config.yml -o ..
 	rm -rf ../test ../.gitlab-ci.yml ../.travis.yml ../git_push.sh
