@@ -1,4 +1,4 @@
-# pinterest.generated.client.CatalogsApi
+# openapi_generated.pinterest_client.CatalogsApi
 
 All URIs are relative to *https://api.pinterest.com/v5*
 
@@ -37,14 +37,14 @@ Get a list of product pins for a given Catalogs Product Group Id owned by the \"
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import catalogs_api
-from pinterest.generated.client.model.paginated import Paginated
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import catalogs_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -54,13 +54,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     product_group_id = "4" # str | Unique identifier of a product group
@@ -73,7 +73,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List products
         api_response = api_instance.catalogs_product_group_pins_list(product_group_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_group_pins_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -82,7 +82,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List products
         api_response = api_instance.catalogs_product_group_pins_list(product_group_id, bookmark=bookmark, page_size=page_size, ad_account_id=ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_group_pins_list: %s\n" % e)
 ```
 
@@ -135,15 +135,15 @@ Create product group to use in Catalogs owned by the \"operation user_account\".
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import catalogs_api
-from pinterest.generated.client.model.catalogs_product_group import CatalogsProductGroup
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.catalogs_product_group_create_request import CatalogsProductGroupCreateRequest
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import catalogs_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.catalogs_product_group_create_request import CatalogsProductGroupCreateRequest
+from openapi_generated.pinterest_client.model.catalogs_product_group import CatalogsProductGroup
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -153,13 +153,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     catalogs_product_group_create_request = CatalogsProductGroupCreateRequest() # CatalogsProductGroupCreateRequest | Request object used to created a catalogs product group.
@@ -170,7 +170,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Create product group
         api_response = api_instance.catalogs_product_groups_create(catalogs_product_group_create_request)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_groups_create: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -179,7 +179,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Create product group
         api_response = api_instance.catalogs_product_groups_create(catalogs_product_group_create_request, ad_account_id=ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_groups_create: %s\n" % e)
 ```
 
@@ -231,13 +231,13 @@ Delete a product group owned by the \"operation user_account\" from being in use
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import catalogs_api
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import catalogs_api
+from openapi_generated.pinterest_client.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -247,13 +247,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     product_group_id = "4" # str | Unique identifier of a product group
@@ -263,7 +263,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     try:
         # Delete product group
         api_instance.catalogs_product_groups_delete(product_group_id)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_groups_delete: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -271,7 +271,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     try:
         # Delete product group
         api_instance.catalogs_product_groups_delete(product_group_id, ad_account_id=ad_account_id)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_groups_delete: %s\n" % e)
 ```
 
@@ -324,14 +324,14 @@ Get a singe product group for a given Catalogs Product Group Id owned by the \"o
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import catalogs_api
-from pinterest.generated.client.model.catalogs_product_group import CatalogsProductGroup
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import catalogs_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.catalogs_product_group import CatalogsProductGroup
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -341,13 +341,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     product_group_id = "4" # str | Unique identifier of a product group
@@ -358,7 +358,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get product group
         api_response = api_instance.catalogs_product_groups_get(product_group_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_groups_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -367,7 +367,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get product group
         api_response = api_instance.catalogs_product_groups_get(product_group_id, ad_account_id=ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_groups_get: %s\n" % e)
 ```
 
@@ -420,14 +420,14 @@ Get a list of product groups for a given Catalogs Feed Id owned by the \"operati
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import catalogs_api
-from pinterest.generated.client.model.paginated import Paginated
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import catalogs_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -437,13 +437,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     feed_id = "4" # str | Unique identifier of a feed
@@ -456,7 +456,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List product groups
         api_response = api_instance.catalogs_product_groups_list(feed_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_groups_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -465,7 +465,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List product groups
         api_response = api_instance.catalogs_product_groups_list(feed_id, bookmark=bookmark, page_size=page_size, ad_account_id=ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_groups_list: %s\n" % e)
 ```
 
@@ -520,14 +520,14 @@ Get a product counts for a given Catalogs Product Group owned by the \"operation
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import catalogs_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.catalogs_product_group_product_counts import CatalogsProductGroupProductCounts
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import catalogs_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.catalogs_product_group_product_counts import CatalogsProductGroupProductCounts
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -537,13 +537,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     product_group_id = "4" # str | Unique identifier of a product group
@@ -554,7 +554,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get product counts
         api_response = api_instance.catalogs_product_groups_product_counts_get(product_group_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_groups_product_counts_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -563,7 +563,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get product counts
         api_response = api_instance.catalogs_product_groups_product_counts_get(product_group_id, ad_account_id=ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_groups_product_counts_get: %s\n" % e)
 ```
 
@@ -613,15 +613,15 @@ Update product group owned by the \"operation user_account\" to use in Catalogs.
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import catalogs_api
-from pinterest.generated.client.model.catalogs_product_group import CatalogsProductGroup
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.catalogs_product_group_update_request import CatalogsProductGroupUpdateRequest
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import catalogs_api
+from openapi_generated.pinterest_client.model.catalogs_product_group_update_request import CatalogsProductGroupUpdateRequest
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.catalogs_product_group import CatalogsProductGroup
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -631,13 +631,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     product_group_id = "4" # str | Unique identifier of a product group
@@ -654,7 +654,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Update product group
         api_response = api_instance.catalogs_product_groups_update(product_group_id, catalogs_product_group_update_request)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_groups_update: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -663,7 +663,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Update product group
         api_response = api_instance.catalogs_product_groups_update(product_group_id, catalogs_product_group_update_request, ad_account_id=ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->catalogs_product_groups_update: %s\n" % e)
 ```
 
@@ -717,14 +717,14 @@ Fetch a feed processing results owned by the \"operation user_account\". Please 
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import catalogs_api
-from pinterest.generated.client.model.paginated import Paginated
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import catalogs_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -734,13 +734,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     feed_id = "4" # str | Unique identifier of a feed
@@ -753,7 +753,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List processing results for a given feed
         api_response = api_instance.feed_processing_results_list(feed_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->feed_processing_results_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -762,7 +762,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List processing results for a given feed
         api_response = api_instance.feed_processing_results_list(feed_id, bookmark=bookmark, page_size=page_size, ad_account_id=ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->feed_processing_results_list: %s\n" % e)
 ```
 
@@ -807,7 +807,7 @@ Name | Type | Description  | Notes
 
 Create feed
 
-Create a new feed owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
+Create a new feed owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.  Please, be aware that \"default_country\" and \"default_locale\" are not required in the spec for forward compatibility but for now the API will not accept requests without those fields.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
 
 ### Example
 
@@ -815,15 +815,15 @@ Create a new feed owned by the \"operation user_account\". - By default, the \"o
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import catalogs_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.catalogs_feed import CatalogsFeed
-from pinterest.generated.client.model.catalogs_feeds_create_request import CatalogsFeedsCreateRequest
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import catalogs_api
+from openapi_generated.pinterest_client.model.catalogs_feeds_create_request import CatalogsFeedsCreateRequest
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.catalogs_feed import CatalogsFeed
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -833,13 +833,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     catalogs_feeds_create_request = CatalogsFeedsCreateRequest(
@@ -866,7 +866,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Create feed
         api_response = api_instance.feeds_create(catalogs_feeds_create_request)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->feeds_create: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -875,7 +875,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Create feed
         api_response = api_instance.feeds_create(catalogs_feeds_create_request, ad_account_id=ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->feeds_create: %s\n" % e)
 ```
 
@@ -911,6 +911,7 @@ Name | Type | Description  | Notes
 **403** | Business account required. |  -  |
 **409** | User website required. |  -  |
 **422** | Unique feed name is required. |  -  |
+**501** | Not implemented (absent \&quot;default_country\&quot; or \&quot;default_locale\&quot;). |  -  |
 **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -928,13 +929,13 @@ Delete a feed owned by the \"operating user_account\". - By default, the \"opera
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import catalogs_api
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import catalogs_api
+from openapi_generated.pinterest_client.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -944,13 +945,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     feed_id = "4" # str | Unique identifier of a feed
@@ -960,7 +961,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     try:
         # Delete feed
         api_instance.feeds_delete(feed_id)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->feeds_delete: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -968,7 +969,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     try:
         # Delete feed
         api_instance.feeds_delete(feed_id, ad_account_id=ad_account_id)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->feeds_delete: %s\n" % e)
 ```
 
@@ -1020,14 +1021,14 @@ Get a single feed owned by the \"operation user_account\". - By default, the \"o
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import catalogs_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.catalogs_feed import CatalogsFeed
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import catalogs_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.catalogs_feed import CatalogsFeed
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -1037,13 +1038,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     feed_id = "4" # str | Unique identifier of a feed
@@ -1054,7 +1055,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get feed
         api_response = api_instance.feeds_get(feed_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->feeds_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1063,7 +1064,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get feed
         api_response = api_instance.feeds_get(feed_id, ad_account_id=ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->feeds_get: %s\n" % e)
 ```
 
@@ -1114,14 +1115,14 @@ Fetch feeds owned by the \"operation user_account\". - By default, the \"operati
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import catalogs_api
-from pinterest.generated.client.model.paginated import Paginated
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import catalogs_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -1131,13 +1132,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
@@ -1150,7 +1151,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List feeds
         api_response = api_instance.feeds_list(bookmark=bookmark, page_size=page_size, ad_account_id=ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->feeds_list: %s\n" % e)
 ```
 
@@ -1201,15 +1202,15 @@ Update a feed owned by the \"operation user_account\". - By default, the \"opera
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import catalogs_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.catalogs_feed import CatalogsFeed
-from pinterest.generated.client.model.catalogs_feeds_update_request import CatalogsFeedsUpdateRequest
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import catalogs_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.catalogs_feed import CatalogsFeed
+from openapi_generated.pinterest_client.model.catalogs_feeds_update_request import CatalogsFeedsUpdateRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -1219,13 +1220,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     feed_id = "4" # str | Unique identifier of a feed
@@ -1252,7 +1253,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Update feed
         api_response = api_instance.feeds_update(feed_id, catalogs_feeds_update_request)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->feeds_update: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1261,7 +1262,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Update feed
         api_response = api_instance.feeds_update(feed_id, catalogs_feeds_update_request, ad_account_id=ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->feeds_update: %s\n" % e)
 ```
 
@@ -1313,14 +1314,14 @@ Get a single catalogs items batch owned by the \"operating user_account\". <a hr
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import catalogs_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.catalogs_items_batch import CatalogsItemsBatch
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import catalogs_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.catalogs_items_batch import CatalogsItemsBatch
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -1330,13 +1331,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     batch_id = "595953100599279259-66753b9bb65c46c49bd8503b27fecf9e" # str | Id of a catalogs items batch to fetch
@@ -1347,7 +1348,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get catalogs items batch
         api_response = api_instance.items_batch_get(batch_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->items_batch_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1356,7 +1357,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get catalogs items batch
         api_response = api_instance.items_batch_get(batch_id, ad_account_id=ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->items_batch_get: %s\n" % e)
 ```
 
@@ -1408,15 +1409,15 @@ This endpoint supports multiple operations on a set of one or more catalog items
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import catalogs_api
-from pinterest.generated.client.model.catalogs_items_batch_request import CatalogsItemsBatchRequest
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.catalogs_items_batch import CatalogsItemsBatch
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import catalogs_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.catalogs_items_batch import CatalogsItemsBatch
+from openapi_generated.pinterest_client.model.catalogs_items_batch_request import CatalogsItemsBatchRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -1426,13 +1427,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     catalogs_items_batch_request = CatalogsItemsBatchRequest() # CatalogsItemsBatchRequest | Request object used to create catalogs items in a batch
@@ -1443,7 +1444,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Operate on item batch
         api_response = api_instance.items_batch_post(catalogs_items_batch_request)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->items_batch_post: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1452,7 +1453,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Operate on item batch
         api_response = api_instance.items_batch_post(catalogs_items_batch_request, ad_account_id=ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->items_batch_post: %s\n" % e)
 ```
 
@@ -1503,14 +1504,14 @@ Get the items of the catalog owned by the \"operation user_account\". <a href=\"
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import catalogs_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.catalogs_items import CatalogsItems
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import catalogs_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.catalogs_items import CatalogsItems
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -1520,13 +1521,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     country = "US" # str | Country for the Catalogs Items
@@ -1539,7 +1540,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get catalogs items
         api_response = api_instance.items_get(country, item_ids, language)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->items_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1548,7 +1549,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get catalogs items
         api_response = api_instance.items_get(country, item_ids, language, ad_account_id=ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->items_get: %s\n" % e)
 ```
 
@@ -1601,15 +1602,15 @@ List item validation issues for a given feed processing result owned by the \"op
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import catalogs_api
-from pinterest.generated.client.model.paginated import Paginated
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.catalogs_item_validation_issue import CatalogsItemValidationIssue
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import catalogs_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.catalogs_item_validation_issue import CatalogsItemValidationIssue
+from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -1619,13 +1620,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     processing_result_id = "5224831246441439241" # str | Unique identifier of a feed processing result
@@ -1640,7 +1641,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List item issues for a given processing result
         api_response = api_instance.items_issues_list(processing_result_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->items_issues_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1649,7 +1650,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List item issues for a given processing result
         api_response = api_instance.items_issues_list(processing_result_id, bookmark=bookmark, page_size=page_size, item_numbers=item_numbers, item_validation_issue=item_validation_issue, ad_account_id=ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->items_issues_list: %s\n" % e)
 ```
 
@@ -1704,15 +1705,15 @@ List products Pins owned by the \"operation user_account\" that meet the criteri
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import catalogs_api
-from pinterest.generated.client.model.paginated import Paginated
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.catalogs_list_products_by_filter_request import CatalogsListProductsByFilterRequest
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import catalogs_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
+from openapi_generated.pinterest_client.model.catalogs_list_products_by_filter_request import CatalogsListProductsByFilterRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -1722,13 +1723,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = catalogs_api.CatalogsApi(api_client)
     catalogs_list_products_by_filter_request = CatalogsListProductsByFilterRequest() # CatalogsListProductsByFilterRequest | Object holding a group of filters for a catalog product group
@@ -1741,7 +1742,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List filtered products
         api_response = api_instance.products_by_product_group_filter_list(catalogs_list_products_by_filter_request)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->products_by_product_group_filter_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1750,7 +1751,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List filtered products
         api_response = api_instance.products_by_product_group_filter_list(catalogs_list_products_by_filter_request, bookmark=bookmark, page_size=page_size, ad_account_id=ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CatalogsApi->products_by_product_group_filter_list: %s\n" % e)
 ```
 

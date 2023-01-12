@@ -1,4 +1,4 @@
-# pinterest.generated.client.CampaignsApi
+# openapi_generated.pinterest_client.CampaignsApi
 
 All URIs are relative to *https://api.pinterest.com/v5*
 
@@ -25,17 +25,17 @@ Get targeting analytics for one or more campaigns. For the requested account and
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import campaigns_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.metrics_response import MetricsResponse
-from pinterest.generated.client.model.conversion_report_attribution_type import ConversionReportAttributionType
-from pinterest.generated.client.model.granularity import Granularity
-from pinterest.generated.client.model.ads_analytics_targeting_type import AdsAnalyticsTargetingType
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import campaigns_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.granularity import Granularity
+from openapi_generated.pinterest_client.model.ads_analytics_targeting_type import AdsAnalyticsTargetingType
+from openapi_generated.pinterest_client.model.conversion_report_attribution_type import ConversionReportAttributionType
+from openapi_generated.pinterest_client.model.metrics_response import MetricsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -45,13 +45,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = campaigns_api.CampaignsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -78,7 +78,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get targeting analytics for campaigns
         api_response = api_instance.campaign_targeting_analytics_get(ad_account_id, campaign_ids, start_date, end_date, targeting_types, columns, granularity)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CampaignsApi->campaign_targeting_analytics_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -87,7 +87,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get targeting analytics for campaigns
         api_response = api_instance.campaign_targeting_analytics_get(ad_account_id, campaign_ids, start_date, end_date, targeting_types, columns, granularity, click_window_days=click_window_days, engagement_window_days=engagement_window_days, view_window_days=view_window_days, conversion_report_time=conversion_report_time, attribution_types=attribution_types)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CampaignsApi->campaign_targeting_analytics_get: %s\n" % e)
 ```
 
@@ -145,15 +145,15 @@ Get analytics for the specified campaigns in the specified <code>ad_account_id</
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import campaigns_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.campaigns_analytics_response import CampaignsAnalyticsResponse
-from pinterest.generated.client.model.granularity import Granularity
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import campaigns_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.granularity import Granularity
+from openapi_generated.pinterest_client.model.campaigns_analytics_response import CampaignsAnalyticsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -163,13 +163,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = campaigns_api.CampaignsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -192,7 +192,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get campaign analytics
         api_response = api_instance.campaigns_analytics(ad_account_id, start_date, end_date, campaign_ids, columns, granularity)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CampaignsApi->campaigns_analytics: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -201,7 +201,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get campaign analytics
         api_response = api_instance.campaigns_analytics(ad_account_id, start_date, end_date, campaign_ids, columns, granularity, click_window_days=click_window_days, engagement_window_days=engagement_window_days, view_window_days=view_window_days, conversion_report_time=conversion_report_time)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CampaignsApi->campaigns_analytics: %s\n" % e)
 ```
 
@@ -258,15 +258,15 @@ Create multiple new campaigns. Every campaign has its own campaign_id and houses
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import campaigns_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.campaign_create_response import CampaignCreateResponse
-from pinterest.generated.client.model.campaign_create_request import CampaignCreateRequest
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import campaigns_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.campaign_create_request import CampaignCreateRequest
+from openapi_generated.pinterest_client.model.campaign_create_response import CampaignCreateResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -276,13 +276,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = campaigns_api.CampaignsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -295,7 +295,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Create campaigns
         api_response = api_instance.campaigns_create(ad_account_id, campaign_create_request)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CampaignsApi->campaigns_create: %s\n" % e)
 ```
 
@@ -343,14 +343,14 @@ Get a specific campaign given the campaign ID.
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import campaigns_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.campaign_response import CampaignResponse
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import campaigns_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.campaign_response import CampaignResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -360,13 +360,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = campaigns_api.CampaignsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -377,7 +377,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get campaign
         api_response = api_instance.campaigns_get(ad_account_id, campaign_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CampaignsApi->campaigns_get: %s\n" % e)
 ```
 
@@ -425,14 +425,14 @@ Get a list of the campaigns in the specified <code>ad_account_id</code>, filtere
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import campaigns_api
-from pinterest.generated.client.model.paginated import Paginated
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import campaigns_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -442,13 +442,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = campaigns_api.CampaignsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -467,7 +467,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List campaigns
         api_response = api_instance.campaigns_list(ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CampaignsApi->campaigns_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -476,7 +476,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List campaigns
         api_response = api_instance.campaigns_list(ad_account_id, campaign_ids=campaign_ids, entity_statuses=entity_statuses, page_size=page_size, order=order, bookmark=bookmark)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CampaignsApi->campaigns_list: %s\n" % e)
 ```
 
@@ -529,15 +529,15 @@ Update multiple ad campaigns based on campaign_ids. <p/> <strong>Note:</strong><
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import campaigns_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.campaign_update_response import CampaignUpdateResponse
-from pinterest.generated.client.model.campaign_update_request import CampaignUpdateRequest
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import campaigns_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.campaign_update_request import CampaignUpdateRequest
+from openapi_generated.pinterest_client.model.campaign_update_response import CampaignUpdateResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -547,13 +547,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = campaigns_api.CampaignsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -566,7 +566,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Update campaigns
         api_response = api_instance.campaigns_update(ad_account_id, campaign_update_request)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling CampaignsApi->campaigns_update: %s\n" % e)
 ```
 

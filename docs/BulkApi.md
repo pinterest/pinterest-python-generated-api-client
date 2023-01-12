@@ -1,4 +1,4 @@
-# pinterest.generated.client.BulkApi
+# openapi_generated.pinterest_client.BulkApi
 
 All URIs are relative to *https://api.pinterest.com/v5*
 
@@ -22,15 +22,15 @@ Create an asynchronous report that may include information on campaigns, ad grou
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import bulk_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.bulk_download_response import BulkDownloadResponse
-from pinterest.generated.client.model.bulk_download_request import BulkDownloadRequest
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import bulk_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.bulk_download_response import BulkDownloadResponse
+from openapi_generated.pinterest_client.model.bulk_download_request import BulkDownloadRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -40,13 +40,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = bulk_api.BulkApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -75,7 +75,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get advertiser entities in bulk
         api_response = api_instance.bulk_download_create(ad_account_id, bulk_download_request)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BulkApi->bulk_download_create: %s\n" % e)
 ```
 
@@ -123,14 +123,14 @@ Get the status of a bulk request by <code>request_id</code>, along with a downlo
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import bulk_api
-from pinterest.generated.client.model.bulk_upsert_status_response import BulkUpsertStatusResponse
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import bulk_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.bulk_upsert_status_response import BulkUpsertStatusResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -140,13 +140,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = bulk_api.BulkApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -157,7 +157,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Download advertiser entities in bulk
         api_response = api_instance.bulk_request_get(ad_account_id, bulk_request_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BulkApi->bulk_request_get: %s\n" % e)
 ```
 
@@ -205,15 +205,15 @@ Either create or update any combination of campaigns, ad groups, product groups,
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import bulk_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.bulk_upsert_request import BulkUpsertRequest
-from pinterest.generated.client.model.bulk_upsert_response import BulkUpsertResponse
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import bulk_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.bulk_upsert_response import BulkUpsertResponse
+from openapi_generated.pinterest_client.model.bulk_upsert_request import BulkUpsertRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -223,13 +223,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = bulk_api.BulkApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -249,6 +249,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
                     ad_group_id="2680059592705",
                     product_group_promotion=[
                         ProductGroupPromotionCommon(
+                            id="2680059592705",
                             status=EntityStatus("ACTIVE"),
                             tracking_url="https://www.pinterest.com",
                             catalogs_product_group_id="1231235",
@@ -290,7 +291,19 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
                 ProductGroupPromotionUpdateRequest(
                     ad_group_id="2680059592705",
                     product_group_promotion=[
-                        ProductGroupPromotionUpdateItem(None),
+                        ProductGroupPromotionCommon(
+                            id="2680059592705",
+                            status=EntityStatus("ACTIVE"),
+                            tracking_url="https://www.pinterest.com",
+                            catalogs_product_group_id="1231235",
+                            catalogs_product_group_name="catalogProductGroupName",
+                            creative_type=CreativeType("REGULAR"),
+                            collections_hero_pin_id="123123",
+                            collections_hero_destination_url="http://www.pinterest.com",
+                            slideshow_collections_title="Title",
+                            slideshow_collections_description="Description",
+                            is_mdl=True,
+                        ),
                     ],
                 ),
             ],
@@ -309,7 +322,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Create/update ad entities in bulk
         api_response = api_instance.bulk_upsert_create(ad_account_id, bulk_upsert_request)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BulkApi->bulk_upsert_create: %s\n" % e)
 ```
 

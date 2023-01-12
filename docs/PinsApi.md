@@ -1,4 +1,4 @@
-# pinterest.generated.client.PinsApi
+# openapi_generated.pinterest_client.PinsApi
 
 All URIs are relative to *https://api.pinterest.com/v5*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**pins_create**](PinsApi.md#pins_create) | **POST** /pins | Create Pin
 [**pins_delete**](PinsApi.md#pins_delete) | **DELETE** /pins/{pin_id} | Delete Pin
 [**pins_get**](PinsApi.md#pins_get) | **GET** /pins/{pin_id} | Get Pin
-[**pins_save**](PinsApi.md#pins_save) | **POST** /pins/{pin_id}/save | Save pin
+[**pins_save**](PinsApi.md#pins_save) | **POST** /pins/{pin_id}/save | Save Pin
 
 
 # **pins_analytics**
@@ -24,14 +24,14 @@ Get analytics for a Pin owned by the \"operation user_account\" - or on a group 
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import pins_api
-from pinterest.generated.client.model.analytics_response import AnalyticsResponse
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import pins_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.analytics_response import AnalyticsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -41,21 +41,21 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pins_api.PinsApi(api_client)
     pin_id = "pin_id_example" # str | Unique identifier of a Pin.
     start_date = dateutil_parser('1970-01-01').date() # date | Metric report start date (UTC). Format: YYYY-MM-DD
     end_date = dateutil_parser('1970-01-01').date() # date | Metric report end date (UTC). Format: YYYY-MM-DD
     metric_types = [
-        "IMPRESSION",
-    ] # [str] | Pin metric types to get data for, default is all.
+        None,
+    ] # [bool, date, datetime, dict, float, int, list, str, none_type] | Pin metric types to get data for, default is all.
     app_types = "ALL" # str | Apps or devices to get data for, default is all. (optional) if omitted the server will use the default value of "ALL"
     split_field = "NO_SPLIT" # str | How to split the data into groups. Not including this param means data won't be split. (optional) if omitted the server will use the default value of "NO_SPLIT"
     ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
@@ -65,7 +65,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get Pin analytics
         api_response = api_instance.pins_analytics(pin_id, start_date, end_date, metric_types)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling PinsApi->pins_analytics: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -74,7 +74,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get Pin analytics
         api_response = api_instance.pins_analytics(pin_id, start_date, end_date, metric_types, app_types=app_types, split_field=split_field, ad_account_id=ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling PinsApi->pins_analytics: %s\n" % e)
 ```
 
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
  **pin_id** | **str**| Unique identifier of a Pin. |
  **start_date** | **date**| Metric report start date (UTC). Format: YYYY-MM-DD |
  **end_date** | **date**| Metric report end date (UTC). Format: YYYY-MM-DD |
- **metric_types** | **[str]**| Pin metric types to get data for, default is all. |
+ **metric_types** | [**[bool, date, datetime, dict, float, int, list, str, none_type]**](bool, date, datetime, dict, float, int, list, str, none_type.md)| Pin metric types to get data for, default is all. |
  **app_types** | **str**| Apps or devices to get data for, default is all. | [optional] if omitted the server will use the default value of "ALL"
  **split_field** | **str**| How to split the data into groups. Not including this param means data won&#39;t be split. | [optional] if omitted the server will use the default value of "NO_SPLIT"
  **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
@@ -130,14 +130,14 @@ Create a Pin on a board or board section owned by the \"operation user_account\"
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import pins_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.pin import Pin
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import pins_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.pin import Pin
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -147,13 +147,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pins_api.PinsApi(api_client)
     pin = Pin(
@@ -173,7 +173,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Create Pin
         api_response = api_instance.pins_create(pin)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling PinsApi->pins_create: %s\n" % e)
 ```
 
@@ -224,13 +224,13 @@ Delete a Pins owned by the \"operation user_account\" - or on a group board that
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import pins_api
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import pins_api
+from openapi_generated.pinterest_client.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -240,13 +240,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pins_api.PinsApi(api_client)
     pin_id = "pin_id_example" # str | Unique identifier of a Pin.
@@ -255,7 +255,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     try:
         # Delete Pin
         api_instance.pins_delete(pin_id)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling PinsApi->pins_delete: %s\n" % e)
 ```
 
@@ -304,14 +304,14 @@ Get a Pin owned by the \"operation user_account\" - or on a group board that has
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import pins_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.pin import Pin
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import pins_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.pin import Pin
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -321,13 +321,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pins_api.PinsApi(api_client)
     pin_id = "pin_id_example" # str | Unique identifier of a Pin.
@@ -338,7 +338,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get Pin
         api_response = api_instance.pins_get(pin_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling PinsApi->pins_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -347,7 +347,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get Pin
         api_response = api_instance.pins_get(pin_id, ad_account_id=ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling PinsApi->pins_get: %s\n" % e)
 ```
 
@@ -387,9 +387,9 @@ Name | Type | Description  | Notes
 # **pins_save**
 > Pin pins_save(pin_id, inline_object)
 
-Save pin
+Save Pin
 
-Save a pin on a board or board section owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.
+Save a Pin on a board or board section owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account. - Any Pin type can be saved: image Pin, video Pin, Idea Pin, product Pin, etc. - Any public Pin can be saved given a pin ID.
 
 ### Example
 
@@ -397,15 +397,15 @@ Save a pin on a board or board section owned by the \"operation user_account\". 
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import pins_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.pin import Pin
-from pinterest.generated.client.model.inline_object import InlineObject
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import pins_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.pin import Pin
+from openapi_generated.pinterest_client.model.inline_object import InlineObject
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -415,13 +415,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pins_api.PinsApi(api_client)
     pin_id = "pin_id_example" # str | Unique identifier of a Pin.
@@ -432,10 +432,10 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Save pin
+        # Save Pin
         api_response = api_instance.pins_save(pin_id, inline_object)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling PinsApi->pins_save: %s\n" % e)
 ```
 

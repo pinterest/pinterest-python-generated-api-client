@@ -1,11 +1,11 @@
-# pinterest.generated.client.ResourcesApi
+# openapi_generated.pinterest_client.ResourcesApi
 
 All URIs are relative to *https://api.pinterest.com/v5*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ad_account_countries_get**](ResourcesApi.md#ad_account_countries_get) | **GET** /resources/ad_account_countries | Get ad accounts countries
-[**delivery_metrics_get**](ResourcesApi.md#delivery_metrics_get) | **GET** /resources/delivery_metrics | Get available delivery metrics&#39; definitions
+[**delivery_metrics_get**](ResourcesApi.md#delivery_metrics_get) | **GET** /resources/delivery_metrics | Get available metrics&#39; definitions
 [**interest_targeting_options_get**](ResourcesApi.md#interest_targeting_options_get) | **GET** /resources/targeting/interests/{interest_id} | Get interest details
 [**metrics_ready_state_get**](ResourcesApi.md#metrics_ready_state_get) | **GET** /resources/metrics_ready_state | Get metrics ready state
 [**targeting_options_get**](ResourcesApi.md#targeting_options_get) | **GET** /resources/targeting/{targeting_type} | Get targeting options
@@ -24,14 +24,14 @@ Get Ad Accounts countries
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import resources_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.ad_accounts_country_response import AdAccountsCountryResponse
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import resources_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.ad_accounts_country_response import AdAccountsCountryResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -41,13 +41,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = resources_api.ResourcesApi(api_client)
 
@@ -56,7 +56,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get ad accounts countries
         api_response = api_instance.ad_account_countries_get()
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ResourcesApi->ad_account_countries_get: %s\n" % e)
 ```
 
@@ -90,9 +90,9 @@ This endpoint does not need any parameter.
 # **delivery_metrics_get**
 > DeliveryMetricsResponse delivery_metrics_get()
 
-Get available delivery metrics' definitions
+Get available metrics' definitions
 
-Get the definitions for the delivery metrics available for synchronous or asynchronous reports.
+Get the definitions for ads and organic metrics available across both synchronous and asynchronous report endpoints. The `display_name` attribute will match how the metric is named in our native tools like Ads Manager. See <a href='/docs/content/analytics/'>Organic Analytics</a> and <a href='/docs/ads/ad-analytics-reporting/'>Ads Analytics</a> for more information.
 
 ### Example
 
@@ -100,14 +100,14 @@ Get the definitions for the delivery metrics available for synchronous or asynch
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import resources_api
-from pinterest.generated.client.model.delivery_metrics_response import DeliveryMetricsResponse
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import resources_api
+from openapi_generated.pinterest_client.model.delivery_metrics_response import DeliveryMetricsResponse
+from openapi_generated.pinterest_client.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -117,13 +117,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = resources_api.ResourcesApi(api_client)
     report_type = "SYNC" # str | Report type. (optional)
@@ -131,10 +131,10 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Get available delivery metrics' definitions
+        # Get available metrics' definitions
         api_response = api_instance.delivery_metrics_get(report_type=report_type)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ResourcesApi->delivery_metrics_get: %s\n" % e)
 ```
 
@@ -181,14 +181,14 @@ Get interest details
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import resources_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.single_interest_targeting_option_response import SingleInterestTargetingOptionResponse
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import resources_api
+from openapi_generated.pinterest_client.model.single_interest_targeting_option_response import SingleInterestTargetingOptionResponse
+from openapi_generated.pinterest_client.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -198,13 +198,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = resources_api.ResourcesApi(api_client)
     interest_id = "4" # str | Unique identifier of an interest.
@@ -214,7 +214,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get interest details
         api_response = api_instance.interest_targeting_options_get(interest_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ResourcesApi->interest_targeting_options_get: %s\n" % e)
 ```
 
@@ -261,14 +261,14 @@ Learn whether conversion or non-conversion metrics are finalized and ready to qu
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import resources_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.book_closed_response import BookClosedResponse
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import resources_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.book_closed_response import BookClosedResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -278,13 +278,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = resources_api.ResourcesApi(api_client)
     date = "2022-07-13" # str | Analytics reports request date (UTC). Format: YYYY-MM-DD
@@ -294,7 +294,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get metrics ready state
         api_response = api_instance.metrics_ready_state_get(date)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ResourcesApi->metrics_ready_state_get: %s\n" % e)
 ```
 
@@ -341,14 +341,14 @@ Get targeting options
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import resources_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.targeting_option_response import TargetingOptionResponse
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import resources_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.targeting_option_response import TargetingOptionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -358,13 +358,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = resources_api.ResourcesApi(api_client)
     targeting_type = "APPTYPE" # str | Public targeting type.
@@ -377,7 +377,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get targeting options
         api_response = api_instance.targeting_options_get(targeting_type)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ResourcesApi->targeting_options_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -386,7 +386,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get targeting options
         api_response = api_instance.targeting_options_get(targeting_type, client_id=client_id, oauth_signature=oauth_signature, timestamp=timestamp)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ResourcesApi->targeting_options_get: %s\n" % e)
 ```
 

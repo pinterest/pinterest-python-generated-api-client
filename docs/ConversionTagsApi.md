@@ -1,4 +1,4 @@
-# pinterest.generated.client.ConversionTagsApi
+# openapi_generated.pinterest_client.ConversionTagsApi
 
 All URIs are relative to *https://api.pinterest.com/v5*
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Create conversion tag
 
-<strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/ads/ads-management/'>Learn more</a>.</strong> <p/> Create a conversion tag, also known as <a href=\"https://help.pinterest.com/en/business/article/set-up-the-pinterest-tag\" target=\"_blank\">Pinterest tag</a>, with the option to enable enhanced match.<p/> The Pinterest Tag tracks actions people take on the ad account’s website after they view the ad account's ad on Pinterest. The advertiser needs to customize this tag to track conversions.<p/> For more information, see:<p/> <a class=\"reference external\" href=\"https://help.pinterest.com/en/business/article/set-up-the-pinterest-tag\">Set up the Pinterest tag</a><p/> <a class=\"reference external\" href=\"https://developers.pinterest.com/docs/conversions/pinterest-tag/\">Pinterest Tag</a><p/> <a class=\"reference external\" href=\"https://developers.pinterest.com/docs/conversions/enhanced-match/\">Enhanced match</a>
+Create a conversion tag, also known as <a href=\"https://help.pinterest.com/en/business/article/set-up-the-pinterest-tag\" target=\"_blank\">Pinterest tag</a>, with the option to enable enhanced match.<p/> The Pinterest Tag tracks actions people take on the ad account’s website after they view the ad account's ad on Pinterest. The advertiser needs to customize this tag to track conversions.<p/> For more information, see:<p/> <a class=\"reference external\" href=\"https://help.pinterest.com/en/business/article/set-up-the-pinterest-tag\">Set up the Pinterest tag</a><p/> <a class=\"reference external\" href=\"https://developers.pinterest.com/docs/conversions/pinterest-tag/\">Pinterest Tag</a><p/> <a class=\"reference external\" href=\"https://developers.pinterest.com/docs/conversions/enhanced-match/\">Enhanced match</a>
 
 ### Example
 
@@ -24,15 +24,15 @@ Create conversion tag
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import conversion_tags_api
-from pinterest.generated.client.model.conversion_tag_create import ConversionTagCreate
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.conversion_tag_response import ConversionTagResponse
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import conversion_tags_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.conversion_tag_create import ConversionTagCreate
+from openapi_generated.pinterest_client.model.conversion_tag_response import ConversionTagResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -42,13 +42,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = conversion_tags_api.ConversionTagsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -61,7 +61,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Create conversion tag
         api_response = api_instance.conversion_tags_create(ad_account_id, conversion_tag_create)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ConversionTagsApi->conversion_tags_create: %s\n" % e)
 ```
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 Get conversion tag
 
-<strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/ads/ads-management/'>Learn more</a>.</strong> <p/> Get information about an existing conversion tag.
+Get information about an existing conversion tag.
 
 ### Example
 
@@ -109,14 +109,14 @@ Get conversion tag
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import conversion_tags_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.conversion_tag_response import ConversionTagResponse
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import conversion_tags_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.conversion_tag_response import ConversionTagResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -126,13 +126,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = conversion_tags_api.ConversionTagsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -143,7 +143,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get conversion tag
         api_response = api_instance.conversion_tags_get(ad_account_id, conversion_tag_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ConversionTagsApi->conversion_tags_get: %s\n" % e)
 ```
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 Get conversion tags
 
-<strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/ads/ads-management/'>Learn more</a>.</strong> <p/> List conversion tags associated with an ad account.
+List conversion tags associated with an ad account.
 
 ### Example
 
@@ -191,14 +191,14 @@ Get conversion tags
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import conversion_tags_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.conversion_tag_list_response import ConversionTagListResponse
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import conversion_tags_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.conversion_tag_list_response import ConversionTagListResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -208,13 +208,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = conversion_tags_api.ConversionTagsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -225,7 +225,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get conversion tags
         api_response = api_instance.conversion_tags_list(ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ConversionTagsApi->conversion_tags_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -234,7 +234,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get conversion tags
         api_response = api_instance.conversion_tags_list(ad_account_id, filter_deleted=filter_deleted)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ConversionTagsApi->conversion_tags_list: %s\n" % e)
 ```
 
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 Get Ocpm eligible conversion tags
 
-<strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/ads/ads-management/'>Learn more</a>.</strong> <p/> Get Ocpm eligible conversion tag events for an ad account.
+Get Ocpm eligible conversion tag events for an ad account.
 
 ### Example
 
@@ -282,14 +282,14 @@ Get Ocpm eligible conversion tags
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import conversion_tags_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.conversion_tags_ocpm_eligible_response import ConversionTagsOcpmEligibleResponse
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import conversion_tags_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.conversion_tags_ocpm_eligible_response import ConversionTagsOcpmEligibleResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -299,13 +299,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = conversion_tags_api.ConversionTagsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -315,7 +315,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get Ocpm eligible conversion tags
         api_response = api_instance.ocpm_eligible_conversion_tags_get(ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ConversionTagsApi->ocpm_eligible_conversion_tags_get: %s\n" % e)
 ```
 
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 
 Get page visit conversion tags
 
-<strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/ads/ads-management/'>Learn more</a>.</strong> <p/> Get all page visit conversion tag events for an ad account.
+Get all page visit conversion tag events for an ad account.
 
 ### Example
 
@@ -362,14 +362,14 @@ Get page visit conversion tags
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import conversion_tags_api
-from pinterest.generated.client.model.paginated import Paginated
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import conversion_tags_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -379,13 +379,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = conversion_tags_api.ConversionTagsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -398,7 +398,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get page visit conversion tags
         api_response = api_instance.page_visit_conversion_tags_get(ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ConversionTagsApi->page_visit_conversion_tags_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -407,7 +407,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get page visit conversion tags
         api_response = api_instance.page_visit_conversion_tags_get(ad_account_id, page_size=page_size, order=order, bookmark=bookmark)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ConversionTagsApi->page_visit_conversion_tags_get: %s\n" % e)
 ```
 

@@ -1,4 +1,4 @@
-# pinterest.generated.client.OauthApi
+# openapi_generated.pinterest_client.OauthApi
 
 All URIs are relative to *https://api.pinterest.com/v5*
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 Generate OAuth access token
 
-Generate an OAuth access token by using an authorization code or a refresh token.  See <a href='/docs/getting-started/authentication/'>Authentication</a> for more.
+Generate an OAuth access token by using an authorization code or a refresh token.  IMPORTANT: You need to start the OAuth flow via www.pinterest.com/oauth before calling this endpoint (or have an existing refresh token).  See <a href='/docs/getting-started/authentication/'>Authentication</a> for more.
 
 ### Example
 
@@ -20,14 +20,14 @@ Generate an OAuth access token by using an authorization code or a refresh token
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import oauth_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.oauth_access_token_response import OauthAccessTokenResponse
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import oauth_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.oauth_access_token_response import OauthAccessTokenResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -37,13 +37,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = oauth_api.OauthApi(api_client)
     grant_type = "authorization_code" # str | 
@@ -53,7 +53,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Generate OAuth access token
         api_response = api_instance.oauth_token(grant_type)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling OauthApi->oauth_token: %s\n" % e)
 ```
 

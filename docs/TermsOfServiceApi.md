@@ -1,4 +1,4 @@
-# pinterest.generated.client.TermsOfServiceApi
+# openapi_generated.pinterest_client.TermsOfServiceApi
 
 All URIs are relative to *https://api.pinterest.com/v5*
 
@@ -20,14 +20,14 @@ Get the text of the terms of service and see whether the advertiser has accepted
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import terms_of_service_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.terms_of_service import TermsOfService
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import terms_of_service_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.terms_of_service import TermsOfService
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -37,13 +37,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = terms_of_service_api.TermsOfServiceApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -55,7 +55,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get terms of service
         api_response = api_instance.terms_of_service_get(ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling TermsOfServiceApi->terms_of_service_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -64,7 +64,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get terms of service
         api_response = api_instance.terms_of_service_get(ad_account_id, include_html=include_html, tos_type=tos_type)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling TermsOfServiceApi->terms_of_service_get: %s\n" % e)
 ```
 

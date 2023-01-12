@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **str** | ID of the product group promotion. | [optional] 
 **status** | [**EntityStatus**](EntityStatus.md) |  | [optional] 
 **tracking_url** | **str, none_type** | Tracking template for proudct group promotions. 4000 limit | [optional] 
 **catalogs_product_group_id** | **str** | ID of the catalogs product group that this product group promotion references | [optional] 

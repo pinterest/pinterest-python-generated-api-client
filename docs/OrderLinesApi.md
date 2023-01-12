@@ -1,4 +1,4 @@
-# pinterest.generated.client.OrderLinesApi
+# openapi_generated.pinterest_client.OrderLinesApi
 
 All URIs are relative to *https://api.pinterest.com/v5*
 
@@ -9,11 +9,11 @@ Method | HTTP request | Description
 
 
 # **order_lines_get**
-> OrderLineSingleResponse order_lines_get(ad_account_id, order_line_id)
+> OrderLine order_lines_get(ad_account_id, order_line_id)
 
 Get order line
 
-<strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/ads/ads-management/'>Learn more</a>.</strong> <p/> Get a specific existing order line associated with an ad account.
+Get a specific existing order line associated with an ad account.
 
 ### Example
 
@@ -21,14 +21,14 @@ Get order line
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import order_lines_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.order_line_single_response import OrderLineSingleResponse
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import order_lines_api
+from openapi_generated.pinterest_client.model.order_line import OrderLine
+from openapi_generated.pinterest_client.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -38,13 +38,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = order_lines_api.OrderLinesApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -55,7 +55,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get order line
         api_response = api_instance.order_lines_get(ad_account_id, order_line_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling OrderLinesApi->order_lines_get: %s\n" % e)
 ```
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrderLineSingleResponse**](OrderLineSingleResponse.md)
+[**OrderLine**](OrderLine.md)
 
 ### Authorization
 
@@ -91,11 +91,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **order_lines_list**
-> OrderLinesArrayResponse order_lines_list(ad_account_id)
+> bool, date, datetime, dict, float, int, list, str, none_type order_lines_list(ad_account_id)
 
 Get Order Lines
 
-<strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/ads/ads-management/'>Learn more</a>.</strong> <p/> List existing order lines associated with an ad account.
+List existing order lines associated with an ad account.
 
 ### Example
 
@@ -103,14 +103,14 @@ Get Order Lines
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import order_lines_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.order_lines_array_response import OrderLinesArrayResponse
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import order_lines_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -120,13 +120,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = order_lines_api.OrderLinesApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -139,7 +139,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get Order Lines
         api_response = api_instance.order_lines_list(ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling OrderLinesApi->order_lines_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -148,7 +148,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get Order Lines
         api_response = api_instance.order_lines_list(ad_account_id, page_size=page_size, order=order, bookmark=bookmark)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling OrderLinesApi->order_lines_list: %s\n" % e)
 ```
 
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrderLinesArrayResponse**](OrderLinesArrayResponse.md)
+**bool, date, datetime, dict, float, int, list, str, none_type**
 
 ### Authorization
 

@@ -1,4 +1,4 @@
-# pinterest.generated.client.TermsApi
+# openapi_generated.pinterest_client.TermsApi
 
 All URIs are relative to *https://api.pinterest.com/v5*
 
@@ -21,14 +21,14 @@ Get a list of terms logically related to each input term. <p/> Example: the term
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import terms_api
-from pinterest.generated.client.model.related_terms import RelatedTerms
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import terms_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.related_terms import RelatedTerms
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -38,13 +38,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = terms_api.TermsApi(api_client)
     terms = [
@@ -56,7 +56,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List related terms
         api_response = api_instance.terms_related_list(terms)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling TermsApi->terms_related_list: %s\n" % e)
 ```
 
@@ -104,14 +104,14 @@ Get popular search terms that begin with your input term. <p/> Example: 'sport' 
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import terms_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.terms_suggested_response import TermsSuggestedResponse
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import terms_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.terms_suggested_response import TermsSuggestedResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -121,13 +121,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = terms_api.TermsApi(api_client)
     term = "sports" # str | Input term.
@@ -138,7 +138,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List suggested terms
         api_response = api_instance.terms_suggested_list(term)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling TermsApi->terms_suggested_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -147,7 +147,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List suggested terms
         api_response = api_instance.terms_suggested_list(term, limit=limit)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling TermsApi->terms_suggested_list: %s\n" % e)
 ```
 

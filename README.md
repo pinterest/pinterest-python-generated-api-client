@@ -37,7 +37,7 @@ pip install git+ssh://github.com/pinterest/pinterest-python-generated-api-client
 
 Then import the package:
 ```python
-import pinterest.generated.client
+import openapi_generated.pinterest_client
 ```
 
 ### Setuptools
@@ -51,7 +51,7 @@ python setup.py install --user
 
 Then import the package:
 ```python
-import pinterest.generated.client
+import openapi_generated.pinterest_client
 ```
 
 ## Getting Started
@@ -61,24 +61,24 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```python
 
 import time
-import pinterest.generated.client
+import openapi_generated.pinterest_client
 from pprint import pprint
-from pinterest.generated.client.api import ad_accounts_api
-from pinterest.generated.client.model.ad_account import AdAccount
-from pinterest.generated.client.model.ad_account_analytics_response import AdAccountAnalyticsResponse
-from pinterest.generated.client.model.ad_account_create_request import AdAccountCreateRequest
-from pinterest.generated.client.model.ads_analytics_create_async_request import AdsAnalyticsCreateAsyncRequest
-from pinterest.generated.client.model.ads_analytics_create_async_response import AdsAnalyticsCreateAsyncResponse
-from pinterest.generated.client.model.ads_analytics_get_async_response import AdsAnalyticsGetAsyncResponse
-from pinterest.generated.client.model.ads_analytics_targeting_type import AdsAnalyticsTargetingType
-from pinterest.generated.client.model.conversion_report_attribution_type import ConversionReportAttributionType
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.granularity import Granularity
-from pinterest.generated.client.model.metrics_response import MetricsResponse
-from pinterest.generated.client.model.paginated import Paginated
+from openapi_generated.pinterest_client.api import ad_accounts_api
+from openapi_generated.pinterest_client.model.ad_account import AdAccount
+from openapi_generated.pinterest_client.model.ad_account_analytics_response import AdAccountAnalyticsResponse
+from openapi_generated.pinterest_client.model.ad_account_create_request import AdAccountCreateRequest
+from openapi_generated.pinterest_client.model.ads_analytics_create_async_request import AdsAnalyticsCreateAsyncRequest
+from openapi_generated.pinterest_client.model.ads_analytics_create_async_response import AdsAnalyticsCreateAsyncResponse
+from openapi_generated.pinterest_client.model.ads_analytics_get_async_response import AdsAnalyticsGetAsyncResponse
+from openapi_generated.pinterest_client.model.ads_analytics_targeting_type import AdsAnalyticsTargetingType
+from openapi_generated.pinterest_client.model.conversion_report_attribution_type import ConversionReportAttributionType
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.granularity import Granularity
+from openapi_generated.pinterest_client.model.metrics_response import MetricsResponse
+from openapi_generated.pinterest_client.model.paginated import Paginated
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -88,14 +88,14 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ad_accounts_api.AdAccountsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -114,7 +114,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get ad account analytics
         api_response = api_instance.ad_account_analytics(ad_account_id, start_date, end_date, columns, granularity, click_window_days=click_window_days, engagement_window_days=engagement_window_days, view_window_days=view_window_days, conversion_report_time=conversion_report_time)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling AdAccountsApi->ad_account_analytics: %s\n" % e)
 ```
 
@@ -212,14 +212,14 @@ Class | Method | HTTP request | Description
 *PinsApi* | [**pins_create**](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/PinsApi.md#pins_create) | **POST** /pins | Create Pin
 *PinsApi* | [**pins_delete**](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/PinsApi.md#pins_delete) | **DELETE** /pins/{pin_id} | Delete Pin
 *PinsApi* | [**pins_get**](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/PinsApi.md#pins_get) | **GET** /pins/{pin_id} | Get Pin
-*PinsApi* | [**pins_save**](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/PinsApi.md#pins_save) | **POST** /pins/{pin_id}/save | Save pin
+*PinsApi* | [**pins_save**](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/PinsApi.md#pins_save) | **POST** /pins/{pin_id}/save | Save Pin
 *ProductGroupPromotionsApi* | [**product_group_promotion_get**](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ProductGroupPromotionsApi.md#product_group_promotion_get) | **GET** /ad_accounts/{ad_account_id}/product_group_promotions/{product_group_promotion_id} | Get a product group promotion by id
 *ProductGroupPromotionsApi* | [**product_group_promotions_create**](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ProductGroupPromotionsApi.md#product_group_promotions_create) | **POST** /ad_accounts/{ad_account_id}/product_group_promotions | Create product group promotions
 *ProductGroupPromotionsApi* | [**product_group_promotions_list**](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ProductGroupPromotionsApi.md#product_group_promotions_list) | **GET** /ad_accounts/{ad_account_id}/product_group_promotions | Get product group promotions
 *ProductGroupPromotionsApi* | [**product_group_promotions_update**](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ProductGroupPromotionsApi.md#product_group_promotions_update) | **PATCH** /ad_accounts/{ad_account_id}/product_group_promotions | Update product group promotions
 *ProductGroupPromotionsApi* | [**product_groups_analytics**](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ProductGroupPromotionsApi.md#product_groups_analytics) | **GET** /ad_accounts/{ad_account_id}/product_groups/analytics | Get product group analytics
 *ResourcesApi* | [**ad_account_countries_get**](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ResourcesApi.md#ad_account_countries_get) | **GET** /resources/ad_account_countries | Get ad accounts countries
-*ResourcesApi* | [**delivery_metrics_get**](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ResourcesApi.md#delivery_metrics_get) | **GET** /resources/delivery_metrics | Get available delivery metrics&#39; definitions
+*ResourcesApi* | [**delivery_metrics_get**](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ResourcesApi.md#delivery_metrics_get) | **GET** /resources/delivery_metrics | Get available metrics&#39; definitions
 *ResourcesApi* | [**interest_targeting_options_get**](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ResourcesApi.md#interest_targeting_options_get) | **GET** /resources/targeting/interests/{interest_id} | Get interest details
 *ResourcesApi* | [**metrics_ready_state_get**](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ResourcesApi.md#metrics_ready_state_get) | **GET** /resources/metrics_ready_state | Get metrics ready state
 *ResourcesApi* | [**targeting_options_get**](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ResourcesApi.md#targeting_options_get) | **GET** /resources/targeting/{targeting_type} | Get targeting options
@@ -257,6 +257,7 @@ Class | Method | HTTP request | Description
  - [AdGroupUpdateRequest](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/AdGroupUpdateRequest.md)
  - [AdGroupUpdateRequestAllOf](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/AdGroupUpdateRequestAllOf.md)
  - [AdGroupsAnalyticsResponse](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/AdGroupsAnalyticsResponse.md)
+ - [AdPinId](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/AdPinId.md)
  - [AdPreviewCreateFromImage](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/AdPreviewCreateFromImage.md)
  - [AdPreviewCreateFromPin](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/AdPreviewCreateFromPin.md)
  - [AdPreviewRequest](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/AdPreviewRequest.md)
@@ -495,6 +496,11 @@ Class | Method | HTTP request | Description
  - [OauthAccessTokenResponseCodeAllOf](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/OauthAccessTokenResponseCodeAllOf.md)
  - [OauthAccessTokenResponseRefresh](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/OauthAccessTokenResponseRefresh.md)
  - [ObjectiveType](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ObjectiveType.md)
+ - [OptimizationGoalMetadata](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/OptimizationGoalMetadata.md)
+ - [OptimizationGoalMetadataConversionTagV3GoalMetadata](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/OptimizationGoalMetadataConversionTagV3GoalMetadata.md)
+ - [OptimizationGoalMetadataConversionTagV3GoalMetadataAttributionWindows](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/OptimizationGoalMetadataConversionTagV3GoalMetadataAttributionWindows.md)
+ - [OptimizationGoalMetadataFrequencyGoalMetadata](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/OptimizationGoalMetadataFrequencyGoalMetadata.md)
+ - [OptimizationGoalMetadataScrollupGoalMetadata](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/OptimizationGoalMetadataScrollupGoalMetadata.md)
  - [OrderLine](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/OrderLine.md)
  - [OrderLineAllOf](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/OrderLineAllOf.md)
  - [OrderLineError](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/OrderLineError.md)
@@ -512,6 +518,10 @@ Class | Method | HTTP request | Description
  - [PinMediaSource](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/PinMediaSource.md)
  - [PinMediaSourceImageBase64](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/PinMediaSourceImageBase64.md)
  - [PinMediaSourceImageURL](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/PinMediaSourceImageURL.md)
+ - [PinMediaSourceImagesBase64](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/PinMediaSourceImagesBase64.md)
+ - [PinMediaSourceImagesBase64Items](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/PinMediaSourceImagesBase64Items.md)
+ - [PinMediaSourceImagesURL](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/PinMediaSourceImagesURL.md)
+ - [PinMediaSourceImagesURLItems](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/PinMediaSourceImagesURLItems.md)
  - [PinMediaSourceVideoID](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/PinMediaSourceVideoID.md)
  - [PinMediaWithImage](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/PinMediaWithImage.md)
  - [PinMediaWithImageAllOf](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/PinMediaWithImageAllOf.md)
@@ -533,7 +543,6 @@ Class | Method | HTTP request | Description
  - [ProductGroupPromotionArrayResponse](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ProductGroupPromotionArrayResponse.md)
  - [ProductGroupPromotionCommon](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ProductGroupPromotionCommon.md)
  - [ProductGroupPromotionCreateRequest](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ProductGroupPromotionCreateRequest.md)
- - [ProductGroupPromotionUpdateItem](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ProductGroupPromotionUpdateItem.md)
  - [ProductGroupPromotionUpdateRequest](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ProductGroupPromotionUpdateRequest.md)
  - [ProductGroupPromotionUpdateResponseItem](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ProductGroupPromotionUpdateResponseItem.md)
  - [ProductGroupSummaryStatus](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/ProductGroupSummaryStatus.md)
@@ -564,6 +573,7 @@ Class | Method | HTTP request | Description
  - [UpdatableItemAttributes](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/UpdatableItemAttributes.md)
  - [UserListOperationType](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/UserListOperationType.md)
  - [UserListType](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/UserListType.md)
+ - [UserWebsiteSummary](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/UserWebsiteSummary.md)
  - [VideoMetadata](https://github.com/pinterest/pinterest-python-generated-api-client/blob/main/docs/VideoMetadata.md)
 
 
@@ -608,20 +618,20 @@ pinterest-api@pinterest.com
 
 
 ## Notes for Large OpenAPI documents
-If the OpenAPI document is large, imports in pinterest.generated.client.apis and pinterest.generated.client.models may fail with a
+If the OpenAPI document is large, imports in openapi_generated.pinterest_client.apis and openapi_generated.pinterest_client.models may fail with a
 RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
 
 Solution 1:
 Use specific imports for apis and models like:
-- `from pinterest.generated.client.api.default_api import DefaultApi`
-- `from pinterest.generated.client.model.pet import Pet`
+- `from openapi_generated.pinterest_client.api.default_api import DefaultApi`
+- `from openapi_generated.pinterest_client.model.pet import Pet`
 
 Solution 2:
 Before importing the package, adjust the maximum recursion limit as shown below:
 ```
 import sys
 sys.setrecursionlimit(1500)
-import pinterest.generated.client
-from pinterest.generated.client.apis import *
-from pinterest.generated.client.models import *
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.apis import *
+from openapi_generated.pinterest_client.models import *
 ```
