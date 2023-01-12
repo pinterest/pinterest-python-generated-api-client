@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **is_pin_deleted** | **bool** | Is original pin deleted? | [optional] 
 **is_removable** | **bool** | Is pin repinnable? | [optional] 
 **name** | **str, none_type** | Name of the ad - 255 chars max. | [optional] 
-**pin_id** | **str** | Pin ID. | [optional] 
 **status** | [**EntityStatus**](EntityStatus.md) |  | [optional] 
 **tracking_urls** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 
 **view_tracking_url** | **str, none_type** | Tracking URL for ad impressions. | [optional] 

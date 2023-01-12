@@ -1,4 +1,4 @@
-# pinterest.generated.client.AudiencesApi
+# openapi_generated.pinterest_client.AudiencesApi
 
 All URIs are relative to *https://api.pinterest.com/v5*
 
@@ -23,15 +23,15 @@ Create an audience you can use in targeting for specific ad groups. Targeting co
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import audiences_api
-from pinterest.generated.client.model.audience import Audience
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.audience_create_request import AudienceCreateRequest
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import audiences_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.audience_create_request import AudienceCreateRequest
+from openapi_generated.pinterest_client.model.audience import Audience
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -41,13 +41,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = audiences_api.AudiencesApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -58,7 +58,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Create audience
         api_response = api_instance.audiences_create(ad_account_id, audience_create_request)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling AudiencesApi->audiences_create: %s\n" % e)
 ```
 
@@ -106,14 +106,14 @@ Get a specific audience given the audience ID.
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import audiences_api
-from pinterest.generated.client.model.audience import Audience
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import audiences_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.audience import Audience
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -123,13 +123,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = audiences_api.AudiencesApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -140,7 +140,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get audience
         api_response = api_instance.audiences_get(ad_account_id, audience_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling AudiencesApi->audiences_get: %s\n" % e)
 ```
 
@@ -189,14 +189,14 @@ Get list of audiences for the ad account.
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import audiences_api
-from pinterest.generated.client.model.paginated import Paginated
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import audiences_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -206,20 +206,17 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = audiences_api.AudiencesApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
-    entity_statuses = [
-        "ACTIVE",
-    ] # [str] | Entity status (optional)
     order = "ASCENDING" # str | The order in which to sort the items returned: “ASCENDING” or “DESCENDING” by ID. Note that higher-value IDs are associated with more-recently added items. (optional)
     page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
 
@@ -228,16 +225,16 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List audiences
         api_response = api_instance.audiences_list(ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling AudiencesApi->audiences_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # List audiences
-        api_response = api_instance.audiences_list(ad_account_id, bookmark=bookmark, entity_statuses=entity_statuses, order=order, page_size=page_size)
+        api_response = api_instance.audiences_list(ad_account_id, bookmark=bookmark, order=order, page_size=page_size)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling AudiencesApi->audiences_list: %s\n" % e)
 ```
 
@@ -248,7 +245,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ad_account_id** | **str**| Unique identifier of an ad account. |
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
- **entity_statuses** | **[str]**| Entity status | [optional]
  **order** | **str**| The order in which to sort the items returned: “ASCENDING” or “DESCENDING” by ID. Note that higher-value IDs are associated with more-recently added items. | [optional]
  **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
 
@@ -289,15 +285,15 @@ Update (edit or remove) an existing targeting audience.
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import audiences_api
-from pinterest.generated.client.model.audience import Audience
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.audience_update_request import AudienceUpdateRequest
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import audiences_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.audience_update_request import AudienceUpdateRequest
+from openapi_generated.pinterest_client.model.audience import Audience
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -307,13 +303,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = audiences_api.AudiencesApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -325,7 +321,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Update audience
         api_response = api_instance.audiences_update(ad_account_id, audience_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling AudiencesApi->audiences_update: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -334,7 +330,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Update audience
         api_response = api_instance.audiences_update(ad_account_id, audience_id, audience_update_request=audience_update_request)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling AudiencesApi->audiences_update: %s\n" % e)
 ```
 

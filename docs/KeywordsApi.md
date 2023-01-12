@@ -1,4 +1,4 @@
-# pinterest.generated.client.KeywordsApi
+# openapi_generated.pinterest_client.KeywordsApi
 
 All URIs are relative to *https://api.pinterest.com/v5*
 
@@ -23,14 +23,14 @@ See keyword metrics for a specified country, aggregated across all of Pinterest.
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import keywords_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.keywords_metrics_array_response import KeywordsMetricsArrayResponse
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import keywords_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.keywords_metrics_array_response import KeywordsMetricsArrayResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -40,13 +40,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = keywords_api.KeywordsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -60,7 +60,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get country's keyword metrics
         api_response = api_instance.country_keywords_metrics_get(ad_account_id, country_code, keywords)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling KeywordsApi->country_keywords_metrics_get: %s\n" % e)
 ```
 
@@ -109,15 +109,15 @@ Create keywords
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import keywords_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.keywords_response import KeywordsResponse
-from pinterest.generated.client.model.keywords_request import KeywordsRequest
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import keywords_api
+from openapi_generated.pinterest_client.model.keywords_response import KeywordsResponse
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.keywords_request import KeywordsRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -127,13 +127,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = keywords_api.KeywordsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -153,7 +153,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Create keywords
         api_response = api_instance.keywords_create(ad_account_id, keywords_request)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling KeywordsApi->keywords_create: %s\n" % e)
 ```
 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 Get keywords
 
-<p>Get a list of keywords based on the filters provided.</p><p>For more information, see <a target=\"_blank\" href=\"https://help.pinterest.com/en/business/article/keyword-targeting\">Keyword targeting</a>.</p> <p><b>Notes:</b></p> <ul style=\"list-style-type: square;\"> <li>Advertisers and campaigns can only be assigned keywords with excluding ('_NEGATIVE').</li> <li>All keyword match types are available for ad groups.</li> </ul> <p>For more information on match types, see <a href=\"/docs/redoc/#section/Match-type-(keyword)\">match type enums</a>.</p> <p><b>Returns:</b></p> <ul style=\"list-style-type: square;\"> <li><p>A successful call returns an object containing an array of new keyword objects and an empty &quot;errors&quot; object array.</p></li> <li><p>An unsuccessful call returns an empty keywords array, and, instead, inserts the entire object with nulled/negated properties into the &quot;errors&quot; object array:</p> <pre class=\"last literal-block\"> { \"keywords\": [], \"errors\": [ { \"data\": { \"archived\": null, \"match_type\": \"EXACT\", \"parent_type\": null, \"value\": \"foobar\", \"parent_id\": null, \"type\": \"keyword\", \"id\": null }, \"error_messages\": [ \"Advertisers and Campaigns only accept excluded targeting attributes.\" ] } } </pre></li> </ul> <p><b>Rate limit</b>: <a href=\"/docs/redoc/#tag/Rate-Limits\">WRITE</a>.</p>
+<p>Get a list of keywords based on the filters provided.</p><p>For more information, see <a target=\"_blank\" href=\"https://help.pinterest.com/en/business/article/keyword-targeting\">Keyword targeting</a>.</p> <p><b>Notes:</b></p> <ul style=\"list-style-type: square;\"> <li>Advertisers and campaigns can only be assigned keywords with excluding ('_NEGATIVE').</li> <li>All keyword match types are available for ad groups.</li> </ul> <p>For more information on match types, see <a href=\"/docs/redoc/#section/Match-type-(keyword)\">match type enums</a>.</p> <p><b>Returns:</b></p> <ul style=\"list-style-type: square;\"> <li><p>A successful call returns an object containing an array of new keyword objects and an empty &quot;errors&quot; object array.</p></li> <li><p>An unsuccessful call returns an empty keywords array, and, instead, inserts the entire object with nulled/negated properties into the &quot;errors&quot; object array:</p> <pre class=\"last literal-block\"> { \"keywords\": [], \"errors\": [ { \"data\": { \"archived\": null, \"match_type\": \"EXACT\", \"parent_type\": null, \"value\": \"foobar\", \"parent_id\": null, \"type\": \"keyword\", \"id\": null }, \"error_messages\": [ \"Advertisers and Campaigns only accept excluded targeting attributes.\" ] } } </pre></li> </ul>
 
 ### Example
 
@@ -201,15 +201,15 @@ Get keywords
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import keywords_api
-from pinterest.generated.client.model.paginated import Paginated
-from pinterest.generated.client.model.match_type import MatchType
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import keywords_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.match_type import MatchType
+from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -219,13 +219,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = keywords_api.KeywordsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -242,7 +242,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get keywords
         api_response = api_instance.keywords_get(ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling KeywordsApi->keywords_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -251,7 +251,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get keywords
         api_response = api_instance.keywords_get(ad_account_id, campaign_id=campaign_id, ad_group_id=ad_group_id, match_types=match_types, page_size=page_size, bookmark=bookmark)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling KeywordsApi->keywords_get: %s\n" % e)
 ```
 
@@ -303,15 +303,15 @@ Update keywords
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import keywords_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.keywords_response import KeywordsResponse
-from pinterest.generated.client.model.keyword_update_body import KeywordUpdateBody
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import keywords_api
+from openapi_generated.pinterest_client.model.keywords_response import KeywordsResponse
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.keyword_update_body import KeywordUpdateBody
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -321,13 +321,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = keywords_api.KeywordsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -346,7 +346,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Update keywords
         api_response = api_instance.keywords_update(ad_account_id, keyword_update_body)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling KeywordsApi->keywords_update: %s\n" % e)
 ```
 

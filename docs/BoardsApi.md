@@ -1,4 +1,4 @@
-# pinterest.generated.client.BoardsApi
+# openapi_generated.pinterest_client.BoardsApi
 
 All URIs are relative to *https://api.pinterest.com/v5*
 
@@ -30,14 +30,14 @@ Create a board section on a board owned by the \"operation user_account\" - or o
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import boards_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.board_section import BoardSection
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import boards_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.board_section import BoardSection
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -47,13 +47,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = boards_api.BoardsApi(api_client)
     board_id = "4" # str | Unique identifier of a board.
@@ -66,7 +66,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Create board section
         api_response = api_instance.board_sections_create(board_id, board_section)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->board_sections_create: %s\n" % e)
 ```
 
@@ -118,13 +118,13 @@ Delete a board section on a board owned by the \"operation user_account\" - or o
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import boards_api
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import boards_api
+from openapi_generated.pinterest_client.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -134,13 +134,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = boards_api.BoardsApi(api_client)
     board_id = "4" # str | Unique identifier of a board.
@@ -150,7 +150,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     try:
         # Delete board section
         api_instance.board_sections_delete(board_id, section_id)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->board_sections_delete: %s\n" % e)
 ```
 
@@ -201,14 +201,14 @@ Get a list of all board sections from a board owned by the \"operation user_acco
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import boards_api
-from pinterest.generated.client.model.paginated import Paginated
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import boards_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -218,13 +218,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = boards_api.BoardsApi(api_client)
     board_id = "4" # str | Unique identifier of a board.
@@ -236,7 +236,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List board sections
         api_response = api_instance.board_sections_list(board_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->board_sections_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -245,7 +245,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List board sections
         api_response = api_instance.board_sections_list(board_id, bookmark=bookmark, page_size=page_size)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->board_sections_list: %s\n" % e)
 ```
 
@@ -294,14 +294,14 @@ Get a list of the Pins on a board section of a board owned by the \"operation us
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import boards_api
-from pinterest.generated.client.model.paginated import Paginated
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import boards_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -311,13 +311,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = boards_api.BoardsApi(api_client)
     board_id = "4" # str | Unique identifier of a board.
@@ -330,7 +330,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List Pins on board section
         api_response = api_instance.board_sections_list_pins(board_id, section_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->board_sections_list_pins: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -339,7 +339,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List Pins on board section
         api_response = api_instance.board_sections_list_pins(board_id, section_id, bookmark=bookmark, page_size=page_size)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->board_sections_list_pins: %s\n" % e)
 ```
 
@@ -392,14 +392,14 @@ Update a board section on a board owned by the \"operation user_account\" - or o
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import boards_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.board_section import BoardSection
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import boards_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.board_section import BoardSection
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -409,13 +409,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = boards_api.BoardsApi(api_client)
     board_id = "4" # str | Unique identifier of a board.
@@ -429,7 +429,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Update board section
         api_response = api_instance.board_sections_update(board_id, section_id, board_section)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->board_sections_update: %s\n" % e)
 ```
 
@@ -481,14 +481,14 @@ Create a board owned by the \"operation user_account\". - By default, the \"oper
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import boards_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.board import Board
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import boards_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.board import Board
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -498,13 +498,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = boards_api.BoardsApi(api_client)
     board = Board(
@@ -518,7 +518,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Create board
         api_response = api_instance.boards_create(board)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->boards_create: %s\n" % e)
 ```
 
@@ -566,13 +566,13 @@ Delete a board owned by the \"operation user_account\". - By default, the \"oper
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import boards_api
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import boards_api
+from openapi_generated.pinterest_client.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -582,13 +582,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = boards_api.BoardsApi(api_client)
     board_id = "4" # str | Unique identifier of a board.
@@ -597,7 +597,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
     try:
         # Delete board
         api_instance.boards_delete(board_id)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->boards_delete: %s\n" % e)
 ```
 
@@ -648,14 +648,14 @@ Get a board owned by the operation user_account - or a group board that has been
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import boards_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.board import Board
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import boards_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.board import Board
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -665,13 +665,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = boards_api.BoardsApi(api_client)
     board_id = "4" # str | Unique identifier of a board.
@@ -681,7 +681,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get board
         api_response = api_instance.boards_get(board_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->boards_get: %s\n" % e)
 ```
 
@@ -729,14 +729,14 @@ Get a list of the boards owned by the \"operation user_account\" + group boards 
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import boards_api
-from pinterest.generated.client.model.paginated import Paginated
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import boards_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -746,13 +746,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = boards_api.BoardsApi(api_client)
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
@@ -765,7 +765,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List boards
         api_response = api_instance.boards_list(bookmark=bookmark, page_size=page_size, privacy=privacy)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->boards_list: %s\n" % e)
 ```
 
@@ -814,14 +814,14 @@ Get a list of the Pins on a board owned by the \"operation user_account\" - or o
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import boards_api
-from pinterest.generated.client.model.paginated import Paginated
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import boards_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -831,13 +831,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = boards_api.BoardsApi(api_client)
     board_id = "4" # str | Unique identifier of a board.
@@ -849,7 +849,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List Pins on board
         api_response = api_instance.boards_list_pins(board_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->boards_list_pins: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -858,7 +858,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List Pins on board
         api_response = api_instance.boards_list_pins(board_id, bookmark=bookmark, page_size=page_size)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->boards_list_pins: %s\n" % e)
 ```
 
@@ -908,15 +908,15 @@ Update a board owned by the \"operating user_account\".
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import boards_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.board_update import BoardUpdate
-from pinterest.generated.client.model.board import Board
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import boards_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.board import Board
+from openapi_generated.pinterest_client.model.board_update import BoardUpdate
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -926,13 +926,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = boards_api.BoardsApi(api_client)
     board_id = "4" # str | Unique identifier of a board.
@@ -947,7 +947,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Update board
         api_response = api_instance.boards_update(board_id, board_update)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->boards_update: %s\n" % e)
 ```
 

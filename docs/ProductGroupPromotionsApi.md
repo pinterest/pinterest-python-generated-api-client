@@ -1,4 +1,4 @@
-# pinterest.generated.client.ProductGroupPromotionsApi
+# openapi_generated.pinterest_client.ProductGroupPromotionsApi
 
 All URIs are relative to *https://api.pinterest.com/v5*
 
@@ -24,14 +24,14 @@ Get a product group promotion by id
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import product_group_promotions_api
-from pinterest.generated.client.model.product_group_promotion import ProductGroupPromotion
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import product_group_promotions_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.product_group_promotion import ProductGroupPromotion
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -41,13 +41,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = product_group_promotions_api.ProductGroupPromotionsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -58,7 +58,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get a product group promotion by id
         api_response = api_instance.product_group_promotion_get(ad_account_id, product_group_promotion_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ProductGroupPromotionsApi->product_group_promotion_get: %s\n" % e)
 ```
 
@@ -106,15 +106,15 @@ Add one or more product groups from your catalog to an existing ad group. (Produ
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import product_group_promotions_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.product_group_promotion_array_response import ProductGroupPromotionArrayResponse
-from pinterest.generated.client.model.product_group_promotion_create_request import ProductGroupPromotionCreateRequest
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import product_group_promotions_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.product_group_promotion_create_request import ProductGroupPromotionCreateRequest
+from openapi_generated.pinterest_client.model.product_group_promotion_array_response import ProductGroupPromotionArrayResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -124,13 +124,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = product_group_promotions_api.ProductGroupPromotionsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -138,6 +138,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         ad_group_id="2680059592705",
         product_group_promotion=[
             ProductGroupPromotionCommon(
+                id="2680059592705",
                 status=EntityStatus("ACTIVE"),
                 tracking_url="https://www.pinterest.com",
                 catalogs_product_group_id="1231235",
@@ -157,7 +158,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Create product group promotions
         api_response = api_instance.product_group_promotions_create(ad_account_id, product_group_promotion_create_request)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ProductGroupPromotionsApi->product_group_promotions_create: %s\n" % e)
 ```
 
@@ -197,7 +198,7 @@ Name | Type | Description  | Notes
 
 Get product group promotions
 
-<strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/ads/ads-management/'>Learn more</a>.</strong> <p/> List existing product group promotions associated with an ad account.
+List existing product group promotions associated with an ad account.
 
 ### Example
 
@@ -205,14 +206,14 @@ Get product group promotions
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import product_group_promotions_api
-from pinterest.generated.client.model.paginated import Paginated
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import product_group_promotions_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -222,13 +223,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = product_group_promotions_api.ProductGroupPromotionsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -248,7 +249,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get product group promotions
         api_response = api_instance.product_group_promotions_list(ad_account_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ProductGroupPromotionsApi->product_group_promotions_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -257,7 +258,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get product group promotions
         api_response = api_instance.product_group_promotions_list(ad_account_id, product_group_promotion_ids=product_group_promotion_ids, entity_statuses=entity_statuses, ad_group_id=ad_group_id, page_size=page_size, order=order, bookmark=bookmark)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ProductGroupPromotionsApi->product_group_promotions_list: %s\n" % e)
 ```
 
@@ -310,15 +311,15 @@ Update multiple existing Product Group Promotions (by product_group_id)
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import product_group_promotions_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.product_group_promotion_update_request import ProductGroupPromotionUpdateRequest
-from pinterest.generated.client.model.product_group_promotion_update_response_item import ProductGroupPromotionUpdateResponseItem
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import product_group_promotions_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.product_group_promotion_update_response_item import ProductGroupPromotionUpdateResponseItem
+from openapi_generated.pinterest_client.model.product_group_promotion_update_request import ProductGroupPromotionUpdateRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -328,20 +329,32 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = product_group_promotions_api.ProductGroupPromotionsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
     product_group_promotion_update_request = ProductGroupPromotionUpdateRequest(
         ad_group_id="2680059592705",
         product_group_promotion=[
-            ProductGroupPromotionUpdateItem(None),
+            ProductGroupPromotionCommon(
+                id="2680059592705",
+                status=EntityStatus("ACTIVE"),
+                tracking_url="https://www.pinterest.com",
+                catalogs_product_group_id="1231235",
+                catalogs_product_group_name="catalogProductGroupName",
+                creative_type=CreativeType("REGULAR"),
+                collections_hero_pin_id="123123",
+                collections_hero_destination_url="http://www.pinterest.com",
+                slideshow_collections_title="Title",
+                slideshow_collections_description="Description",
+                is_mdl=True,
+            ),
         ],
     ) # ProductGroupPromotionUpdateRequest | Parameters to update Product group promotions
 
@@ -350,7 +363,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Update product group promotions
         api_response = api_instance.product_group_promotions_update(ad_account_id, product_group_promotion_update_request)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ProductGroupPromotionsApi->product_group_promotions_update: %s\n" % e)
 ```
 
@@ -398,15 +411,15 @@ Get analytics for the specified product groups in the specified <code>ad_account
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import product_group_promotions_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.product_group_analytics_response import ProductGroupAnalyticsResponse
-from pinterest.generated.client.model.granularity import Granularity
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import product_group_promotions_api
+from openapi_generated.pinterest_client.model.product_group_analytics_response import ProductGroupAnalyticsResponse
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.granularity import Granularity
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -416,13 +429,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = product_group_promotions_api.ProductGroupPromotionsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -445,7 +458,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get product group analytics
         api_response = api_instance.product_groups_analytics(ad_account_id, start_date, end_date, product_group_ids, columns, granularity)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ProductGroupPromotionsApi->product_groups_analytics: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -454,7 +467,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get product group analytics
         api_response = api_instance.product_groups_analytics(ad_account_id, start_date, end_date, product_group_ids, columns, granularity, click_window_days=click_window_days, engagement_window_days=engagement_window_days, view_window_days=view_window_days, conversion_report_time=conversion_report_time)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling ProductGroupPromotionsApi->product_groups_analytics: %s\n" % e)
 ```
 

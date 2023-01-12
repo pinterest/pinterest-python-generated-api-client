@@ -1,4 +1,4 @@
-# pinterest.generated.client.AudienceInsightsApi
+# openapi_generated.pinterest_client.AudienceInsightsApi
 
 All URIs are relative to *https://api.pinterest.com/v5*
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 Get audience insights
 
-<strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/ads/ads-management/'>Learn more</a>.</strong> <p/> Get Audience Insights for an ad account. The response will return insights for 3 types of audiences: the ad account's engaged audience on Pinterest, the ad account's total audience on Pinterest and Pinterest's total audience.<p/> <a href=\"https://help.pinterest.com/en/business/article/audience-insights\" target=\"_blank\">Learn more about Audience Insights</a>.
+Get Audience Insights for an ad account. The response will return insights for 3 types of audiences: the ad account's engaged audience on Pinterest, the ad account's total audience on Pinterest and Pinterest's total audience.<p/> <a href=\"https://help.pinterest.com/en/business/article/audience-insights\" target=\"_blank\">Learn more about Audience Insights</a>.
 
 ### Example
 
@@ -20,15 +20,15 @@ Get audience insights
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import audience_insights_api
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.audience_insight_type import AudienceInsightType
-from pinterest.generated.client.model.audience_insights_response import AudienceInsightsResponse
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import audience_insights_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.audience_insights_response import AudienceInsightsResponse
+from openapi_generated.pinterest_client.model.audience_insight_type import AudienceInsightType
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -38,13 +38,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = audience_insights_api.AudienceInsightsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
@@ -55,7 +55,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get audience insights
         api_response = api_instance.audience_insights_get(ad_account_id, audience_insight_type)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling AudienceInsightsApi->audience_insights_get: %s\n" % e)
 ```
 

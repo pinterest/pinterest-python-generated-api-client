@@ -1,4 +1,4 @@
-# pinterest.generated.client.MediaApi
+# openapi_generated.pinterest_client.MediaApi
 
 All URIs are relative to *https://api.pinterest.com/v5*
 
@@ -22,15 +22,15 @@ Register your intent to upload media  The response includes all of the informati
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import media_api
-from pinterest.generated.client.model.media_upload_request import MediaUploadRequest
-from pinterest.generated.client.model.error import Error
-from pinterest.generated.client.model.media_upload import MediaUpload
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import media_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.media_upload import MediaUpload
+from openapi_generated.pinterest_client.model.media_upload_request import MediaUploadRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -40,13 +40,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = media_api.MediaApi(api_client)
     media_upload_request = MediaUploadRequest(
@@ -58,7 +58,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Register media upload
         api_response = api_instance.media_create(media_upload_request)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling MediaApi->media_create: %s\n" % e)
 ```
 
@@ -105,14 +105,14 @@ Get details for a registered media upload, including its current status.  <stron
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import media_api
-from pinterest.generated.client.model.media_upload_details import MediaUploadDetails
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import media_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.media_upload_details import MediaUploadDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -122,13 +122,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = media_api.MediaApi(api_client)
     media_id = "4" # str | Media identifier
@@ -138,7 +138,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # Get media upload details
         api_response = api_instance.media_get(media_id)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling MediaApi->media_get: %s\n" % e)
 ```
 
@@ -186,14 +186,14 @@ List media uploads filtered by given parameters.  <strong><a href='/docs/solutio
 
 ```python
 import time
-import pinterest.generated.client
-from pinterest.generated.client.api import media_api
-from pinterest.generated.client.model.paginated import Paginated
-from pinterest.generated.client.model.error import Error
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import media_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 
@@ -203,13 +203,13 @@ configuration = pinterest.generated.client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
-configuration = pinterest.generated.client.Configuration(
+configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with pinterest.generated.client.ApiClient(configuration) as api_client:
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = media_api.MediaApi(api_client)
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
@@ -221,7 +221,7 @@ with pinterest.generated.client.ApiClient(configuration) as api_client:
         # List media uploads
         api_response = api_instance.media_list(bookmark=bookmark, page_size=page_size)
         pprint(api_response)
-    except pinterest.generated.client.ApiException as e:
+    except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling MediaApi->media_list: %s\n" % e)
 ```
 
