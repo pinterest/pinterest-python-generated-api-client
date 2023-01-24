@@ -1,10 +1,19 @@
 {{>partial_header}}
+from datetime import datetime
 
 from setuptools import setup, find_packages  # noqa: H301
 from pathlib import Path
 
-NAME = "{{{projectName}}}"
+import os
+
 VERSION = "{{packageVersion}}"
+_IS_TEST_BUILD = os.environ.get("IS_TEST_BUILD", 0)
+
+if _IS_TEST_BUILD:
+    print("* Test build enable")
+    VERSION = datetime.today().strftime('%m%d%Y%H%M%S')
+
+NAME = "{{{projectName}}}"
 {{#apiInfo}}
 {{#apis}}
 {{#-last}}

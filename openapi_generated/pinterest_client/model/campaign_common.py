@@ -62,6 +62,14 @@ class CampaignCommon(ModelNormal):
     """
 
     allowed_values = {
+        ('summary_status',): {
+            'RUNNING': "RUNNING",
+            'PAUSED': "PAUSED",
+            'NOT_STARTED': "NOT_STARTED",
+            'COMPLETED': "COMPLETED",
+            'ADVERTISER_DISABLED': "ADVERTISER_DISABLED",
+            'ARCHIVED': "ARCHIVED",
+        },
     }
 
     validations = {
@@ -109,6 +117,7 @@ class CampaignCommon(ModelNormal):
             'tracking_urls': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'start_time': (int, none_type,),  # noqa: E501
             'end_time': (int, none_type,),  # noqa: E501
+            'summary_status': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -126,6 +135,7 @@ class CampaignCommon(ModelNormal):
         'tracking_urls': 'tracking_urls',  # noqa: E501
         'start_time': 'start_time',  # noqa: E501
         'end_time': 'end_time',  # noqa: E501
+        'summary_status': 'summary_status',  # noqa: E501
     }
 
     read_only_vars = {
@@ -178,6 +188,7 @@ class CampaignCommon(ModelNormal):
             tracking_urls ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             start_time (int, none_type): Campaign start time. Unix timestamp in seconds. Only used for Campaign Budget Optimization (CBO) campaigns.. [optional]  # noqa: E501
             end_time (int, none_type): Campaign end time. Unix timestamp in seconds. Only used for Campaign Budget Optimization (CBO) campaigns.. [optional]  # noqa: E501
+            summary_status (str): Summary status for campaigns. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -268,6 +279,7 @@ class CampaignCommon(ModelNormal):
             tracking_urls ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             start_time (int, none_type): Campaign start time. Unix timestamp in seconds. Only used for Campaign Budget Optimization (CBO) campaigns.. [optional]  # noqa: E501
             end_time (int, none_type): Campaign end time. Unix timestamp in seconds. Only used for Campaign Budget Optimization (CBO) campaigns.. [optional]  # noqa: E501
+            summary_status (str): Summary status for campaigns. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
