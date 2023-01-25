@@ -59,21 +59,6 @@ class TrackingUrls(ModelNormal):
     }
 
     validations = {
-        ('impression',): {
-            'max_items': 3,
-        },
-        ('click',): {
-            'max_items': 3,
-        },
-        ('engagement',): {
-            'max_items': 3,
-        },
-        ('buyable_button',): {
-            'max_items': 3,
-        },
-        ('audience_verification',): {
-            'max_items': 3,
-        },
     }
 
     @cached_property

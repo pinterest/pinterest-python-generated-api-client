@@ -546,9 +546,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     ad_ids = [
         "4",
     ] # [str] | List of Ad Ids to use to filter the results. (optional)
-    entity_statuses = [
-        "ACTIVE",
-    ] # [str] | Entity status (optional)
+    entity_statuses = ["ACTIVE","PAUSED"] # [str] | Entity status (optional) if omitted the server will use the default value of ["ACTIVE","PAUSED"]
     page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
     order = "ASCENDING" # str | The order in which to sort the items returned: “ASCENDING” or “DESCENDING” by ID. Note that higher-value IDs are associated with more-recently added items. (optional)
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
@@ -580,7 +578,7 @@ Name | Type | Description  | Notes
  **campaign_ids** | **[str]**| List of Campaign Ids to use to filter the results. | [optional]
  **ad_group_ids** | **[str]**| List of Ad group Ids to use to filter the results. | [optional]
  **ad_ids** | **[str]**| List of Ad Ids to use to filter the results. | [optional]
- **entity_statuses** | **[str]**| Entity status | [optional]
+ **entity_statuses** | **[str]**| Entity status | [optional] if omitted the server will use the default value of ["ACTIVE","PAUSED"]
  **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
  **order** | **str**| The order in which to sort the items returned: “ASCENDING” or “DESCENDING” by ID. Note that higher-value IDs are associated with more-recently added items. | [optional]
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]

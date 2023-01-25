@@ -44,77 +44,6 @@ class ProductGroupPromotionsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.product_group_promotion_get_endpoint = _Endpoint(
-            settings={
-                'response_type': (ProductGroupPromotion,),
-                'auth': [
-                    'pinterest_oauth2'
-                ],
-                'endpoint_path': '/ad_accounts/{ad_account_id}/product_group_promotions/{product_group_promotion_id}',
-                'operation_id': 'product_group_promotion_get',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'ad_account_id',
-                    'product_group_promotion_id',
-                ],
-                'required': [
-                    'ad_account_id',
-                    'product_group_promotion_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                    'ad_account_id',
-                    'product_group_promotion_id',
-                ]
-            },
-            root_map={
-                'validations': {
-                    ('ad_account_id',): {
-                        'max_length': 18,
-                        'regex': {
-                            'pattern': r'^\d+$',  # noqa: E501
-                        },
-                    },
-                    ('product_group_promotion_id',): {
-                        'max_length': 18,
-                        'regex': {
-                            'pattern': r'^\d+$',  # noqa: E501
-                        },
-                    },
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'ad_account_id':
-                        (str,),
-                    'product_group_promotion_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'ad_account_id': 'ad_account_id',
-                    'product_group_promotion_id': 'product_group_promotion_id',
-                },
-                'location_map': {
-                    'ad_account_id': 'path',
-                    'product_group_promotion_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
         self.product_group_promotions_create_endpoint = _Endpoint(
             settings={
                 'response_type': (ProductGroupPromotionArrayResponse,),
@@ -177,6 +106,77 @@ class ProductGroupPromotionsApi(object):
                 'content_type': [
                     'application/json'
                 ]
+            },
+            api_client=api_client
+        )
+        self.product_group_promotions_get_endpoint = _Endpoint(
+            settings={
+                'response_type': (ProductGroupPromotion,),
+                'auth': [
+                    'pinterest_oauth2'
+                ],
+                'endpoint_path': '/ad_accounts/{ad_account_id}/product_group_promotions/{product_group_promotion_id}',
+                'operation_id': 'product_group_promotions_get',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'ad_account_id',
+                    'product_group_promotion_id',
+                ],
+                'required': [
+                    'ad_account_id',
+                    'product_group_promotion_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'ad_account_id',
+                    'product_group_promotion_id',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('ad_account_id',): {
+                        'max_length': 18,
+                        'regex': {
+                            'pattern': r'^\d+$',  # noqa: E501
+                        },
+                    },
+                    ('product_group_promotion_id',): {
+                        'max_length': 18,
+                        'regex': {
+                            'pattern': r'^\d+$',  # noqa: E501
+                        },
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'ad_account_id':
+                        (str,),
+                    'product_group_promotion_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'ad_account_id': 'ad_account_id',
+                    'product_group_promotion_id': 'product_group_promotion_id',
+                },
+                'location_map': {
+                    'ad_account_id': 'path',
+                    'product_group_promotion_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -630,88 +630,6 @@ class ProductGroupPromotionsApi(object):
             api_client=api_client
         )
 
-    def product_group_promotion_get(
-        self,
-        ad_account_id,
-        product_group_promotion_id,
-        **kwargs
-    ):
-        """Get a product group promotion by id  # noqa: E501
-
-        Get a product group promotion by id  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.product_group_promotion_get(ad_account_id, product_group_promotion_id, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            ad_account_id (str): Unique identifier of an ad account.
-            product_group_promotion_id (str): Unique identifier of a product group promotion
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            ProductGroupPromotion
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['ad_account_id'] = \
-            ad_account_id
-        kwargs['product_group_promotion_id'] = \
-            product_group_promotion_id
-        return self.product_group_promotion_get_endpoint.call_with_http_info(**kwargs)
-
     def product_group_promotions_create(
         self,
         ad_account_id,
@@ -794,6 +712,88 @@ class ProductGroupPromotionsApi(object):
             product_group_promotion_create_request
         return self.product_group_promotions_create_endpoint.call_with_http_info(**kwargs)
 
+    def product_group_promotions_get(
+        self,
+        ad_account_id,
+        product_group_promotion_id,
+        **kwargs
+    ):
+        """Get a product group promotion by id  # noqa: E501
+
+        Get a product group promotion by id  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.product_group_promotions_get(ad_account_id, product_group_promotion_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            ad_account_id (str): Unique identifier of an ad account.
+            product_group_promotion_id (str): Unique identifier of a product group promotion
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ProductGroupPromotion
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['ad_account_id'] = \
+            ad_account_id
+        kwargs['product_group_promotion_id'] = \
+            product_group_promotion_id
+        return self.product_group_promotions_get_endpoint.call_with_http_info(**kwargs)
+
     def product_group_promotions_list(
         self,
         ad_account_id,
@@ -813,7 +813,7 @@ class ProductGroupPromotionsApi(object):
 
         Keyword Args:
             product_group_promotion_ids ([str]): List of Product group promotion Ids.. [optional]
-            entity_statuses ([str]): Entity status. [optional]
+            entity_statuses ([str]): Entity status. [optional] if omitted the server will use the default value of ["ACTIVE","PAUSED"]
             ad_group_id (str): Ad group Id.. [optional]
             page_size (int): Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information.. [optional] if omitted the server will use the default value of 25
             order (str): The order in which to sort the items returned: “ASCENDING” or “DESCENDING” by ID. Note that higher-value IDs are associated with more-recently added items.. [optional]
