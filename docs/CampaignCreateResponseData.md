@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **tracking_urls** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 
 **start_time** | **int, none_type** | Campaign start time. Unix timestamp in seconds. Only used for Campaign Budget Optimization (CBO) campaigns. | [optional] 
 **end_time** | **int, none_type** | Campaign end time. Unix timestamp in seconds. Only used for Campaign Budget Optimization (CBO) campaigns. | [optional] 
+**summary_status** | **str** | Summary status for campaigns | [optional] 
 **is_campaign_budget_optimization** | **bool, none_type** | Determines if a campaign automatically generate ad-group level budgets given a campaign budget to maximize campaign outcome. When transitioning from non-cbo to cbo, all previous child ad group budget will be cleared. | [optional] 
 **is_flexible_daily_budgets** | **bool, none_type** | Determines if a campaign has flexible daily budgets setup. | [optional] 
 **default_ad_group_budget_in_micro_currency** | **int, none_type** | When transitioning from campaign budget optimization to non-campaign budget optimization, the default_ad_group_budget_in_micro_currency will propagate to each child ad groups daily budget. Unit is micro currency of the associated advertiser account. | [optional] 

@@ -1364,7 +1364,7 @@ class AdGroupsApi(object):
         Keyword Args:
             campaign_ids ([str]): List of Campaign Ids to use to filter the results.. [optional]
             ad_group_ids ([str]): List of Ad group Ids to use to filter the results.. [optional]
-            entity_statuses ([str]): Entity status. [optional]
+            entity_statuses ([str]): Entity status. [optional] if omitted the server will use the default value of ["ACTIVE","PAUSED"]
             page_size (int): Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information.. [optional] if omitted the server will use the default value of 25
             order (str): The order in which to sort the items returned: “ASCENDING” or “DESCENDING” by ID. Note that higher-value IDs are associated with more-recently added items.. [optional]
             bookmark (str): Cursor used to fetch the next page of items. [optional]

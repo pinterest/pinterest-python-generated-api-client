@@ -70,6 +70,14 @@ class CampaignCreateResponseData(ModelComposed):
     """
 
     allowed_values = {
+        ('summary_status',): {
+            'RUNNING': "RUNNING",
+            'PAUSED': "PAUSED",
+            'NOT_STARTED': "NOT_STARTED",
+            'COMPLETED': "COMPLETED",
+            'ADVERTISER_DISABLED': "ADVERTISER_DISABLED",
+            'ARCHIVED': "ARCHIVED",
+        },
     }
 
     validations = {
@@ -122,6 +130,7 @@ class CampaignCreateResponseData(ModelComposed):
             'tracking_urls': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'start_time': (int, none_type,),  # noqa: E501
             'end_time': (int, none_type,),  # noqa: E501
+            'summary_status': (str,),  # noqa: E501
             'is_campaign_budget_optimization': (bool, none_type,),  # noqa: E501
             'is_flexible_daily_budgets': (bool, none_type,),  # noqa: E501
             'default_ad_group_budget_in_micro_currency': (int, none_type,),  # noqa: E501
@@ -148,6 +157,7 @@ class CampaignCreateResponseData(ModelComposed):
         'tracking_urls': 'tracking_urls',  # noqa: E501
         'start_time': 'start_time',  # noqa: E501
         'end_time': 'end_time',  # noqa: E501
+        'summary_status': 'summary_status',  # noqa: E501
         'is_campaign_budget_optimization': 'is_campaign_budget_optimization',  # noqa: E501
         'is_flexible_daily_budgets': 'is_flexible_daily_budgets',  # noqa: E501
         'default_ad_group_budget_in_micro_currency': 'default_ad_group_budget_in_micro_currency',  # noqa: E501
@@ -207,6 +217,7 @@ class CampaignCreateResponseData(ModelComposed):
             tracking_urls ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             start_time (int, none_type): Campaign start time. Unix timestamp in seconds. Only used for Campaign Budget Optimization (CBO) campaigns.. [optional]  # noqa: E501
             end_time (int, none_type): Campaign end time. Unix timestamp in seconds. Only used for Campaign Budget Optimization (CBO) campaigns.. [optional]  # noqa: E501
+            summary_status (str): Summary status for campaigns. [optional]  # noqa: E501
             is_campaign_budget_optimization (bool, none_type): Determines if a campaign automatically generate ad-group level budgets given a campaign budget to maximize campaign outcome. When transitioning from non-cbo to cbo, all previous child ad group budget will be cleared.. [optional]  # noqa: E501
             is_flexible_daily_budgets (bool, none_type): Determines if a campaign has flexible daily budgets setup.. [optional]  # noqa: E501
             default_ad_group_budget_in_micro_currency (int, none_type): When transitioning from campaign budget optimization to non-campaign budget optimization, the default_ad_group_budget_in_micro_currency will propagate to each child ad groups daily budget. Unit is micro currency of the associated advertiser account.. [optional]  # noqa: E501
@@ -324,6 +335,7 @@ class CampaignCreateResponseData(ModelComposed):
             tracking_urls ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             start_time (int, none_type): Campaign start time. Unix timestamp in seconds. Only used for Campaign Budget Optimization (CBO) campaigns.. [optional]  # noqa: E501
             end_time (int, none_type): Campaign end time. Unix timestamp in seconds. Only used for Campaign Budget Optimization (CBO) campaigns.. [optional]  # noqa: E501
+            summary_status (str): Summary status for campaigns. [optional]  # noqa: E501
             is_campaign_budget_optimization (bool, none_type): Determines if a campaign automatically generate ad-group level budgets given a campaign budget to maximize campaign outcome. When transitioning from non-cbo to cbo, all previous child ad group budget will be cleared.. [optional]  # noqa: E501
             is_flexible_daily_budgets (bool, none_type): Determines if a campaign has flexible daily budgets setup.. [optional]  # noqa: E501
             default_ad_group_budget_in_micro_currency (int, none_type): When transitioning from campaign budget optimization to non-campaign budget optimization, the default_ad_group_budget_in_micro_currency will propagate to each child ad groups daily budget. Unit is micro currency of the associated advertiser account.. [optional]  # noqa: E501

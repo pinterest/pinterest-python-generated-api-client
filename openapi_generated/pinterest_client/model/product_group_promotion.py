@@ -129,8 +129,8 @@ class ProductGroupPromotion(ModelComposed):
             'slideshow_collections_description': (str, none_type,),  # noqa: E501
             'status': (EntityStatus,),  # noqa: E501
             'tracking_url': (str, none_type,),  # noqa: E501
-            'catalogs_product_group_id': (str,),  # noqa: E501
-            'catalogs_product_group_name': (str,),  # noqa: E501
+            'catalogs_product_group_id': (str, none_type,),  # noqa: E501
+            'catalogs_product_group_name': (str, none_type,),  # noqa: E501
             'creative_type': (CreativeType,),  # noqa: E501
             'collections_hero_pin_id': (str, none_type,),  # noqa: E501
             'collections_hero_destination_url': (str, none_type,),  # noqa: E501
@@ -214,8 +214,8 @@ class ProductGroupPromotion(ModelComposed):
             slideshow_collections_description (str, none_type): Slideshow Collections Description. [optional]  # noqa: E501
             status (EntityStatus): [optional]  # noqa: E501
             tracking_url (str, none_type): Tracking template for proudct group promotions. 4000 limit. [optional]  # noqa: E501
-            catalogs_product_group_id (str): ID of the catalogs product group that this product group promotion references. [optional]  # noqa: E501
-            catalogs_product_group_name (str): Catalogs product group. [optional]  # noqa: E501
+            catalogs_product_group_id (str, none_type): ID of the catalogs product group that this product group promotion references. [optional]  # noqa: E501
+            catalogs_product_group_name (str, none_type): Catalogs product group name. [optional]  # noqa: E501
             creative_type (CreativeType): [optional]  # noqa: E501
             collections_hero_pin_id (str, none_type): Hero Pin ID if this PG is promoted as a Collection. [optional]  # noqa: E501
             collections_hero_destination_url (str, none_type): Collections Hero Destination Url. [optional]  # noqa: E501
@@ -331,8 +331,8 @@ class ProductGroupPromotion(ModelComposed):
             slideshow_collections_description (str, none_type): Slideshow Collections Description. [optional]  # noqa: E501
             status (EntityStatus): [optional]  # noqa: E501
             tracking_url (str, none_type): Tracking template for proudct group promotions. 4000 limit. [optional]  # noqa: E501
-            catalogs_product_group_id (str): ID of the catalogs product group that this product group promotion references. [optional]  # noqa: E501
-            catalogs_product_group_name (str): Catalogs product group. [optional]  # noqa: E501
+            catalogs_product_group_id (str, none_type): ID of the catalogs product group that this product group promotion references. [optional]  # noqa: E501
+            catalogs_product_group_name (str, none_type): Catalogs product group name. [optional]  # noqa: E501
             creative_type (CreativeType): [optional]  # noqa: E501
             collections_hero_pin_id (str, none_type): Hero Pin ID if this PG is promoted as a Collection. [optional]  # noqa: E501
             collections_hero_destination_url (str, none_type): Collections Hero Destination Url. [optional]  # noqa: E501
