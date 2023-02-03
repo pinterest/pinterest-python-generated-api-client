@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **zp** | **[str]** | Sha256 hashes of user&#39;s zipcode, only digits. | [optional] 
 **country** | **[str]** | Sha256 hashes of two-character ISO-3166 country code indicating the user&#39;s country, in lowercase. | [optional] 
 **external_id** | **[str]** | Sha256 hashes of the unique id from the advertiser that identifies a user in their space, e.g. user id, loyalty id, etc. | [optional] 
+**click_id** | **str, none_type** | The value stored in _epik cookie on your domain or &amp;epik&#x3D; query parameter in the URL. It&#39;s recommended to send this unique identifier, when available. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

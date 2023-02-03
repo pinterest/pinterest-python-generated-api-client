@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **product_group_promotions_create**
-> ProductGroupPromotionArrayResponse product_group_promotions_create(ad_account_id, product_group_promotion_create_request)
+> ProductGroupPromotionResponse product_group_promotions_create(ad_account_id, product_group_promotion_create_request)
 
 Create product group promotions
 
@@ -28,7 +28,7 @@ import openapi_generated.pinterest_client
 from openapi_generated.pinterest_client.api import product_group_promotions_api
 from openapi_generated.pinterest_client.model.error import Error
 from openapi_generated.pinterest_client.model.product_group_promotion_create_request import ProductGroupPromotionCreateRequest
-from openapi_generated.pinterest_client.model.product_group_promotion_array_response import ProductGroupPromotionArrayResponse
+from openapi_generated.pinterest_client.model.product_group_promotion_response import ProductGroupPromotionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
@@ -55,18 +55,24 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     product_group_promotion_create_request = ProductGroupPromotionCreateRequest(
         ad_group_id="2680059592705",
         product_group_promotion=[
-            ProductGroupPromotionCommon(
+            ProductGroupPromotion(
                 id="2680059592705",
+                ad_group_id="2680059592705",
+                bid_in_micro_currency=14000000,
+                included=True,
+                definition="*/product_type_0='kitchen'/product_type_1='beverage appliances'",
+                relative_definition="product_type_1='beverage appliances'",
+                parent_id="1231234",
+                slideshow_collections_title="slideshow title",
+                slideshow_collections_description="slideshow description",
+                is_mdl=True,
                 status=EntityStatus("ACTIVE"),
                 tracking_url="https://www.pinterest.com",
-                catalogs_product_group_id="1231235",
-                catalogs_product_group_name="catalogProductGroupName",
+                catalog_product_group_id="1231235",
+                catalog_product_group_name="catalogProductGroupName",
                 creative_type=CreativeType("REGULAR"),
                 collections_hero_pin_id="123123",
                 collections_hero_destination_url="http://www.pinterest.com",
-                slideshow_collections_title="Title",
-                slideshow_collections_description="Description",
-                is_mdl=True,
             ),
         ],
     ) # ProductGroupPromotionCreateRequest | List of Product Group Promotions to create, size limit [1, 30].
@@ -90,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProductGroupPromotionArrayResponse**](ProductGroupPromotionArrayResponse.md)
+[**ProductGroupPromotionResponse**](ProductGroupPromotionResponse.md)
 
 ### Authorization
 
@@ -112,7 +118,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_group_promotions_get**
-> ProductGroupPromotion product_group_promotions_get(ad_account_id, product_group_promotion_id)
+> ProductGroupPromotionResponse product_group_promotions_get(ad_account_id, product_group_promotion_id)
 
 Get a product group promotion by id
 
@@ -127,7 +133,7 @@ import time
 import openapi_generated.pinterest_client
 from openapi_generated.pinterest_client.api import product_group_promotions_api
 from openapi_generated.pinterest_client.model.error import Error
-from openapi_generated.pinterest_client.model.product_group_promotion import ProductGroupPromotion
+from openapi_generated.pinterest_client.model.product_group_promotion_response import ProductGroupPromotionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
@@ -172,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProductGroupPromotion**](ProductGroupPromotion.md)
+[**ProductGroupPromotionResponse**](ProductGroupPromotionResponse.md)
 
 ### Authorization
 
@@ -297,7 +303,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_group_promotions_update**
-> [ProductGroupPromotionUpdateResponseItem] product_group_promotions_update(ad_account_id, product_group_promotion_update_request)
+> ProductGroupPromotionResponse product_group_promotions_update(ad_account_id, product_group_promotion_update_request)
 
 Update product group promotions
 
@@ -312,8 +318,8 @@ import time
 import openapi_generated.pinterest_client
 from openapi_generated.pinterest_client.api import product_group_promotions_api
 from openapi_generated.pinterest_client.model.error import Error
-from openapi_generated.pinterest_client.model.product_group_promotion_update_response_item import ProductGroupPromotionUpdateResponseItem
 from openapi_generated.pinterest_client.model.product_group_promotion_update_request import ProductGroupPromotionUpdateRequest
+from openapi_generated.pinterest_client.model.product_group_promotion_response import ProductGroupPromotionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
@@ -340,18 +346,24 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     product_group_promotion_update_request = ProductGroupPromotionUpdateRequest(
         ad_group_id="2680059592705",
         product_group_promotion=[
-            ProductGroupPromotionCommon(
+            ProductGroupPromotion(
                 id="2680059592705",
+                ad_group_id="2680059592705",
+                bid_in_micro_currency=14000000,
+                included=True,
+                definition="*/product_type_0='kitchen'/product_type_1='beverage appliances'",
+                relative_definition="product_type_1='beverage appliances'",
+                parent_id="1231234",
+                slideshow_collections_title="slideshow title",
+                slideshow_collections_description="slideshow description",
+                is_mdl=True,
                 status=EntityStatus("ACTIVE"),
                 tracking_url="https://www.pinterest.com",
-                catalogs_product_group_id="1231235",
-                catalogs_product_group_name="catalogProductGroupName",
+                catalog_product_group_id="1231235",
+                catalog_product_group_name="catalogProductGroupName",
                 creative_type=CreativeType("REGULAR"),
                 collections_hero_pin_id="123123",
                 collections_hero_destination_url="http://www.pinterest.com",
-                slideshow_collections_title="Title",
-                slideshow_collections_description="Description",
-                is_mdl=True,
             ),
         ],
     ) # ProductGroupPromotionUpdateRequest | Parameters to update Product group promotions
@@ -375,7 +387,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[ProductGroupPromotionUpdateResponseItem]**](ProductGroupPromotionUpdateResponseItem.md)
+[**ProductGroupPromotionResponse**](ProductGroupPromotionResponse.md)
 
 ### Authorization
 
@@ -401,7 +413,7 @@ Name | Type | Description  | Notes
 
 Get product group analytics
 
-Get analytics for the specified product groups in the specified <code>ad_account_id</code>, filtered by the specified options. - The token's user_account must either be the Owner of the specified ad account, or have one of the necessary roles granted to them via <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a>: Admin, Analyst, Campaign Manager.
+Get analytics for the specified product groups in the specified <code>ad_account_id</code>, filtered by the specified options. - The token's user_account must either be the Owner of the specified ad account, or have one of the necessary roles granted to them via <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a>: Admin, Analyst, Campaign Manager. - If granularity is not HOUR, the furthest back you can are allowed to pull data is 914 days before the current date in UTC time and the max time range supported is 186 days. - If granularity is HOUR, the furthest back you can are allowed to pull data is 8 days before the current date in UTC time and the max time range supported is 3 days.
 
 ### Example
 

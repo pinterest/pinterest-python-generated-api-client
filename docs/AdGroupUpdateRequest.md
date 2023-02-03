@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **status** | **str** | Ad group/entity status. | [optional] 
 **budget_in_micro_currency** | **int, none_type** | Budget in micro currency. This field is **REQUIRED** for non-CBO (campaign budget optimization) campaigns.  A CBO campaign automatically generates ad group budgets from its campaign budget to maximize campaign outcome. A CBO campaign is limited to 70 or less ad groups. | [optional] 
 **bid_in_micro_currency** | **int, none_type** | Bid price in micro currency. This field is **REQUIRED** for the following campaign objective_type/billable_event combinations: AWARENESS/IMPRESSION, CONSIDERATION/CLICKTHROUGH, CATALOG_SALES/CLICKTHROUGH, VIDEO_VIEW/VIDEO_V_50_MRC. | [optional] 
-**bid_strategy_type** | **str** |  | [optional] 
 **optimization_goal_metadata** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** | Optimization goals for objective-based performance campaigns. | [optional] 
 **budget_type** | [**BudgetType**](BudgetType.md) |  | [optional] 
 **start_time** | **int, none_type** | Ad group start time. Unix timestamp in seconds. Defaults to current time. | [optional] 
@@ -22,6 +21,7 @@ Name | Type | Description | Notes
 **pacing_delivery_type** | **str** | Pacing delivery type. With ACCELERATED, an ad group budget is spent as fast as possible. With STANDARD, an ad group budget is spent smoothly over a day. | [optional] 
 **campaign_id** | **str** | Campaign ID of the ad group. | [optional] 
 **billable_event** | [**ActionType**](ActionType.md) |  | [optional] 
+**bid_strategy_type** | **str, none_type** | Bid strategy type | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

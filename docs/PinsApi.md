@@ -8,7 +8,9 @@ Method | HTTP request | Description
 [**pins_create**](PinsApi.md#pins_create) | **POST** /pins | Create Pin
 [**pins_delete**](PinsApi.md#pins_delete) | **DELETE** /pins/{pin_id} | Delete Pin
 [**pins_get**](PinsApi.md#pins_get) | **GET** /pins/{pin_id} | Get Pin
+[**pins_list**](PinsApi.md#pins_list) | **GET** /pins | List Pins
 [**pins_save**](PinsApi.md#pins_save) | **POST** /pins/{pin_id}/save | Save Pin
+[**pins_update**](PinsApi.md#pins_update) | **PATCH** /pins/{pin_id} | Update Pin
 
 
 # **pins_analytics**
@@ -384,6 +386,94 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **pins_list**
+> bool, date, datetime, dict, float, int, list, str, none_type pins_list()
+
+List Pins
+
+Get a list of a user's Pins.
+
+### Example
+
+* OAuth Authentication (pinterest_oauth2):
+
+```python
+import time
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import pins_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.pinterest.com/v5
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: pinterest_oauth2
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pins_api.PinsApi(api_client)
+    bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
+    pin_filter = "exclude_native" # str | Pin filter. (optional)
+    include_protected_pins = False # bool | Specify if return pins from protected boards (optional) if omitted the server will use the default value of False
+    pin_type = "PRIVATE" # str | The type of pins to return, currently only enabled for private pins (optional) if omitted the server will use the default value of "PRIVATE"
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # List Pins
+        api_response = api_instance.pins_list(bookmark=bookmark, pin_filter=pin_filter, include_protected_pins=include_protected_pins, pin_type=pin_type)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling PinsApi->pins_list: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
+ **pin_filter** | **str**| Pin filter. | [optional]
+ **include_protected_pins** | **bool**| Specify if return pins from protected boards | [optional] if omitted the server will use the default value of False
+ **pin_type** | **str**| The type of pins to return, currently only enabled for private pins | [optional] if omitted the server will use the default value of "PRIVATE"
+
+### Return type
+
+**bool, date, datetime, dict, float, int, list, str, none_type**
+
+### Authorization
+
+[pinterest_oauth2](../README.md#pinterest_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | Invalid pin filter value |  -  |
+**0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **pins_save**
 > Pin pins_save(pin_id, inline_object)
 
@@ -468,6 +558,99 @@ Name | Type | Description  | Notes
 **201** | Successfully saved pin. |  -  |
 **403** | Not authorized to access Board or Pin. |  -  |
 **404** | Board or Pin not found. |  -  |
+**0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **pins_update**
+> Pin pins_update(pin_id, pin_update)
+
+Update Pin
+
+Update a pin owned by the \"operating user_account\".  <strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/new/about-beta-access/'>Learn more</a>.</strong>
+
+### Example
+
+* OAuth Authentication (pinterest_oauth2):
+
+```python
+import time
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import pins_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.pin import Pin
+from openapi_generated.pinterest_client.model.pin_update import PinUpdate
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.pinterest.com/v5
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: pinterest_oauth2
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pins_api.PinsApi(api_client)
+    pin_id = "pin_id_example" # str | Unique identifier of a Pin.
+    pin_update = PinUpdate(
+        alt_text="alt_text_example",
+        board_id="4",
+        board_section_id="4",
+        description="description_example",
+        link="https://www.pinterest.com/",
+        title="title_example",
+    ) # PinUpdate | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update Pin
+        api_response = api_instance.pins_update(pin_id, pin_update)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling PinsApi->pins_update: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pin_id** | **str**| Unique identifier of a Pin. |
+ **pin_update** | [**PinUpdate**](PinUpdate.md)|  |
+
+### Return type
+
+[**Pin**](Pin.md)
+
+### Authorization
+
+[pinterest_oauth2](../README.md#pinterest_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | response |  -  |
+**403** | Not authorized to update Pin. |  -  |
+**404** | Pin not found. |  -  |
+**429** | This request exceeded a rate limit. This can happen if the client exceeds one of the published rate limits or if multiple write operations are applied to an object within a short time window. |  -  |
 **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

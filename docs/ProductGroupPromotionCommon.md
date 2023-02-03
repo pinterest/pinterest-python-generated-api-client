@@ -4,11 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str, none_type** | ID of the product group promotion. | [optional] 
 **status** | [**EntityStatus**](EntityStatus.md) |  | [optional] 
 **tracking_url** | **str, none_type** | Tracking template for proudct group promotions. 4000 limit | [optional] 
-**catalogs_product_group_id** | **str, none_type** | ID of the catalogs product group that this product group promotion references | [optional] 
-**catalogs_product_group_name** | **str, none_type** | Catalogs product group name | [optional] 
+**catalogs_product_group_id** | **str** | ID of the catalogs product group that this product group promotion references | [optional] 
+**catalogs_product_group_name** | **str** | Catalogs product group | [optional] 
 **creative_type** | [**CreativeType**](CreativeType.md) |  | [optional] 
 **collections_hero_pin_id** | **str, none_type** | Hero Pin ID if this PG is promoted as a Collection | [optional] 
 **collections_hero_destination_url** | **str, none_type** | Collections Hero Destination Url | [optional] 

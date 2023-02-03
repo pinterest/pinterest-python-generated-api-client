@@ -4,6 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ad_link_format_warning** | **int** | Some items have ad links that are formatted incorrectly. | [optional] 
+**ad_link_same_as_link** | **int** | Some items have ad link URLs that are duplicates of the link URLs for those items. | [optional] 
 **title_length_too_long** | **int** | The title for some items were truncated because they contain too many characters. | [optional] 
 **description_length_too_long** | **int** | The description for some items were truncated because they contain too many characters. | [optional] 
 **gender_invalid** | **int** | Some items have gender values that are formatted incorrectly, which may limit visibility in recommendations, search results and shopping experiences. | [optional] 
@@ -14,10 +16,10 @@ Name | Type | Description | Notes
 **duplicate_products** | **int** | Some products are duplicated. | [optional] 
 **sales_price_invalid** | **int** | Some items have sale price values that are higher than the original price of the item. | [optional] 
 **product_category_depth_warning** | **int** | Some items only have 1 or 2 levels of google_product_category values, which may limit visibility in recommendations, search results and shopping experiences. | [optional] 
+**adwords_format_warning** | **int** | Some items have adwords_redirect links that are formatted incorrectly. | [optional] 
 **adwords_same_as_link** | **int** | Some items have adwords_redirect URLs that are duplicates of the link URLs for those items. | [optional] 
 **duplicate_headers** | **int** | Your feed contains duplicate headers. | [optional] 
 **fetch_same_signature** | **int** | Ingestion completed early because there are no changes to your feed since the last successful update. | [optional]  if omitted the server will use the default value of 1
-**adwords_format_warning** | **int** | Some items have adwords_redirect links that are formatted incorrectly. | [optional] 
 **additional_image_link_length_too_long** | **int** | Some items have additional_image_link URLs that contain too many characters, so those items will not be published. | [optional] 
 **additional_image_link_warning** | **int** | Some items have additional_image_link URLs that are formatted incorrectly and will not be published with your items. | [optional] 
 **image_link_warning** | **int** | Some items have image_link URLs that are formatted incorrectly and will not be published with those items. | [optional] 
