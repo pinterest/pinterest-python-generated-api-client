@@ -88,6 +88,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
                     external_id=[
                         "external_id_example",
                     ],
+                    click_id="dj0yJnU9b2JDcFFHekV4SHJNcmVrbFBkUEdqakh0akdUT1VjVVUmcD0yJm49cnNBQ3F2Q2dOVDBXWWhkWklrUGxBUSZ0PUFBQUFBR1BaY3Bv",
                 ),
                 custom_data=ConversionEventsCustomData(
                     currency="USD",

@@ -4,11 +4,347 @@ All URIs are relative to *https://api.pinterest.com/v5*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**boards_user_follows_list**](UserAccountApi.md#boards_user_follows_list) | **GET** /user_account/following/boards | List following boards
+[**follow_user_update**](UserAccountApi.md#follow_user_update) | **POST** /user_account/following/{username} | Follow user
+[**followers_list**](UserAccountApi.md#followers_list) | **GET** /user_account/followers | List followers
+[**linked_business_accounts_get**](UserAccountApi.md#linked_business_accounts_get) | **GET** /user_account/businesses | List linked businesses
 [**user_account_analytics**](UserAccountApi.md#user_account_analytics) | **GET** /user_account/analytics | Get user account analytics
 [**user_account_analytics_top_pins**](UserAccountApi.md#user_account_analytics_top_pins) | **GET** /user_account/analytics/top_pins | Get user account top pins analytics
 [**user_account_analytics_top_video_pins**](UserAccountApi.md#user_account_analytics_top_video_pins) | **GET** /user_account/analytics/top_video_pins | Get user account top video pins analytics
 [**user_account_get**](UserAccountApi.md#user_account_get) | **GET** /user_account | Get user account
+[**user_following_get**](UserAccountApi.md#user_following_get) | **GET** /user_account/following | List following
+[**verify_website_update**](UserAccountApi.md#verify_website_update) | **POST** /user_account/websites | Verify website
 
+
+# **boards_user_follows_list**
+> bool, date, datetime, dict, float, int, list, str, none_type boards_user_follows_list()
+
+List following boards
+
+Get a list of the boards a user follows. The request returns a board summary object array.
+
+### Example
+
+* OAuth Authentication (pinterest_oauth2):
+
+```python
+import time
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import user_account_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.pinterest.com/v5
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: pinterest_oauth2
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_account_api.UserAccountApi(api_client)
+    bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
+    explicit_following = False # bool | Whether or not to include implicit user follows, which means followees with board follows. When explicit_following is True, it means we only want explicit user follows. (optional) if omitted the server will use the default value of False
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # List following boards
+        api_response = api_instance.boards_user_follows_list(bookmark=bookmark, explicit_following=explicit_following, ad_account_id=ad_account_id)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling UserAccountApi->boards_user_follows_list: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
+ **explicit_following** | **bool**| Whether or not to include implicit user follows, which means followees with board follows. When explicit_following is True, it means we only want explicit user follows. | [optional] if omitted the server will use the default value of False
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
+
+### Return type
+
+**bool, date, datetime, dict, float, int, list, str, none_type**
+
+### Authorization
+
+[pinterest_oauth2](../README.md#pinterest_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | Invalid user id |  -  |
+**0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **follow_user_update**
+> UserSummary follow_user_update(username, follow_user_request)
+
+Follow user
+
+<strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/new/about-beta-access/'>Learn more</a>.</strong>  Use this request, as a signed-in user, to follow another user.
+
+### Example
+
+* OAuth Authentication (pinterest_oauth2):
+
+```python
+import time
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import user_account_api
+from openapi_generated.pinterest_client.model.follow_user_request import FollowUserRequest
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.user_summary import UserSummary
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.pinterest.com/v5
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: pinterest_oauth2
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_account_api.UserAccountApi(api_client)
+    username = "username" # str | A valid username
+    follow_user_request = FollowUserRequest(
+        auto_follow=False,
+    ) # FollowUserRequest | Follow a user.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Follow user
+        api_response = api_instance.follow_user_update(username, follow_user_request)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling UserAccountApi->follow_user_update: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **str**| A valid username |
+ **follow_user_request** | [**FollowUserRequest**](FollowUserRequest.md)| Follow a user. |
+
+### Return type
+
+[**UserSummary**](UserSummary.md)
+
+### Authorization
+
+[pinterest_oauth2](../README.md#pinterest_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**404** | User not found |  -  |
+**0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **followers_list**
+> bool, date, datetime, dict, float, int, list, str, none_type followers_list()
+
+List followers
+
+Get a list of your followers, or a specific user's followers.
+
+### Example
+
+* OAuth Authentication (pinterest_oauth2):
+
+```python
+import time
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import user_account_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.pinterest.com/v5
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: pinterest_oauth2
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_account_api.UserAccountApi(api_client)
+    bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # List followers
+        api_response = api_instance.followers_list(bookmark=bookmark)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling UserAccountApi->followers_list: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
+
+### Return type
+
+**bool, date, datetime, dict, float, int, list, str, none_type**
+
+### Authorization
+
+[pinterest_oauth2](../README.md#pinterest_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | Invalid user id |  -  |
+**0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **linked_business_accounts_get**
+> [LinkedBusiness] linked_business_accounts_get()
+
+List linked businesses
+
+Get a list of your linked business accounts.
+
+### Example
+
+* OAuth Authentication (pinterest_oauth2):
+
+```python
+import time
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import user_account_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.linked_business import LinkedBusiness
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.pinterest.com/v5
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: pinterest_oauth2
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_account_api.UserAccountApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # List linked businesses
+        api_response = api_instance.linked_business_accounts_get()
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling UserAccountApi->linked_business_accounts_get: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**[LinkedBusiness]**](LinkedBusiness.md)
+
+### Authorization
+
+[pinterest_oauth2](../README.md#pinterest_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **user_account_analytics**
 > AnalyticsResponse user_account_analytics(start_date, end_date)
@@ -415,6 +751,176 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | response |  -  |
 **403** | Not authorized to access the user account. |  -  |
+**0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **user_following_get**
+> bool, date, datetime, dict, float, int, list, str, none_type user_following_get()
+
+List following
+
+Get a list of who a certain user follows.
+
+### Example
+
+* OAuth Authentication (pinterest_oauth2):
+
+```python
+import time
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import user_account_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
+from openapi_generated.pinterest_client.model.user_following_feed_type import UserFollowingFeedType
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.pinterest.com/v5
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: pinterest_oauth2
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_account_api.UserAccountApi(api_client)
+    bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
+    feed_type = UserFollowingFeedType("CREATOR_ONLY") # UserFollowingFeedType | Thrift param specifying what type of followees will be kept. Default to include all followees. (optional)
+    explicit_following = False # bool | Whether or not to include implicit user follows, which means followees with board follows. When explicit_following is True, it means we only want explicit user follows. (optional) if omitted the server will use the default value of False
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # List following
+        api_response = api_instance.user_following_get(bookmark=bookmark, feed_type=feed_type, explicit_following=explicit_following, ad_account_id=ad_account_id)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling UserAccountApi->user_following_get: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
+ **feed_type** | **UserFollowingFeedType**| Thrift param specifying what type of followees will be kept. Default to include all followees. | [optional]
+ **explicit_following** | **bool**| Whether or not to include implicit user follows, which means followees with board follows. When explicit_following is True, it means we only want explicit user follows. | [optional] if omitted the server will use the default value of False
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
+
+### Return type
+
+**bool, date, datetime, dict, float, int, list, str, none_type**
+
+### Authorization
+
+[pinterest_oauth2](../README.md#pinterest_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | response |  -  |
+**0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **verify_website_update**
+> UserWebsiteSummary verify_website_update(website, verification_method)
+
+Verify website
+
+Verify a website as a signed-in user.
+
+### Example
+
+* OAuth Authentication (pinterest_oauth2):
+
+```python
+import time
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import user_account_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.user_website_summary import UserWebsiteSummary
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.pinterest.com/v5
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: pinterest_oauth2
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_account_api.UserAccountApi(api_client)
+    website = "mysite.test" # str | Website with path or domain only
+    verification_method = "METATAG" # str | Website verification method
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Verify website
+        api_response = api_instance.verify_website_update(website, verification_method)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling UserAccountApi->verify_website_update: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **website** | **str**| Website with path or domain only |
+ **verification_method** | **str**| Website verification method |
+
+### Return type
+
+[**UserWebsiteSummary**](UserWebsiteSummary.md)
+
+### Authorization
+
+[pinterest_oauth2](../README.md#pinterest_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
 **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

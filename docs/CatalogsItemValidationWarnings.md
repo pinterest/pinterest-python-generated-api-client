@@ -4,6 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ad_link_format_warning** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 
+**ad_link_same_as_link** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 
 **additional_image_link_length_too_long** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 
 **additional_image_link_warning** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 
 **adwords_format_warning** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 

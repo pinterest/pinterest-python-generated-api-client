@@ -52,8 +52,8 @@ class BaseIntegrationTest(unittest.TestCase):
                     board_id=self.board.id,
                     media_source={
                         "source_type": "image_url",
-                        "url": "https://i.picsum.photos/id/219/200/300.jpg?hmac"
-                               "=RGnJfbO2380zLCFSj2tm_q0vW0wtw67d0fhWHX2IoDk",
+                        "url": "https://fastly.picsum.photos/id/1043/200/300.jpg"
+                               "?hmac=3l-zIM3sjEYfLwln1cOurui-983Bxq1zjEYt9HeScyQ",
                     }
                 )
             )

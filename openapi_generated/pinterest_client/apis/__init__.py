@@ -26,13 +26,16 @@ from openapi_generated.pinterest_client.api.catalogs_api import CatalogsApi
 from openapi_generated.pinterest_client.api.conversion_events_api import ConversionEventsApi
 from openapi_generated.pinterest_client.api.conversion_tags_api import ConversionTagsApi
 from openapi_generated.pinterest_client.api.customer_lists_api import CustomerListsApi
+from openapi_generated.pinterest_client.api.interests_api import InterestsApi
 from openapi_generated.pinterest_client.api.keywords_api import KeywordsApi
 from openapi_generated.pinterest_client.api.media_api import MediaApi
 from openapi_generated.pinterest_client.api.oauth_api import OauthApi
 from openapi_generated.pinterest_client.api.order_lines_api import OrderLinesApi
 from openapi_generated.pinterest_client.api.pins_api import PinsApi
 from openapi_generated.pinterest_client.api.product_group_promotions_api import ProductGroupPromotionsApi
+from openapi_generated.pinterest_client.api.product_groups_api import ProductGroupsApi
 from openapi_generated.pinterest_client.api.resources_api import ResourcesApi
+from openapi_generated.pinterest_client.api.search_api import SearchApi
 from openapi_generated.pinterest_client.api.terms_api import TermsApi
 from openapi_generated.pinterest_client.api.terms_of_service_api import TermsOfServiceApi
 from openapi_generated.pinterest_client.api.user_account_api import UserAccountApi
