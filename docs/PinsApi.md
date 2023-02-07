@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **pins_create**
-> Pin pins_create(pin)
+> Pin pins_create(pin_create)
 
 Create Pin
 
@@ -136,6 +136,7 @@ import openapi_generated.pinterest_client
 from openapi_generated.pinterest_client.api import pins_api
 from openapi_generated.pinterest_client.model.error import Error
 from openapi_generated.pinterest_client.model.pin import Pin
+from openapi_generated.pinterest_client.model.pin_create import PinCreate
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
@@ -158,7 +159,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pins_api.PinsApi(api_client)
-    pin = Pin(
+    pin_create = PinCreate(
         link="https://www.pinterest.com/",
         title="title_example",
         description="description_example",
@@ -168,12 +169,12 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
         board_section_id="4",
         media_source={},
         parent_pin_id="4",
-    ) # Pin | Create a new Pin.
+    ) # PinCreate | Create a new Pin.
 
     # example passing only required values which don't have defaults set
     try:
         # Create Pin
-        api_response = api_instance.pins_create(pin)
+        api_response = api_instance.pins_create(pin_create)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling PinsApi->pins_create: %s\n" % e)
@@ -184,7 +185,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pin** | [**Pin**](Pin.md)| Create a new Pin. |
+ **pin_create** | [**PinCreate**](PinCreate.md)| Create a new Pin. |
 
 ### Return type
 

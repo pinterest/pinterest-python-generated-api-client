@@ -26,6 +26,7 @@ from openapi_generated.pinterest_client.api.catalogs_api import CatalogsApi
 from openapi_generated.pinterest_client.api.conversion_events_api import ConversionEventsApi
 from openapi_generated.pinterest_client.api.conversion_tags_api import ConversionTagsApi
 from openapi_generated.pinterest_client.api.customer_lists_api import CustomerListsApi
+from openapi_generated.pinterest_client.api.integrations_api import IntegrationsApi
 from openapi_generated.pinterest_client.api.interests_api import InterestsApi
 from openapi_generated.pinterest_client.api.keywords_api import KeywordsApi
 from openapi_generated.pinterest_client.api.media_api import MediaApi

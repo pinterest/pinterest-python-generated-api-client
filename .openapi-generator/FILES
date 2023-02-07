@@ -235,6 +235,10 @@ docs/Granularity.md
 docs/ImageDetails.md
 docs/ImageMetadata.md
 docs/InlineObject.md
+docs/IntegrationMetadata.md
+docs/IntegrationRequest.md
+docs/IntegrationRequestPatch.md
+docs/IntegrationsApi.md
 docs/Interest.md
 docs/InterestsApi.md
 docs/ItemAttributes.md
@@ -312,6 +316,7 @@ docs/OrderLinesArrayResponse.md
 docs/PacingDeliveryType.md
 docs/Paginated.md
 docs/Pin.md
+docs/PinCreate.md
 docs/PinMedia.md
 docs/PinMediaMetadata.md
 docs/PinMediaSource.md
@@ -382,6 +387,8 @@ docs/UserListOperationType.md
 docs/UserListType.md
 docs/UserSummary.md
 docs/UserWebsiteSummary.md
+docs/UserWebsiteVerificationCode.md
+docs/UserWebsiteVerifyRequest.md
 docs/VideoMetadata.md
 git_push.sh
 openapi_generated/__init__.py
@@ -399,6 +406,7 @@ openapi_generated/pinterest_client/api/catalogs_api.py
 openapi_generated/pinterest_client/api/conversion_events_api.py
 openapi_generated/pinterest_client/api/conversion_tags_api.py
 openapi_generated/pinterest_client/api/customer_lists_api.py
+openapi_generated/pinterest_client/api/integrations_api.py
 openapi_generated/pinterest_client/api/interests_api.py
 openapi_generated/pinterest_client/api/keywords_api.py
 openapi_generated/pinterest_client/api/media_api.py
@@ -638,6 +646,9 @@ openapi_generated/pinterest_client/model/granularity.py
 openapi_generated/pinterest_client/model/image_details.py
 openapi_generated/pinterest_client/model/image_metadata.py
 openapi_generated/pinterest_client/model/inline_object.py
+openapi_generated/pinterest_client/model/integration_metadata.py
+openapi_generated/pinterest_client/model/integration_request.py
+openapi_generated/pinterest_client/model/integration_request_patch.py
 openapi_generated/pinterest_client/model/interest.py
 openapi_generated/pinterest_client/model/item_attributes.py
 openapi_generated/pinterest_client/model/item_attributes_all_of.py
@@ -710,6 +721,7 @@ openapi_generated/pinterest_client/model/order_lines_array_response.py
 openapi_generated/pinterest_client/model/pacing_delivery_type.py
 openapi_generated/pinterest_client/model/paginated.py
 openapi_generated/pinterest_client/model/pin.py
+openapi_generated/pinterest_client/model/pin_create.py
 openapi_generated/pinterest_client/model/pin_media.py
 openapi_generated/pinterest_client/model/pin_media_metadata.py
 openapi_generated/pinterest_client/model/pin_media_source.py
@@ -772,6 +784,8 @@ openapi_generated/pinterest_client/model/user_list_operation_type.py
 openapi_generated/pinterest_client/model/user_list_type.py
 openapi_generated/pinterest_client/model/user_summary.py
 openapi_generated/pinterest_client/model/user_website_summary.py
+openapi_generated/pinterest_client/model/user_website_verification_code.py
+openapi_generated/pinterest_client/model/user_website_verify_request.py
 openapi_generated/pinterest_client/model/video_metadata.py
 openapi_generated/pinterest_client/model_utils.py
 openapi_generated/pinterest_client/models/__init__.py
@@ -1014,6 +1028,10 @@ test/test_granularity.py
 test/test_image_details.py
 test/test_image_metadata.py
 test/test_inline_object.py
+test/test_integration_metadata.py
+test/test_integration_request.py
+test/test_integration_request_patch.py
+test/test_integrations_api.py
 test/test_interest.py
 test/test_interests_api.py
 test/test_item_attributes.py
@@ -1091,6 +1109,7 @@ test/test_order_lines_array_response.py
 test/test_pacing_delivery_type.py
 test/test_paginated.py
 test/test_pin.py
+test/test_pin_create.py
 test/test_pin_media.py
 test/test_pin_media_metadata.py
 test/test_pin_media_source.py
@@ -1161,5 +1180,7 @@ test/test_user_list_operation_type.py
 test/test_user_list_type.py
 test/test_user_summary.py
 test/test_user_website_summary.py
+test/test_user_website_verification_code.py
+test/test_user_website_verify_request.py
 test/test_video_metadata.py
 tox.ini

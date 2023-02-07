@@ -67,14 +67,13 @@ class Pin(ModelNormal):
     }
 
     validations = {
+        ('id',): {
+            'regex': {
+                'pattern': r'^\d+$',  # noqa: E501
+            },
+        },
         ('link',): {
             'max_length': 2048,
-        },
-        ('title',): {
-            'max_length': 100,
-        },
-        ('description',): {
-            'max_length': 500,
         },
         ('alt_text',): {
             'max_length': 500,

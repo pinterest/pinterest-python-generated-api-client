@@ -84,6 +84,8 @@ class ConversionEventsUserDataAnyOf2(ModelNormal):
         return {
             'client_ip_address': (str,),  # noqa: E501
             'client_user_agent': (str,),  # noqa: E501
+            'em': ([str],),  # noqa: E501
+            'hashed_maids': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -94,6 +96,8 @@ class ConversionEventsUserDataAnyOf2(ModelNormal):
     attribute_map = {
         'client_ip_address': 'client_ip_address',  # noqa: E501
         'client_user_agent': 'client_user_agent',  # noqa: E501
+        'em': 'em',  # noqa: E501
+        'hashed_maids': 'hashed_maids',  # noqa: E501
     }
 
     read_only_vars = {
@@ -141,6 +145,8 @@ class ConversionEventsUserDataAnyOf2(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            em ([str]): Sha256 hashes of lowercase version of user's email addresses. Used for matching.. [optional]  # noqa: E501
+            hashed_maids ([str]): Sha256 hashes of user's \"Google Advertising IDs\" (GAIDs) or \"Apple's Identifier for Advertisers\" (IDFAs). Used for matching.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,6 +234,8 @@ class ConversionEventsUserDataAnyOf2(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            em ([str]): Sha256 hashes of lowercase version of user's email addresses. Used for matching.. [optional]  # noqa: E501
+            hashed_maids ([str]): Sha256 hashes of user's \"Google Advertising IDs\" (GAIDs) or \"Apple's Identifier for Advertisers\" (IDFAs). Used for matching.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

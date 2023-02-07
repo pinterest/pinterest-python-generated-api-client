@@ -10,7 +10,7 @@ from openapi_generated.pinterest_client.model.ad_group_create_request import AdG
 from openapi_generated.pinterest_client.model.board import Board
 from openapi_generated.pinterest_client.model.campaign_create_request import CampaignCreateRequest
 from openapi_generated.pinterest_client.model.objective_type import ObjectiveType
-from openapi_generated.pinterest_client.model.pin import Pin
+from openapi_generated.pinterest_client.model.pin_create import PinCreate
 from .config import DEFAULT_AD_ACCOUNT_ID
 from .config import DEFAULT_AD_ACCOUNT_COUNTRY
 from .config import DEFAULT_AD_ACCOUNT_NAME
@@ -46,7 +46,7 @@ class BaseIntegrationTest(unittest.TestCase):
     def pin(self):
         if self._pin is None:
             self._pin = PinsApi(self._api_client).pins_create(
-                Pin(
+                PinCreate(
                     title='Test PIN Generated Client Library {}'.format(get_random_number()),
                     link="https://www.pinterest.com/",
                     board_id=self.board.id,

@@ -230,6 +230,9 @@ from openapi_generated.pinterest_client.model.granularity import Granularity
 from openapi_generated.pinterest_client.model.image_details import ImageDetails
 from openapi_generated.pinterest_client.model.image_metadata import ImageMetadata
 from openapi_generated.pinterest_client.model.inline_object import InlineObject
+from openapi_generated.pinterest_client.model.integration_metadata import IntegrationMetadata
+from openapi_generated.pinterest_client.model.integration_request import IntegrationRequest
+from openapi_generated.pinterest_client.model.integration_request_patch import IntegrationRequestPatch
 from openapi_generated.pinterest_client.model.interest import Interest
 from openapi_generated.pinterest_client.model.item_attributes import ItemAttributes
 from openapi_generated.pinterest_client.model.item_attributes_all_of import ItemAttributesAllOf
@@ -302,6 +305,7 @@ from openapi_generated.pinterest_client.model.order_lines_array_response import 
 from openapi_generated.pinterest_client.model.pacing_delivery_type import PacingDeliveryType
 from openapi_generated.pinterest_client.model.paginated import Paginated
 from openapi_generated.pinterest_client.model.pin import Pin
+from openapi_generated.pinterest_client.model.pin_create import PinCreate
 from openapi_generated.pinterest_client.model.pin_media import PinMedia
 from openapi_generated.pinterest_client.model.pin_media_metadata import PinMediaMetadata
 from openapi_generated.pinterest_client.model.pin_media_source import PinMediaSource
@@ -364,4 +368,6 @@ from openapi_generated.pinterest_client.model.user_list_operation_type import Us
 from openapi_generated.pinterest_client.model.user_list_type import UserListType
 from openapi_generated.pinterest_client.model.user_summary import UserSummary
 from openapi_generated.pinterest_client.model.user_website_summary import UserWebsiteSummary
+from openapi_generated.pinterest_client.model.user_website_verification_code import UserWebsiteVerificationCode
+from openapi_generated.pinterest_client.model.user_website_verify_request import UserWebsiteVerifyRequest
 from openapi_generated.pinterest_client.model.video_metadata import VideoMetadata

@@ -27,6 +27,7 @@ from openapi_generated.pinterest_client.model.error import Error
 from openapi_generated.pinterest_client.model.inline_object import InlineObject
 from openapi_generated.pinterest_client.model.paginated import Paginated
 from openapi_generated.pinterest_client.model.pin import Pin
+from openapi_generated.pinterest_client.model.pin_create import PinCreate
 from openapi_generated.pinterest_client.model.pin_update import PinUpdate
 
 
@@ -160,13 +161,13 @@ class PinsApi(object):
             },
             params_map={
                 'all': [
-                    'pin',
+                    'pin_create',
                 ],
                 'required': [
-                    'pin',
+                    'pin_create',
                 ],
                 'nullable': [
-                    'pin',
+                    'pin_create',
                 ],
                 'enum': [
                 ],
@@ -179,13 +180,13 @@ class PinsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'pin':
-                        (Pin,),
+                    'pin_create':
+                        (PinCreate,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'pin': 'body',
+                    'pin_create': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -602,7 +603,7 @@ class PinsApi(object):
 
     def pins_create(
         self,
-        pin,
+        pin_create,
         **kwargs
     ):
         """Create Pin  # noqa: E501
@@ -611,11 +612,11 @@ class PinsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.pins_create(pin, async_req=True)
+        >>> thread = api.pins_create(pin_create, async_req=True)
         >>> result = thread.get()
 
         Args:
-            pin (Pin): Create a new Pin.
+            pin_create (PinCreate): Create a new Pin.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -674,8 +675,8 @@ class PinsApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['pin'] = \
-            pin
+        kwargs['pin_create'] = \
+            pin_create
         return self.pins_create_endpoint.call_with_http_info(**kwargs)
 
     def pins_delete(

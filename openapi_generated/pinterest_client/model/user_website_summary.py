@@ -84,6 +84,7 @@ class UserWebsiteSummary(ModelNormal):
         return {
             'website': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
+            'verified_at': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -94,6 +95,7 @@ class UserWebsiteSummary(ModelNormal):
     attribute_map = {
         'website': 'website',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'verified_at': 'verified_at',  # noqa: E501
     }
 
     read_only_vars = {
@@ -139,6 +141,7 @@ class UserWebsiteSummary(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             website (str): Website with path or domain only. [optional]  # noqa: E501
             status (str): Status of the verification process. [optional]  # noqa: E501
+            verified_at (str): UTC timestamp when the verification happened - sometimes missing. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -222,6 +225,7 @@ class UserWebsiteSummary(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             website (str): Website with path or domain only. [optional]  # noqa: E501
             status (str): Status of the verification process. [optional]  # noqa: E501
+            verified_at (str): UTC timestamp when the verification happened - sometimes missing. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
