@@ -83,6 +83,9 @@ class ConversionEventsUserDataAnyOf1(ModelNormal):
         """
         return {
             'hashed_maids': ([str],),  # noqa: E501
+            'em': ([str],),  # noqa: E501
+            'client_ip_address': (str,),  # noqa: E501
+            'client_user_agent': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -92,6 +95,9 @@ class ConversionEventsUserDataAnyOf1(ModelNormal):
 
     attribute_map = {
         'hashed_maids': 'hashed_maids',  # noqa: E501
+        'em': 'em',  # noqa: E501
+        'client_ip_address': 'client_ip_address',  # noqa: E501
+        'client_user_agent': 'client_user_agent',  # noqa: E501
     }
 
     read_only_vars = {
@@ -138,6 +144,9 @@ class ConversionEventsUserDataAnyOf1(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            em ([str]): Sha256 hashes of lowercase version of user's email addresses. Used for matching.. [optional]  # noqa: E501
+            client_ip_address (str): The user's IP address, which can be either in IPv4 or IPv6 format. Used for matching.. [optional]  # noqa: E501
+            client_user_agent (str): The user agent string of the user's web browser.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,6 +232,9 @@ class ConversionEventsUserDataAnyOf1(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            em ([str]): Sha256 hashes of lowercase version of user's email addresses. Used for matching.. [optional]  # noqa: E501
+            client_ip_address (str): The user's IP address, which can be either in IPv4 or IPv6 format. Used for matching.. [optional]  # noqa: E501
+            client_user_agent (str): The user agent string of the user's web browser.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

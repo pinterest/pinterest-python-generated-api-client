@@ -98,6 +98,8 @@ class AdAccount(ModelNormal):
             'country': (Country,),  # noqa: E501
             'currency': (Currency,),  # noqa: E501
             'permissions': ([str, none_type],),  # noqa: E501
+            'created_time': (int, none_type,),  # noqa: E501
+            'updated_time': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -112,6 +114,8 @@ class AdAccount(ModelNormal):
         'country': 'country',  # noqa: E501
         'currency': 'currency',  # noqa: E501
         'permissions': 'permissions',  # noqa: E501
+        'created_time': 'created_time',  # noqa: E501
+        'updated_time': 'updated_time',  # noqa: E501
     }
 
     read_only_vars = {
@@ -161,6 +165,8 @@ class AdAccount(ModelNormal):
             country (Country): [optional]  # noqa: E501
             currency (Currency): [optional]  # noqa: E501
             permissions ([str, none_type]): [optional]  # noqa: E501
+            created_time (int, none_type): Creation time. Unix timestamp in seconds.. [optional]  # noqa: E501
+            updated_time (int, none_type): Last update time. Unix timestamp in seconds.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -248,6 +254,8 @@ class AdAccount(ModelNormal):
             country (Country): [optional]  # noqa: E501
             currency (Currency): [optional]  # noqa: E501
             permissions ([str, none_type]): [optional]  # noqa: E501
+            created_time (int, none_type): Creation time. Unix timestamp in seconds.. [optional]  # noqa: E501
+            updated_time (int, none_type): Last update time. Unix timestamp in seconds.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
