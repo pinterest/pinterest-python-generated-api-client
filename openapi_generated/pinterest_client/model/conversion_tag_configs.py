@@ -82,13 +82,13 @@ class ConversionTagConfigs(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'aem_enabled': (bool,),  # noqa: E501
-            'md_frequency': (float,),  # noqa: E501
-            'aem_fnln_enabled': (bool,),  # noqa: E501
-            'aem_ph_enabled': (bool,),  # noqa: E501
-            'aem_ge_enabled': (bool,),  # noqa: E501
-            'aem_db_enabled': (bool,),  # noqa: E501
-            'aem_loc_enabled': (bool,),  # noqa: E501
+            'aem_enabled': (bool, none_type,),  # noqa: E501
+            'md_frequency': (float, none_type,),  # noqa: E501
+            'aem_fnln_enabled': (bool, none_type,),  # noqa: E501
+            'aem_ph_enabled': (bool, none_type,),  # noqa: E501
+            'aem_ge_enabled': (bool, none_type,),  # noqa: E501
+            'aem_db_enabled': (bool, none_type,),  # noqa: E501
+            'aem_loc_enabled': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -147,13 +147,13 @@ class ConversionTagConfigs(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            aem_enabled (bool): Whether Automatic Enhanced Match email is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional]  # noqa: E501
-            md_frequency (float): Metadata ingestion frequency.. [optional]  # noqa: E501
-            aem_fnln_enabled (bool): Whether Automatic Enhanced Match name is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional]  # noqa: E501
-            aem_ph_enabled (bool): Whether Automatic Enhanced Match phone is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional]  # noqa: E501
-            aem_ge_enabled (bool): Whether Automatic Enhanced Match gender is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional]  # noqa: E501
-            aem_db_enabled (bool): Whether Automatic Enhanced Match birthdate is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional]  # noqa: E501
-            aem_loc_enabled (bool): Whether Automatic Enhanced Match location is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional]  # noqa: E501
+            aem_enabled (bool, none_type): Whether Automatic Enhanced Match email is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            md_frequency (float, none_type): Metadata ingestion frequency.. [optional] if omitted the server will use the default value of 1  # noqa: E501
+            aem_fnln_enabled (bool, none_type): Whether Automatic Enhanced Match name is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            aem_ph_enabled (bool, none_type): Whether Automatic Enhanced Match phone is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            aem_ge_enabled (bool, none_type): Whether Automatic Enhanced Match gender is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            aem_db_enabled (bool, none_type): Whether Automatic Enhanced Match birthdate is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            aem_loc_enabled (bool, none_type): Whether Automatic Enhanced Match location is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -235,13 +235,13 @@ class ConversionTagConfigs(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            aem_enabled (bool): Whether Automatic Enhanced Match email is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional]  # noqa: E501
-            md_frequency (float): Metadata ingestion frequency.. [optional]  # noqa: E501
-            aem_fnln_enabled (bool): Whether Automatic Enhanced Match name is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional]  # noqa: E501
-            aem_ph_enabled (bool): Whether Automatic Enhanced Match phone is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional]  # noqa: E501
-            aem_ge_enabled (bool): Whether Automatic Enhanced Match gender is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional]  # noqa: E501
-            aem_db_enabled (bool): Whether Automatic Enhanced Match birthdate is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional]  # noqa: E501
-            aem_loc_enabled (bool): Whether Automatic Enhanced Match location is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional]  # noqa: E501
+            aem_enabled (bool, none_type): Whether Automatic Enhanced Match email is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            md_frequency (float, none_type): Metadata ingestion frequency.. [optional] if omitted the server will use the default value of 1  # noqa: E501
+            aem_fnln_enabled (bool, none_type): Whether Automatic Enhanced Match name is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            aem_ph_enabled (bool, none_type): Whether Automatic Enhanced Match phone is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            aem_ge_enabled (bool, none_type): Whether Automatic Enhanced Match gender is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            aem_db_enabled (bool, none_type): Whether Automatic Enhanced Match birthdate is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            aem_loc_enabled (bool, none_type): Whether Automatic Enhanced Match location is enabled. See <a href=\"https://help.pinterest.com/en/business/article/enhanced-match\" target=\"_blank\">Enhanced match</a> for more information.. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

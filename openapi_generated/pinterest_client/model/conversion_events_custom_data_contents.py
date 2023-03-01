@@ -137,8 +137,8 @@ class ConversionEventsCustomDataContents(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            item_price (str): The price of a product. Accepted as a string in the request; it will be parsed into a double. For example, if there are two products in a checkout event, the value should be the total price. [optional]  # noqa: E501
-            quantity (int): The amount of a product.. [optional]  # noqa: E501
+            item_price (str): The price of a product. Accepted as a string in the request; it will be parsed into a double. For example, if there are two products in a checkout event, the value should be the total price. This is the original item value before any discount. We recommend using this if you are a merchant for PageVisit, AddToCart and Checkouts. For detail, please check <a href=\"https://help.pinterest.com/en/business/article/before-you-get-started-with-catalogs\" target=\"_blank\">here</a> (Install the Pinterest tag section).. [optional]  # noqa: E501
+            quantity (int): The amount of a product. We recommend using this if you are a merchant for AddToCart and Checkouts. For detail, please check <a href=\"https://help.pinterest.com/en/business/article/before-you-get-started-with-catalogs\" target=\"_blank\">here</a> (Install the Pinterest tag section).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,8 +220,8 @@ class ConversionEventsCustomDataContents(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            item_price (str): The price of a product. Accepted as a string in the request; it will be parsed into a double. For example, if there are two products in a checkout event, the value should be the total price. [optional]  # noqa: E501
-            quantity (int): The amount of a product.. [optional]  # noqa: E501
+            item_price (str): The price of a product. Accepted as a string in the request; it will be parsed into a double. For example, if there are two products in a checkout event, the value should be the total price. This is the original item value before any discount. We recommend using this if you are a merchant for PageVisit, AddToCart and Checkouts. For detail, please check <a href=\"https://help.pinterest.com/en/business/article/before-you-get-started-with-catalogs\" target=\"_blank\">here</a> (Install the Pinterest tag section).. [optional]  # noqa: E501
+            quantity (int): The amount of a product. We recommend using this if you are a merchant for AddToCart and Checkouts. For detail, please check <a href=\"https://help.pinterest.com/en/business/article/before-you-get-started-with-catalogs\" target=\"_blank\">here</a> (Install the Pinterest tag section).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

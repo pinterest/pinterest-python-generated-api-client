@@ -70,6 +70,9 @@ class PinMediaSourceImagesURL(ModelNormal):
             'max_items': 5,
             'min_items': 2,
         },
+        ('index',): {
+            'inclusive_minimum': 0,
+        },
     }
 
     additional_properties_type = None
@@ -90,7 +93,7 @@ class PinMediaSourceImagesURL(ModelNormal):
         return {
             'items': ([PinMediaSourceImagesURLItems],),  # noqa: E501
             'source_type': (str,),  # noqa: E501
-            'index': (float,),  # noqa: E501
+            'index': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -149,7 +152,7 @@ class PinMediaSourceImagesURL(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             source_type (str): [optional] if omitted the server will use the default value of "multiple_image_urls"  # noqa: E501
-            index (float): [optional]  # noqa: E501
+            index (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -236,7 +239,7 @@ class PinMediaSourceImagesURL(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             source_type (str): [optional] if omitted the server will use the default value of "multiple_image_urls"  # noqa: E501
-            index (float): [optional]  # noqa: E501
+            index (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

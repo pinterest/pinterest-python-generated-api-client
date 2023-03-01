@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 Get product group promotions
 
-List existing product group promotions associated with an ad account.
+List existing product group promotions associated with an ad account.  Include either ad_group_id or product_group_promotion_ids in your request.  <b>Note:</b> ad_group_ids and product_group_promotion_ids are mutually exclusive parameters. Only provide one. If multiple options are provided, product_group_promotion_ids takes precedence over ad_group_ids. If none are provided, the endpoint returns an error.
 
 ### Example
 

@@ -117,7 +117,7 @@ class AdGroupCommon(ModelNormal):
             'budget_in_micro_currency': (int, none_type,),  # noqa: E501
             'bid_in_micro_currency': (int, none_type,),  # noqa: E501
             'optimization_goal_metadata': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
-            'budget_type': (BudgetType,),  # noqa: E501
+            'budget_type': (str,),  # noqa: E501
             'start_time': (int, none_type,),  # noqa: E501
             'end_time': (int, none_type,),  # noqa: E501
             'targeting_spec': ({str: ([str],)},),  # noqa: E501
@@ -201,8 +201,8 @@ class AdGroupCommon(ModelNormal):
             status (str): Ad group/entity status.. [optional]  # noqa: E501
             budget_in_micro_currency (int, none_type): Budget in micro currency. This field is **REQUIRED** for non-CBO (campaign budget optimization) campaigns.  A CBO campaign automatically generates ad group budgets from its campaign budget to maximize campaign outcome. A CBO campaign is limited to 70 or less ad groups.. [optional]  # noqa: E501
             bid_in_micro_currency (int, none_type): Bid price in micro currency. This field is **REQUIRED** for the following campaign objective_type/billable_event combinations: AWARENESS/IMPRESSION, CONSIDERATION/CLICKTHROUGH, CATALOG_SALES/CLICKTHROUGH, VIDEO_VIEW/VIDEO_V_50_MRC.. [optional]  # noqa: E501
-            optimization_goal_metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Optimization goals for objective-based performance campaigns.. [optional]  # noqa: E501
-            budget_type (BudgetType): [optional]  # noqa: E501
+            optimization_goal_metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Optimization goals for objective-based performance campaigns. **REQUIRED** when campaign's `objective_type` is set to `\"WEB_CONVERSION\"`.. [optional]  # noqa: E501
+            budget_type (str): [optional]  # noqa: E501
             start_time (int, none_type): Ad group start time. Unix timestamp in seconds. Defaults to current time.. [optional]  # noqa: E501
             end_time (int, none_type): Ad group end time. Unix timestamp in seconds.. [optional]  # noqa: E501
             targeting_spec ({str: ([str],)}): Ad group targeting specification defining the ad group target audience. For example, '{\"APPTYPE\":[\"iphone\"], \"GENDER\":[\"male\"], \"LOCALE\":[\"en-US\"], \"LOCATION\":[\"501\"], \"AGE_BUCKET\":[\"25-34\"]}'. [optional]  # noqa: E501
@@ -210,7 +210,7 @@ class AdGroupCommon(ModelNormal):
             tracking_urls ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Third-party tracking URLs.<br> JSON object with the format: {\"<a href=\"https://developers.pinterest.com/docs/redoc/#section/Tracking-URL-event\">Tracking event enum</a>\":[URL string array],...}<br> For example: {\"impression\": [\"URL1\", \"URL2\"], \"click\": [\"URL1\", \"URL2\", \"URL3\"]}.<br>Up to three tracking URLs are supported for each event type. Tracking URLs set at the ad group or ad level can override those set at the campaign level. May be null. Pass in an empty object - {} - to remove tracking URLs.<br><br> For more information, see <a href=\"https://help.pinterest.com/en/business/article/third-party-and-dynamic-tracking\" target=\"_blank\">Third-party and dynamic tracking</a>.. [optional]  # noqa: E501
             auto_targeting_enabled (bool, none_type): Enable auto-targeting for ad group. Also known as <a href=\"https://help.pinterest.com/en/business/article/expanded-targeting\" target=\"_blank\">\"expanded targeting\"</a>.. [optional]  # noqa: E501
             placement_group (str): <a href=\"https://developers.pinterest.com/docs/redoc/#section/Placement-group\">Placement group</a>.. [optional]  # noqa: E501
-            pacing_delivery_type (str): Pacing delivery type. With ACCELERATED, an ad group budget is spent as fast as possible. With STANDARD, an ad group budget is spent smoothly over a day.. [optional]  # noqa: E501
+            pacing_delivery_type (str): [optional]  # noqa: E501
             campaign_id (str): Campaign ID of the ad group.. [optional]  # noqa: E501
             billable_event (ActionType): [optional]  # noqa: E501
             bid_strategy_type (str, none_type): Bid strategy type. [optional]  # noqa: E501
@@ -299,8 +299,8 @@ class AdGroupCommon(ModelNormal):
             status (str): Ad group/entity status.. [optional]  # noqa: E501
             budget_in_micro_currency (int, none_type): Budget in micro currency. This field is **REQUIRED** for non-CBO (campaign budget optimization) campaigns.  A CBO campaign automatically generates ad group budgets from its campaign budget to maximize campaign outcome. A CBO campaign is limited to 70 or less ad groups.. [optional]  # noqa: E501
             bid_in_micro_currency (int, none_type): Bid price in micro currency. This field is **REQUIRED** for the following campaign objective_type/billable_event combinations: AWARENESS/IMPRESSION, CONSIDERATION/CLICKTHROUGH, CATALOG_SALES/CLICKTHROUGH, VIDEO_VIEW/VIDEO_V_50_MRC.. [optional]  # noqa: E501
-            optimization_goal_metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Optimization goals for objective-based performance campaigns.. [optional]  # noqa: E501
-            budget_type (BudgetType): [optional]  # noqa: E501
+            optimization_goal_metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Optimization goals for objective-based performance campaigns. **REQUIRED** when campaign's `objective_type` is set to `\"WEB_CONVERSION\"`.. [optional]  # noqa: E501
+            budget_type (str): [optional]  # noqa: E501
             start_time (int, none_type): Ad group start time. Unix timestamp in seconds. Defaults to current time.. [optional]  # noqa: E501
             end_time (int, none_type): Ad group end time. Unix timestamp in seconds.. [optional]  # noqa: E501
             targeting_spec ({str: ([str],)}): Ad group targeting specification defining the ad group target audience. For example, '{\"APPTYPE\":[\"iphone\"], \"GENDER\":[\"male\"], \"LOCALE\":[\"en-US\"], \"LOCATION\":[\"501\"], \"AGE_BUCKET\":[\"25-34\"]}'. [optional]  # noqa: E501
@@ -308,7 +308,7 @@ class AdGroupCommon(ModelNormal):
             tracking_urls ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Third-party tracking URLs.<br> JSON object with the format: {\"<a href=\"https://developers.pinterest.com/docs/redoc/#section/Tracking-URL-event\">Tracking event enum</a>\":[URL string array],...}<br> For example: {\"impression\": [\"URL1\", \"URL2\"], \"click\": [\"URL1\", \"URL2\", \"URL3\"]}.<br>Up to three tracking URLs are supported for each event type. Tracking URLs set at the ad group or ad level can override those set at the campaign level. May be null. Pass in an empty object - {} - to remove tracking URLs.<br><br> For more information, see <a href=\"https://help.pinterest.com/en/business/article/third-party-and-dynamic-tracking\" target=\"_blank\">Third-party and dynamic tracking</a>.. [optional]  # noqa: E501
             auto_targeting_enabled (bool, none_type): Enable auto-targeting for ad group. Also known as <a href=\"https://help.pinterest.com/en/business/article/expanded-targeting\" target=\"_blank\">\"expanded targeting\"</a>.. [optional]  # noqa: E501
             placement_group (str): <a href=\"https://developers.pinterest.com/docs/redoc/#section/Placement-group\">Placement group</a>.. [optional]  # noqa: E501
-            pacing_delivery_type (str): Pacing delivery type. With ACCELERATED, an ad group budget is spent as fast as possible. With STANDARD, an ad group budget is spent smoothly over a day.. [optional]  # noqa: E501
+            pacing_delivery_type (str): [optional]  # noqa: E501
             campaign_id (str): Campaign ID of the ad group.. [optional]  # noqa: E501
             billable_event (ActionType): [optional]  # noqa: E501
             bid_strategy_type (str, none_type): Bid strategy type. [optional]  # noqa: E501

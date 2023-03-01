@@ -4,14 +4,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**event_name** | **str** | The type of the user event. | 
+**event_name** | **str** | The type of the user event. Please use the right event_name otherwise the event won’t be accepted and show up correctly in reports. | 
 **action_source** | **str** | The source indicating where the conversion event occurred. | 
 **event_time** | **int** | The time when the event happened. Unix timestamp in seconds. | 
-**event_id** | **str** | A unique id string that identifies this event and can be used for deduping between events ingested via both the conversion API and Pinterest tracking. | 
+**event_id** | **str** | A unique id string that identifies this event and can be used for deduping between events ingested via both the conversion API and Pinterest tracking. Without this, event&#39;s data is likely to be double counted and will cause report metric inflation. Third-party vendors make sure this field is updated on both Pinterest tag and Conversions API side before rolling out template for Conversions API. | 
 **user_data** | [**ConversionEventsUserData**](ConversionEventsUserData.md) |  | 
 **event_source_url** | **str, none_type** | URL of the web conversion event. | [optional] 
 **opt_out** | **bool** | When action_source is web or offline, it defines whether the user has opted out of tracking for web conversion events. While when action_source is app_android or app_ios, it defines whether the user has enabled Limit Ad Tracking on their iOS device, or opted out of Ads Personalization on their Android device. | [optional] 
-**partner_name** | **str, none_type** | The third party partner name responsible to send the event to Conversions API on behalf of the advertiser. Only send this field if Pinterest has worked directly with you to define a value for partner_name. | [optional] 
+**partner_name** | **str, none_type** | The third party partner name responsible to send the event to Conversions API on behalf of the advertiser. The naming convention is \&quot;ss-companyname\&quot; lowercase. E.g ‘ss-shopify’ | [optional] 
 **custom_data** | [**ConversionEventsCustomData**](ConversionEventsCustomData.md) |  | [optional] 
 **app_id** | **str, none_type** | The app store app ID. | [optional] 
 **app_name** | **str, none_type** | Name of the app. | [optional] 

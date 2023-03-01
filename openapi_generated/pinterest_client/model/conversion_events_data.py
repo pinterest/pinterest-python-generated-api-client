@@ -166,10 +166,10 @@ class ConversionEventsData(ModelNormal):
         """ConversionEventsData - a model defined in OpenAPI
 
         Args:
-            event_name (str): The type of the user event.
+            event_name (str): The type of the user event. Please use the right event_name otherwise the event won’t be accepted and show up correctly in reports.
             action_source (str): The source indicating where the conversion event occurred.
             event_time (int): The time when the event happened. Unix timestamp in seconds.
-            event_id (str): A unique id string that identifies this event and can be used for deduping between events ingested via both the conversion API and Pinterest tracking.
+            event_id (str): A unique id string that identifies this event and can be used for deduping between events ingested via both the conversion API and Pinterest tracking. Without this, event's data is likely to be double counted and will cause report metric inflation. Third-party vendors make sure this field is updated on both Pinterest tag and Conversions API side before rolling out template for Conversions API.
             user_data (ConversionEventsUserData):
 
         Keyword Args:
@@ -205,7 +205,7 @@ class ConversionEventsData(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             event_source_url (str, none_type): URL of the web conversion event.. [optional]  # noqa: E501
             opt_out (bool): When action_source is web or offline, it defines whether the user has opted out of tracking for web conversion events. While when action_source is app_android or app_ios, it defines whether the user has enabled Limit Ad Tracking on their iOS device, or opted out of Ads Personalization on their Android device.. [optional]  # noqa: E501
-            partner_name (str, none_type): The third party partner name responsible to send the event to Conversions API on behalf of the advertiser. Only send this field if Pinterest has worked directly with you to define a value for partner_name.. [optional]  # noqa: E501
+            partner_name (str, none_type): The third party partner name responsible to send the event to Conversions API on behalf of the advertiser. The naming convention is \"ss-companyname\" lowercase. E.g ‘ss-shopify’. [optional]  # noqa: E501
             custom_data (ConversionEventsCustomData): [optional]  # noqa: E501
             app_id (str, none_type): The app store app ID.. [optional]  # noqa: E501
             app_name (str, none_type): Name of the app.. [optional]  # noqa: E501
@@ -273,10 +273,10 @@ class ConversionEventsData(ModelNormal):
         """ConversionEventsData - a model defined in OpenAPI
 
         Args:
-            event_name (str): The type of the user event.
+            event_name (str): The type of the user event. Please use the right event_name otherwise the event won’t be accepted and show up correctly in reports.
             action_source (str): The source indicating where the conversion event occurred.
             event_time (int): The time when the event happened. Unix timestamp in seconds.
-            event_id (str): A unique id string that identifies this event and can be used for deduping between events ingested via both the conversion API and Pinterest tracking.
+            event_id (str): A unique id string that identifies this event and can be used for deduping between events ingested via both the conversion API and Pinterest tracking. Without this, event's data is likely to be double counted and will cause report metric inflation. Third-party vendors make sure this field is updated on both Pinterest tag and Conversions API side before rolling out template for Conversions API.
             user_data (ConversionEventsUserData):
 
         Keyword Args:
@@ -312,7 +312,7 @@ class ConversionEventsData(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             event_source_url (str, none_type): URL of the web conversion event.. [optional]  # noqa: E501
             opt_out (bool): When action_source is web or offline, it defines whether the user has opted out of tracking for web conversion events. While when action_source is app_android or app_ios, it defines whether the user has enabled Limit Ad Tracking on their iOS device, or opted out of Ads Personalization on their Android device.. [optional]  # noqa: E501
-            partner_name (str, none_type): The third party partner name responsible to send the event to Conversions API on behalf of the advertiser. Only send this field if Pinterest has worked directly with you to define a value for partner_name.. [optional]  # noqa: E501
+            partner_name (str, none_type): The third party partner name responsible to send the event to Conversions API on behalf of the advertiser. The naming convention is \"ss-companyname\" lowercase. E.g ‘ss-shopify’. [optional]  # noqa: E501
             custom_data (ConversionEventsCustomData): [optional]  # noqa: E501
             app_id (str, none_type): The app store app ID.. [optional]  # noqa: E501
             app_name (str, none_type): Name of the app.. [optional]  # noqa: E501

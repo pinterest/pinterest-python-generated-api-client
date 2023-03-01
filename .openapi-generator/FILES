@@ -295,6 +295,7 @@ docs/OauthAccessTokenRequestRefreshAllOf.md
 docs/OauthAccessTokenResponse.md
 docs/OauthAccessTokenResponseCode.md
 docs/OauthAccessTokenResponseCodeAllOf.md
+docs/OauthAccessTokenResponseIntegrationRefresh.md
 docs/OauthAccessTokenResponseRefresh.md
 docs/OauthApi.md
 docs/ObjectiveType.md
@@ -702,6 +703,7 @@ openapi_generated/pinterest_client/model/oauth_access_token_request_refresh_all_
 openapi_generated/pinterest_client/model/oauth_access_token_response.py
 openapi_generated/pinterest_client/model/oauth_access_token_response_code.py
 openapi_generated/pinterest_client/model/oauth_access_token_response_code_all_of.py
+openapi_generated/pinterest_client/model/oauth_access_token_response_integration_refresh.py
 openapi_generated/pinterest_client/model/oauth_access_token_response_refresh.py
 openapi_generated/pinterest_client/model/objective_type.py
 openapi_generated/pinterest_client/model/optimization_goal_metadata.py
@@ -1088,6 +1090,7 @@ test/test_oauth_access_token_request_refresh_all_of.py
 test/test_oauth_access_token_response.py
 test/test_oauth_access_token_response_code.py
 test/test_oauth_access_token_response_code_all_of.py
+test/test_oauth_access_token_response_integration_refresh.py
 test/test_oauth_access_token_response_refresh.py
 test/test_oauth_api.py
 test/test_objective_type.py

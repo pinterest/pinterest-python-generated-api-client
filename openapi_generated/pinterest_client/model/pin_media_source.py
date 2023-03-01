@@ -80,6 +80,9 @@ class PinMediaSource(ModelComposed):
     }
 
     validations = {
+        ('index',): {
+            'inclusive_minimum': 0,
+        },
         ('data',): {
             'regex': {
                 'pattern': r'[a-zA-Z0-9+\/=]+',  # noqa: E501
@@ -120,7 +123,7 @@ class PinMediaSource(ModelComposed):
         lazy_import()
         return {
             'source_type': (str,),  # noqa: E501
-            'index': (float,),  # noqa: E501
+            'index': (int,),  # noqa: E501
             'content_type': (str,),  # noqa: E501
             'data': (str,),  # noqa: E501
             'url': (str,),  # noqa: E501
@@ -199,7 +202,7 @@ class PinMediaSource(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            index (float): [optional]  # noqa: E501
+            index (int): [optional]  # noqa: E501
             content_type (str): [optional]  # noqa: E501
             data (str): [optional]  # noqa: E501
             url (str): [optional]  # noqa: E501
@@ -307,7 +310,7 @@ class PinMediaSource(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            index (float): [optional]  # noqa: E501
+            index (int): [optional]  # noqa: E501
             content_type (str): [optional]  # noqa: E501
             data (str): [optional]  # noqa: E501
             url (str): [optional]  # noqa: E501

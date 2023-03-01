@@ -141,10 +141,10 @@ class ConversionEventsUserData(ModelComposed):
         """ConversionEventsUserData - a model defined in OpenAPI
 
         Keyword Args:
-            em ([str]): Sha256 hashes of lowercase version of user's email addresses. Used for matching.
-            hashed_maids ([str]): Sha256 hashes of user's \"Google Advertising IDs\" (GAIDs) or \"Apple's Identifier for Advertisers\" (IDFAs). Used for matching.
-            client_ip_address (str): The user's IP address, which can be either in IPv4 or IPv6 format. Used for matching.
-            client_user_agent (str): The user agent string of the user's web browser.
+            em ([str]): Sha256 hashes of lowercase version of user's email addresses. Used for matching. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA.
+            hashed_maids ([str]): Sha256 hashes of user's \"Google Advertising IDs\" (GAIDs) or \"Apple's Identifier for Advertisers\" (IDFAs). Used for matching. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA.
+            client_ip_address (str): The user's IP address, which can be either in IPv4 or IPv6 format. Used for matching. We highly recommend this for all events. It may improve reporting performance such as ROAS/CPA.
+            client_user_agent (str): The user agent string of the user's web browser. We highly recommend this for all events. It may improve reporting performance such as ROAS/CPA.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -175,17 +175,17 @@ class ConversionEventsUserData(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ph ([str]): Sha256 hashes of user's phone numbers, only digits with country code, area code, and number. Remove any symbols, letters, spaces and leading zeros.. [optional]  # noqa: E501
+            ph ([str]): Sha256 hashes of user's phone numbers, only digits with country code, area code, and number. Remove any symbols, letters, spaces and leading zeros. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA.. [optional]  # noqa: E501
             ge ([str]): Sha256 hashes of user's gender, in lowercase. Either \"f\" or \"m\" or \"n\" for non-binary gender.. [optional]  # noqa: E501
             db ([str]): Sha256 hashes of user's date of birthday, given as year, month, and day.. [optional]  # noqa: E501
-            ln ([str]): Sha256 hashes of user's last name, in lowercase.. [optional]  # noqa: E501
-            fn ([str]): Sha256 hashes of user's first name, in lowercase.. [optional]  # noqa: E501
-            ct ([str]): Sha256 hashes of user's city, in lowercase, and without spaces or punctuation.. [optional]  # noqa: E501
-            st ([str]): Sha256 hashes of user's state, given as a two-letter code in lowercase.. [optional]  # noqa: E501
-            zp ([str]): Sha256 hashes of user's zipcode, only digits.. [optional]  # noqa: E501
+            ln ([str]): Sha256 hashes of user's last name, in lowercase. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA.. [optional]  # noqa: E501
+            fn ([str]): Sha256 hashes of user's first name, in lowercase. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA.. [optional]  # noqa: E501
+            ct ([str]): Sha256 hashes of user's city, in lowercase, and without spaces or punctuation. User residency city (mostly billing).. [optional]  # noqa: E501
+            st ([str]): Sha256 hashes of user's state, given as a two-letter code in lowercase. User residency state (mostly billing).. [optional]  # noqa: E501
+            zp ([str]): Sha256 hashes of user's zipcode, only digits. User residency zipcode (mostly billing).. [optional]  # noqa: E501
             country ([str]): Sha256 hashes of two-character ISO-3166 country code indicating the user's country, in lowercase.. [optional]  # noqa: E501
-            external_id ([str]): Sha256 hashes of the unique id from the advertiser that identifies a user in their space, e.g. user id, loyalty id, etc.. [optional]  # noqa: E501
-            click_id (str, none_type): The value stored in _epik cookie on your domain or &epik= query parameter in the URL. It's recommended to send this unique identifier, when available.. [optional]  # noqa: E501
+            external_id ([str]): Sha256 hashes of the unique id from the advertiser that identifies a user in their space, e.g. user id, loyalty id, etc. We highly recommend this on all events. It may improve reporting performance such as ROAS/CPA.. [optional]  # noqa: E501
+            click_id (str, none_type): The unique identifier stored in _epik cookie on your domain or &epik= query parameter in the URL. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -255,10 +255,10 @@ class ConversionEventsUserData(ModelComposed):
         """ConversionEventsUserData - a model defined in OpenAPI
 
         Keyword Args:
-            em ([str]): Sha256 hashes of lowercase version of user's email addresses. Used for matching.
-            hashed_maids ([str]): Sha256 hashes of user's \"Google Advertising IDs\" (GAIDs) or \"Apple's Identifier for Advertisers\" (IDFAs). Used for matching.
-            client_ip_address (str): The user's IP address, which can be either in IPv4 or IPv6 format. Used for matching.
-            client_user_agent (str): The user agent string of the user's web browser.
+            em ([str]): Sha256 hashes of lowercase version of user's email addresses. Used for matching. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA.
+            hashed_maids ([str]): Sha256 hashes of user's \"Google Advertising IDs\" (GAIDs) or \"Apple's Identifier for Advertisers\" (IDFAs). Used for matching. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA.
+            client_ip_address (str): The user's IP address, which can be either in IPv4 or IPv6 format. Used for matching. We highly recommend this for all events. It may improve reporting performance such as ROAS/CPA.
+            client_user_agent (str): The user agent string of the user's web browser. We highly recommend this for all events. It may improve reporting performance such as ROAS/CPA.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -289,17 +289,17 @@ class ConversionEventsUserData(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ph ([str]): Sha256 hashes of user's phone numbers, only digits with country code, area code, and number. Remove any symbols, letters, spaces and leading zeros.. [optional]  # noqa: E501
+            ph ([str]): Sha256 hashes of user's phone numbers, only digits with country code, area code, and number. Remove any symbols, letters, spaces and leading zeros. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA.. [optional]  # noqa: E501
             ge ([str]): Sha256 hashes of user's gender, in lowercase. Either \"f\" or \"m\" or \"n\" for non-binary gender.. [optional]  # noqa: E501
             db ([str]): Sha256 hashes of user's date of birthday, given as year, month, and day.. [optional]  # noqa: E501
-            ln ([str]): Sha256 hashes of user's last name, in lowercase.. [optional]  # noqa: E501
-            fn ([str]): Sha256 hashes of user's first name, in lowercase.. [optional]  # noqa: E501
-            ct ([str]): Sha256 hashes of user's city, in lowercase, and without spaces or punctuation.. [optional]  # noqa: E501
-            st ([str]): Sha256 hashes of user's state, given as a two-letter code in lowercase.. [optional]  # noqa: E501
-            zp ([str]): Sha256 hashes of user's zipcode, only digits.. [optional]  # noqa: E501
+            ln ([str]): Sha256 hashes of user's last name, in lowercase. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA.. [optional]  # noqa: E501
+            fn ([str]): Sha256 hashes of user's first name, in lowercase. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA.. [optional]  # noqa: E501
+            ct ([str]): Sha256 hashes of user's city, in lowercase, and without spaces or punctuation. User residency city (mostly billing).. [optional]  # noqa: E501
+            st ([str]): Sha256 hashes of user's state, given as a two-letter code in lowercase. User residency state (mostly billing).. [optional]  # noqa: E501
+            zp ([str]): Sha256 hashes of user's zipcode, only digits. User residency zipcode (mostly billing).. [optional]  # noqa: E501
             country ([str]): Sha256 hashes of two-character ISO-3166 country code indicating the user's country, in lowercase.. [optional]  # noqa: E501
-            external_id ([str]): Sha256 hashes of the unique id from the advertiser that identifies a user in their space, e.g. user id, loyalty id, etc.. [optional]  # noqa: E501
-            click_id (str, none_type): The value stored in _epik cookie on your domain or &epik= query parameter in the URL. It's recommended to send this unique identifier, when available.. [optional]  # noqa: E501
+            external_id ([str]): Sha256 hashes of the unique id from the advertiser that identifies a user in their space, e.g. user id, loyalty id, etc. We highly recommend this on all events. It may improve reporting performance such as ROAS/CPA.. [optional]  # noqa: E501
+            click_id (str, none_type): The unique identifier stored in _epik cookie on your domain or &epik= query parameter in the URL. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

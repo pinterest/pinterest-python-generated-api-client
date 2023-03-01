@@ -32,8 +32,10 @@ from openapi_generated.pinterest_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from openapi_generated.pinterest_client.model.oauth_access_token_response_code import OauthAccessTokenResponseCode
+    from openapi_generated.pinterest_client.model.oauth_access_token_response_integration_refresh import OauthAccessTokenResponseIntegrationRefresh
     from openapi_generated.pinterest_client.model.oauth_access_token_response_refresh import OauthAccessTokenResponseRefresh
     globals()['OauthAccessTokenResponseCode'] = OauthAccessTokenResponseCode
+    globals()['OauthAccessTokenResponseIntegrationRefresh'] = OauthAccessTokenResponseIntegrationRefresh
     globals()['OauthAccessTokenResponseRefresh'] = OauthAccessTokenResponseRefresh
 
 
@@ -106,8 +108,10 @@ class OauthAccessTokenResponse(ModelNormal):
         lazy_import()
         val = {
             'OauthAccessTokenResponseCode': OauthAccessTokenResponseCode,
+            'OauthAccessTokenResponseIntegrationRefresh': OauthAccessTokenResponseIntegrationRefresh,
             'OauthAccessTokenResponseRefresh': OauthAccessTokenResponseRefresh,
             'authorization_code': OauthAccessTokenResponseCode,
+            'integration_refresh': OauthAccessTokenResponseIntegrationRefresh,
             'refresh_token': OauthAccessTokenResponseRefresh,
         }
         if not val:
