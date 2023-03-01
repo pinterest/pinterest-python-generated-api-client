@@ -3,7 +3,7 @@ generatorStability: STABLE
 generatorType: CLIENT
 generatorLanguage: python
 inputSpec: openapi.yaml
-packageVersion: 0.1.6
+packageVersion: 0.1.7
 projectName: Pinterest Generated Client
 templateDir: templates
 packageName: openapi_generated.pinterest_client

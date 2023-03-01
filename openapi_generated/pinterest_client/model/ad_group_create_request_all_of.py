@@ -31,7 +31,11 @@ from openapi_generated.pinterest_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from openapi_generated.pinterest_client.model.budget_type import BudgetType
+    from openapi_generated.pinterest_client.model.pacing_delivery_type import PacingDeliveryType
     from openapi_generated.pinterest_client.model.targeting_spec import TargetingSpec
+    globals()['BudgetType'] = BudgetType
+    globals()['PacingDeliveryType'] = PacingDeliveryType
     globals()['TargetingSpec'] = TargetingSpec
 
 
@@ -89,6 +93,9 @@ class AdGroupCreateRequestAllOf(ModelNormal):
         lazy_import()
         return {
             'targeting_spec': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'pacing_delivery_type': (str,),  # noqa: E501
+            'auto_targeting_enabled': (bool,),  # noqa: E501
+            'budget_type': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -98,6 +105,9 @@ class AdGroupCreateRequestAllOf(ModelNormal):
 
     attribute_map = {
         'targeting_spec': 'targeting_spec',  # noqa: E501
+        'pacing_delivery_type': 'pacing_delivery_type',  # noqa: E501
+        'auto_targeting_enabled': 'auto_targeting_enabled',  # noqa: E501
+        'budget_type': 'budget_type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -142,6 +152,9 @@ class AdGroupCreateRequestAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             targeting_spec ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
+            pacing_delivery_type (str): [optional] if omitted the server will use the default value of "STANDARD"  # noqa: E501
+            auto_targeting_enabled (bool): [optional] if omitted the server will use the default value of True  # noqa: E501
+            budget_type (str): [optional] if omitted the server will use the default value of "DAILY"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -224,6 +237,9 @@ class AdGroupCreateRequestAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             targeting_spec ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
+            pacing_delivery_type (str): [optional] if omitted the server will use the default value of "STANDARD"  # noqa: E501
+            auto_targeting_enabled (bool): [optional] if omitted the server will use the default value of True  # noqa: E501
+            budget_type (str): [optional] if omitted the server will use the default value of "DAILY"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

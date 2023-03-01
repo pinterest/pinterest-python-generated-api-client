@@ -106,10 +106,10 @@ class PacingDeliveryType(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Ad group pacing delivery type., must be one of ["STANDARD", "ACCELERATED", ]  # noqa: E501
+            args[0] (str): Ad group pacing delivery type. With ACCELERATED, an ad group budget is spent as fast as possible. With STANDARD, an ad group budget is spent smoothly over a day. When using CBO, only the STANDARD pacing delivery type is allowed.., must be one of ["STANDARD", "ACCELERATED", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Ad group pacing delivery type., must be one of ["STANDARD", "ACCELERATED", ]  # noqa: E501
+            value (str): Ad group pacing delivery type. With ACCELERATED, an ad group budget is spent as fast as possible. With STANDARD, an ad group budget is spent smoothly over a day. When using CBO, only the STANDARD pacing delivery type is allowed.., must be one of ["STANDARD", "ACCELERATED", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -196,10 +196,10 @@ class PacingDeliveryType(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Ad group pacing delivery type., must be one of ["STANDARD", "ACCELERATED", ]  # noqa: E501
+            args[0] (str): Ad group pacing delivery type. With ACCELERATED, an ad group budget is spent as fast as possible. With STANDARD, an ad group budget is spent smoothly over a day. When using CBO, only the STANDARD pacing delivery type is allowed.., must be one of ["STANDARD", "ACCELERATED", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Ad group pacing delivery type., must be one of ["STANDARD", "ACCELERATED", ]  # noqa: E501
+            value (str): Ad group pacing delivery type. With ACCELERATED, an ad group budget is spent as fast as possible. With STANDARD, an ad group budget is spent smoothly over a day. When using CBO, only the STANDARD pacing delivery type is allowed.., must be one of ["STANDARD", "ACCELERATED", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

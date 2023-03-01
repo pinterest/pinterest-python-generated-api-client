@@ -162,6 +162,7 @@ class PinsApi(object):
             params_map={
                 'all': [
                     'pin_create',
+                    'ad_account_id',
                 ],
                 'required': [
                     'pin_create',
@@ -172,21 +173,32 @@ class PinsApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'ad_account_id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('ad_account_id',): {
+                        'max_length': 18,
+                        'regex': {
+                            'pattern': r'^\d+$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
                 'openapi_types': {
                     'pin_create':
                         (PinCreate,),
+                    'ad_account_id':
+                        (str,),
                 },
                 'attribute_map': {
+                    'ad_account_id': 'ad_account_id',
                 },
                 'location_map': {
                     'pin_create': 'body',
+                    'ad_account_id': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -215,6 +227,7 @@ class PinsApi(object):
             params_map={
                 'all': [
                     'pin_id',
+                    'ad_account_id',
                 ],
                 'required': [
                     'pin_id',
@@ -224,22 +237,33 @@ class PinsApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'ad_account_id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('ad_account_id',): {
+                        'max_length': 18,
+                        'regex': {
+                            'pattern': r'^\d+$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
                 'openapi_types': {
                     'pin_id':
                         (str,),
+                    'ad_account_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'pin_id': 'pin_id',
+                    'ad_account_id': 'ad_account_id',
                 },
                 'location_map': {
                     'pin_id': 'path',
+                    'ad_account_id': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -332,6 +356,7 @@ class PinsApi(object):
                     'pin_filter',
                     'include_protected_pins',
                     'pin_type',
+                    'ad_account_id',
                 ],
                 'required': [],
                 'nullable': [
@@ -341,10 +366,17 @@ class PinsApi(object):
                     'pin_type',
                 ],
                 'validation': [
+                    'ad_account_id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('ad_account_id',): {
+                        'max_length': 18,
+                        'regex': {
+                            'pattern': r'^\d+$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                     ('pin_filter',): {
@@ -366,18 +398,22 @@ class PinsApi(object):
                         (bool,),
                     'pin_type':
                         (str,),
+                    'ad_account_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'bookmark': 'bookmark',
                     'pin_filter': 'pin_filter',
                     'include_protected_pins': 'include_protected_pins',
                     'pin_type': 'pin_type',
+                    'ad_account_id': 'ad_account_id',
                 },
                 'location_map': {
                     'bookmark': 'query',
                     'pin_filter': 'query',
                     'include_protected_pins': 'query',
                     'pin_type': 'query',
+                    'ad_account_id': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -405,6 +441,7 @@ class PinsApi(object):
                 'all': [
                     'pin_id',
                     'inline_object',
+                    'ad_account_id',
                 ],
                 'required': [
                     'pin_id',
@@ -415,10 +452,17 @@ class PinsApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'ad_account_id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('ad_account_id',): {
+                        'max_length': 18,
+                        'regex': {
+                            'pattern': r'^\d+$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
@@ -427,13 +471,17 @@ class PinsApi(object):
                         (str,),
                     'inline_object':
                         (InlineObject,),
+                    'ad_account_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'pin_id': 'pin_id',
+                    'ad_account_id': 'ad_account_id',
                 },
                 'location_map': {
                     'pin_id': 'path',
                     'inline_object': 'body',
+                    'ad_account_id': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -463,6 +511,7 @@ class PinsApi(object):
                 'all': [
                     'pin_id',
                     'pin_update',
+                    'ad_account_id',
                 ],
                 'required': [
                     'pin_id',
@@ -474,10 +523,17 @@ class PinsApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'ad_account_id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('ad_account_id',): {
+                        'max_length': 18,
+                        'regex': {
+                            'pattern': r'^\d+$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
@@ -486,13 +542,17 @@ class PinsApi(object):
                         (str,),
                     'pin_update':
                         (PinUpdate,),
+                    'ad_account_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'pin_id': 'pin_id',
+                    'ad_account_id': 'ad_account_id',
                 },
                 'location_map': {
                     'pin_id': 'path',
                     'pin_update': 'body',
+                    'ad_account_id': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -619,6 +679,7 @@ class PinsApi(object):
             pin_create (PinCreate): Create a new Pin.
 
         Keyword Args:
+            ad_account_id (str): Unique identifier of an ad account.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -686,7 +747,7 @@ class PinsApi(object):
     ):
         """Delete Pin  # noqa: E501
 
-        Delete a Pins owned by the \"operation user_account\" - or on a group board that has been shared with this account. - By default, the \"operation user_account\" is the token user_account.  # noqa: E501
+        Delete a Pins owned by the \"operation user_account\" - or on a group board that has been shared with this account. - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account:  - For Pins on public or protected boards: Owner, Admin, Analyst, Campaign Manager. - For Pins on secret boards: Owner, Admin.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -697,6 +758,7 @@ class PinsApi(object):
             pin_id (str): Unique identifier of a Pin.
 
         Keyword Args:
+            ad_account_id (str): Unique identifier of an ad account.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -842,7 +904,7 @@ class PinsApi(object):
     ):
         """List Pins  # noqa: E501
 
-        Get a list of a user's Pins.  # noqa: E501
+        Get a list of the Pins owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account. - All Pins owned by the \"operation user_account\" are included, regardless of who owns the board they are on. Optional: Business Access: Specify an ad_account_id to use the owner of that ad_account as the \"operation user_account\".  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -855,6 +917,7 @@ class PinsApi(object):
             pin_filter (str): Pin filter.. [optional]
             include_protected_pins (bool): Specify if return pins from protected boards. [optional] if omitted the server will use the default value of False
             pin_type (str): The type of pins to return, currently only enabled for private pins. [optional] if omitted the server will use the default value of "PRIVATE"
+            ad_account_id (str): Unique identifier of an ad account.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -921,7 +984,7 @@ class PinsApi(object):
     ):
         """Save Pin  # noqa: E501
 
-        Save a Pin on a board or board section owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account. - Any Pin type can be saved: image Pin, video Pin, Idea Pin, product Pin, etc. - Any public Pin can be saved given a pin ID.  # noqa: E501
+        Save a Pin on a board or board section owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account. Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account:  - For Pins on public or protected boards: Owner, Admin, Analyst, Campaign Manager. - For Pins on secret boards: Owner, Admin.  - Any Pin type can be saved: image Pin, video Pin, Idea Pin, product Pin, etc. - Any public Pin can be saved given a pin ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -933,6 +996,7 @@ class PinsApi(object):
             inline_object (InlineObject):
 
         Keyword Args:
+            ad_account_id (str): Unique identifier of an ad account.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1003,7 +1067,7 @@ class PinsApi(object):
     ):
         """Update Pin  # noqa: E501
 
-        Update a pin owned by the \"operating user_account\".  <strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/new/about-beta-access/'>Learn more</a>.</strong>  # noqa: E501
+        Update a pin owned by the \"operating user_account\". - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account:  - For Pins on public or protected boards: Owner, Admin, Analyst, Campaign Manager. - For Pins on secret boards: Owner, Admin.  <strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/new/about-beta-access/'>Learn more</a>.</strong>  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1015,6 +1079,7 @@ class PinsApi(object):
             pin_update (PinUpdate):
 
         Keyword Args:
+            ad_account_id (str): Unique identifier of an ad account.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

@@ -111,7 +111,7 @@ class ConversionEventsUserDataAnyOf1(ModelNormal):
         """ConversionEventsUserDataAnyOf1 - a model defined in OpenAPI
 
         Args:
-            hashed_maids ([str]): Sha256 hashes of user's \"Google Advertising IDs\" (GAIDs) or \"Apple's Identifier for Advertisers\" (IDFAs). Used for matching.
+            hashed_maids ([str]): Sha256 hashes of user's \"Google Advertising IDs\" (GAIDs) or \"Apple's Identifier for Advertisers\" (IDFAs). Used for matching. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -144,9 +144,9 @@ class ConversionEventsUserDataAnyOf1(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            em ([str]): Sha256 hashes of lowercase version of user's email addresses. Used for matching.. [optional]  # noqa: E501
-            client_ip_address (str): The user's IP address, which can be either in IPv4 or IPv6 format. Used for matching.. [optional]  # noqa: E501
-            client_user_agent (str): The user agent string of the user's web browser.. [optional]  # noqa: E501
+            em ([str]): Sha256 hashes of lowercase version of user's email addresses. Used for matching. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA.. [optional]  # noqa: E501
+            client_ip_address (str): The user's IP address, which can be either in IPv4 or IPv6 format. Used for matching. We highly recommend this for all events. It may improve reporting performance such as ROAS/CPA.. [optional]  # noqa: E501
+            client_user_agent (str): The user agent string of the user's web browser. We highly recommend this for all events. It may improve reporting performance such as ROAS/CPA.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -199,7 +199,7 @@ class ConversionEventsUserDataAnyOf1(ModelNormal):
         """ConversionEventsUserDataAnyOf1 - a model defined in OpenAPI
 
         Args:
-            hashed_maids ([str]): Sha256 hashes of user's \"Google Advertising IDs\" (GAIDs) or \"Apple's Identifier for Advertisers\" (IDFAs). Used for matching.
+            hashed_maids ([str]): Sha256 hashes of user's \"Google Advertising IDs\" (GAIDs) or \"Apple's Identifier for Advertisers\" (IDFAs). Used for matching. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -232,9 +232,9 @@ class ConversionEventsUserDataAnyOf1(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            em ([str]): Sha256 hashes of lowercase version of user's email addresses. Used for matching.. [optional]  # noqa: E501
-            client_ip_address (str): The user's IP address, which can be either in IPv4 or IPv6 format. Used for matching.. [optional]  # noqa: E501
-            client_user_agent (str): The user agent string of the user's web browser.. [optional]  # noqa: E501
+            em ([str]): Sha256 hashes of lowercase version of user's email addresses. Used for matching. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA.. [optional]  # noqa: E501
+            client_ip_address (str): The user's IP address, which can be either in IPv4 or IPv6 format. Used for matching. We highly recommend this for all events. It may improve reporting performance such as ROAS/CPA.. [optional]  # noqa: E501
+            client_user_agent (str): The user agent string of the user's web browser. We highly recommend this for all events. It may improve reporting performance such as ROAS/CPA.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

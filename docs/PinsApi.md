@@ -170,11 +170,21 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
         media_source={},
         parent_pin_id="4",
     ) # PinCreate | Create a new Pin.
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Create Pin
         api_response = api_instance.pins_create(pin_create)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling PinsApi->pins_create: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Create Pin
+        api_response = api_instance.pins_create(pin_create, ad_account_id=ad_account_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling PinsApi->pins_create: %s\n" % e)
@@ -186,6 +196,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pin_create** | [**PinCreate**](PinCreate.md)| Create a new Pin. |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -219,7 +230,7 @@ Name | Type | Description  | Notes
 
 Delete Pin
 
-Delete a Pins owned by the \"operation user_account\" - or on a group board that has been shared with this account. - By default, the \"operation user_account\" is the token user_account.
+Delete a Pins owned by the \"operation user_account\" - or on a group board that has been shared with this account. - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account:  - For Pins on public or protected boards: Owner, Admin, Analyst, Campaign Manager. - For Pins on secret boards: Owner, Admin.
 
 ### Example
 
@@ -253,11 +264,20 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pins_api.PinsApi(api_client)
     pin_id = "pin_id_example" # str | Unique identifier of a Pin.
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Delete Pin
         api_instance.pins_delete(pin_id)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling PinsApi->pins_delete: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Delete Pin
+        api_instance.pins_delete(pin_id, ad_account_id=ad_account_id)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling PinsApi->pins_delete: %s\n" % e)
 ```
@@ -268,6 +288,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pin_id** | **str**| Unique identifier of a Pin. |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -392,7 +413,7 @@ Name | Type | Description  | Notes
 
 List Pins
 
-Get a list of a user's Pins.
+Get a list of the Pins owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account. - All Pins owned by the \"operation user_account\" are included, regardless of who owns the board they are on. Optional: Business Access: Specify an ad_account_id to use the owner of that ad_account as the \"operation user_account\".
 
 ### Example
 
@@ -430,12 +451,13 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     pin_filter = "exclude_native" # str | Pin filter. (optional)
     include_protected_pins = False # bool | Specify if return pins from protected boards (optional) if omitted the server will use the default value of False
     pin_type = "PRIVATE" # str | The type of pins to return, currently only enabled for private pins (optional) if omitted the server will use the default value of "PRIVATE"
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # List Pins
-        api_response = api_instance.pins_list(bookmark=bookmark, pin_filter=pin_filter, include_protected_pins=include_protected_pins, pin_type=pin_type)
+        api_response = api_instance.pins_list(bookmark=bookmark, pin_filter=pin_filter, include_protected_pins=include_protected_pins, pin_type=pin_type, ad_account_id=ad_account_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling PinsApi->pins_list: %s\n" % e)
@@ -450,6 +472,7 @@ Name | Type | Description  | Notes
  **pin_filter** | **str**| Pin filter. | [optional]
  **include_protected_pins** | **bool**| Specify if return pins from protected boards | [optional] if omitted the server will use the default value of False
  **pin_type** | **str**| The type of pins to return, currently only enabled for private pins | [optional] if omitted the server will use the default value of "PRIVATE"
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -480,7 +503,7 @@ Name | Type | Description  | Notes
 
 Save Pin
 
-Save a Pin on a board or board section owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account. - Any Pin type can be saved: image Pin, video Pin, Idea Pin, product Pin, etc. - Any public Pin can be saved given a pin ID.
+Save a Pin on a board or board section owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account. Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account:  - For Pins on public or protected boards: Owner, Admin, Analyst, Campaign Manager. - For Pins on secret boards: Owner, Admin.  - Any Pin type can be saved: image Pin, video Pin, Idea Pin, product Pin, etc. - Any public Pin can be saved given a pin ID.
 
 ### Example
 
@@ -520,11 +543,21 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
         board_id="4",
         board_section_id="4",
     ) # InlineObject | 
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Save Pin
         api_response = api_instance.pins_save(pin_id, inline_object)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling PinsApi->pins_save: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Save Pin
+        api_response = api_instance.pins_save(pin_id, inline_object, ad_account_id=ad_account_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling PinsApi->pins_save: %s\n" % e)
@@ -537,6 +570,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pin_id** | **str**| Unique identifier of a Pin. |
  **inline_object** | [**InlineObject**](InlineObject.md)|  |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -568,7 +602,7 @@ Name | Type | Description  | Notes
 
 Update Pin
 
-Update a pin owned by the \"operating user_account\".  <strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/new/about-beta-access/'>Learn more</a>.</strong>
+Update a pin owned by the \"operating user_account\". - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account:  - For Pins on public or protected boards: Owner, Admin, Analyst, Campaign Manager. - For Pins on secret boards: Owner, Admin.  <strong>This endpoint is currently in beta and not available to all apps. <a href='/docs/new/about-beta-access/'>Learn more</a>.</strong>
 
 ### Example
 
@@ -612,11 +646,21 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
         link="https://www.pinterest.com/",
         title="title_example",
     ) # PinUpdate | 
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Update Pin
         api_response = api_instance.pins_update(pin_id, pin_update)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling PinsApi->pins_update: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Update Pin
+        api_response = api_instance.pins_update(pin_id, pin_update, ad_account_id=ad_account_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling PinsApi->pins_update: %s\n" % e)
@@ -629,6 +673,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pin_id** | **str**| Unique identifier of a Pin. |
  **pin_update** | [**PinUpdate**](PinUpdate.md)|  |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 

@@ -8,11 +8,15 @@ Method | HTTP request | Description
 [**follow_user_update**](UserAccountApi.md#follow_user_update) | **POST** /user_account/following/{username} | Follow user
 [**followers_list**](UserAccountApi.md#followers_list) | **GET** /user_account/followers | List followers
 [**linked_business_accounts_get**](UserAccountApi.md#linked_business_accounts_get) | **GET** /user_account/businesses | List linked businesses
+[**unverify_website_delete**](UserAccountApi.md#unverify_website_delete) | **DELETE** /user_account/websites | Unverify website
 [**user_account_analytics**](UserAccountApi.md#user_account_analytics) | **GET** /user_account/analytics | Get user account analytics
 [**user_account_analytics_top_pins**](UserAccountApi.md#user_account_analytics_top_pins) | **GET** /user_account/analytics/top_pins | Get user account top pins analytics
 [**user_account_analytics_top_video_pins**](UserAccountApi.md#user_account_analytics_top_video_pins) | **GET** /user_account/analytics/top_video_pins | Get user account top video pins analytics
 [**user_account_get**](UserAccountApi.md#user_account_get) | **GET** /user_account | Get user account
 [**user_following_get**](UserAccountApi.md#user_following_get) | **GET** /user_account/following | List following
+[**user_websites_get**](UserAccountApi.md#user_websites_get) | **GET** /user_account/websites | Get user websites
+[**verify_website_update**](UserAccountApi.md#verify_website_update) | **POST** /user_account/websites | Verify website
+[**website_verification_get**](UserAccountApi.md#website_verification_get) | **GET** /user_account/websites/verification | Get user verification code for website claiming
 
 
 # **boards_user_follows_list**
@@ -341,6 +345,85 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
+**0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **unverify_website_delete**
+> unverify_website_delete(website)
+
+Unverify website
+
+Unverifu a website verified by the signed-in user.
+
+### Example
+
+* OAuth Authentication (pinterest_oauth2):
+
+```python
+import time
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import user_account_api
+from openapi_generated.pinterest_client.model.error import Error
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.pinterest.com/v5
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: pinterest_oauth2
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_account_api.UserAccountApi(api_client)
+    website = "mysite.test" # str | Website with path or domain only
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Unverify website
+        api_instance.unverify_website_delete(website)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling UserAccountApi->unverify_website_delete: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **website** | **str**| Website with path or domain only |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[pinterest_oauth2](../README.md#pinterest_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Successfully unverified website |  -  |
+**404** | Website not in user list. |  -  |
 **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -838,6 +921,249 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | response |  -  |
+**0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **user_websites_get**
+> bool, date, datetime, dict, float, int, list, str, none_type user_websites_get()
+
+Get user websites
+
+Get user websites, claimed or not
+
+### Example
+
+* OAuth Authentication (pinterest_oauth2):
+
+```python
+import time
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import user_account_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.paginated import Paginated
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.pinterest.com/v5
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: pinterest_oauth2
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_account_api.UserAccountApi(api_client)
+    bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get user websites
+        api_response = api_instance.user_websites_get(bookmark=bookmark)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling UserAccountApi->user_websites_get: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
+
+### Return type
+
+**bool, date, datetime, dict, float, int, list, str, none_type**
+
+### Authorization
+
+[pinterest_oauth2](../README.md#pinterest_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**403** | Not authorized to access the user website list. |  -  |
+**0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **verify_website_update**
+> UserWebsiteSummary verify_website_update(user_website_verify_request)
+
+Verify website
+
+Verify a website as a signed-in user.
+
+### Example
+
+* OAuth Authentication (pinterest_oauth2):
+
+```python
+import time
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import user_account_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.user_website_summary import UserWebsiteSummary
+from openapi_generated.pinterest_client.model.user_website_verify_request import UserWebsiteVerifyRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.pinterest.com/v5
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: pinterest_oauth2
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_account_api.UserAccountApi(api_client)
+    user_website_verify_request = UserWebsiteVerifyRequest(
+        website="pintest-website-12345678.test/test_1",
+        verification_method="METATAG",
+    ) # UserWebsiteVerifyRequest | Verify a website.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Verify website
+        api_response = api_instance.verify_website_update(user_website_verify_request)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling UserAccountApi->verify_website_update: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_website_verify_request** | [**UserWebsiteVerifyRequest**](UserWebsiteVerifyRequest.md)| Verify a website. |
+
+### Return type
+
+[**UserWebsiteSummary**](UserWebsiteSummary.md)
+
+### Authorization
+
+[pinterest_oauth2](../README.md#pinterest_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **website_verification_get**
+> UserWebsiteVerificationCode website_verification_get()
+
+Get user verification code for website claiming
+
+Get verification code for user to install on the website to claim it.
+
+### Example
+
+* OAuth Authentication (pinterest_oauth2):
+
+```python
+import time
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import user_account_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.user_website_verification_code import UserWebsiteVerificationCode
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.pinterest.com/v5
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: pinterest_oauth2
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_account_api.UserAccountApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Get user verification code for website claiming
+        api_response = api_instance.website_verification_get()
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling UserAccountApi->website_verification_get: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**UserWebsiteVerificationCode**](UserWebsiteVerificationCode.md)
+
+### Authorization
+
+[pinterest_oauth2](../README.md#pinterest_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**403** | Not authorized to access the user verification code for website claiming. |  -  |
 **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

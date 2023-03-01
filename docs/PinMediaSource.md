@@ -6,7 +6,7 @@ Pin media source.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **source_type** | **str** |  | defaults to "multiple_image_urls"
-**index** | **float** |  | [optional] 
+**index** | **int** |  | [optional] 
 **content_type** | **str** |  | [optional] 
 **data** | **str** |  | [optional] 
 **url** | **str** |  | [optional] 
