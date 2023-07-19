@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **encoding_error** | **int** | Your feed includes data with an unsupported encoding format. | [optional] 
 **delimiter_error** | **int** | Your feed includes data with formatting errors. | [optional] 
 **required_columns_missing** | **int** | Your feed is missing some required column headers. | [optional] 
+**duplicate_products** | **int** | Some products are duplicated. | [optional] 
 **image_link_invalid** | **int** | Some image links are formatted incorrectly. | [optional] 
 **itemid_missing** | **int** | Some items are missing an item id in their product metadata, those items will not be published. | [optional] 
 **title_missing** | **int** | Some items are missing a title in their product metadata, those items will not be published. | [optional] 

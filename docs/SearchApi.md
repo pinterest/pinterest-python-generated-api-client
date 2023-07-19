@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 Search user's boards
 
-Search for a given query within the boards of a specific user.
+Search for boards for the \"operation user_account\". This includes boards of all board types. - By default, the \"operation user_account\" is the token user_account.  If using Business Access: Specify an ad_account_id to use the owner of that ad_account as the \"operation user_account\". See <a href='/docs/reference/business-access/'>Understanding Business Access</a> for more information.
 
 ### Example
 
@@ -47,7 +47,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = search_api.SearchApi(api_client)
-    username = "me" # str | Name of the user to be looked up. (optional) if omitted the server will use the default value of "me"
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
     query = "query_example" # str | Search query. Can contain pin description keywords or comma-separated pin IDs. (optional)
 
@@ -55,7 +55,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Search user's boards
-        api_response = api_instance.search_user_boards_get(username=username, bookmark=bookmark, query=query)
+        api_response = api_instance.search_user_boards_get(ad_account_id=ad_account_id, bookmark=bookmark, query=query)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling SearchApi->search_user_boards_get: %s\n" % e)
@@ -66,7 +66,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| Name of the user to be looked up. | [optional] if omitted the server will use the default value of "me"
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
  **query** | **str**| Search query. Can contain pin description keywords or comma-separated pin IDs. | [optional]
 
@@ -94,11 +94,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_user_pins_list**
-> bool, date, datetime, dict, float, int, list, str, none_type search_user_pins_list()
+> bool, date, datetime, dict, float, int, list, str, none_type search_user_pins_list(query)
 
 Search user's Pins
 
-Request to get a list of user pins matching your search query.
+Search for pins for the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.  If using Business Access: Specify an ad_account_id to use the owner of that ad_account as the \"operation user_account\". See <a href='/docs/reference/business-access/'>Understanding Business Access</a> for more information.
 
 ### Example
 
@@ -132,18 +132,23 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = search_api.SearchApi(api_client)
-    query = "query_example" # str | Search query. Can contain pin description keywords or comma-separated pin IDs. (optional)
-    board = "2617998078212" # str | Board ID. (optional)
-    topic_based = False # bool | Use topic-based search? If true, pass topic as 'query' param. (optional) if omitted the server will use the default value of False
-    richtype = "movie" # str | Rich type filter. (optional)
-    rs = "Unknown" # str | Referring source. (optional)
+    query = "Plants" # str | Search query. Can contain pin description keywords or comma-separated pin IDs.
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Search user's Pins
+        api_response = api_instance.search_user_pins_list(query)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling SearchApi->search_user_pins_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search user's Pins
-        api_response = api_instance.search_user_pins_list(query=query, board=board, topic_based=topic_based, richtype=richtype, rs=rs, bookmark=bookmark)
+        api_response = api_instance.search_user_pins_list(query, ad_account_id=ad_account_id, bookmark=bookmark)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling SearchApi->search_user_pins_list: %s\n" % e)
@@ -154,11 +159,8 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **str**| Search query. Can contain pin description keywords or comma-separated pin IDs. | [optional]
- **board** | **str**| Board ID. | [optional]
- **topic_based** | **bool**| Use topic-based search? If true, pass topic as &#39;query&#39; param. | [optional] if omitted the server will use the default value of False
- **richtype** | **str**| Rich type filter. | [optional]
- **rs** | **str**| Referring source. | [optional]
+ **query** | **str**| Search query. Can contain pin description keywords or comma-separated pin IDs. |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
 
 ### Return type

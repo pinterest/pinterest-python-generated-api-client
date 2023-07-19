@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
-**filters** | [**CatalogsProductGroupFiltersAllOfRequest**](CatalogsProductGroupFiltersAllOfRequest.md) |  | 
+**filters** | [**CatalogsProductGroupFiltersRequest**](CatalogsProductGroupFiltersRequest.md) |  | 
 **feed_id** | **str** | Catalog Feed id pertaining to the catalog product group. | 
 **description** | **str, none_type** |  | [optional] 
 **is_featured** | **bool** | boolean indicator of whether the product group is being featured or not | [optional]  if omitted the server will use the default value of False

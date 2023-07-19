@@ -5,6 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **item_type** | **str** |  | [optional] 
+**title** | **str, none_type** |  | [optional] 
+**description** | **str, none_type** |  | [optional] 
+**link** | **str, none_type** |  | [optional] 
 **images** | [**{str: (ImageDetails,)}**](ImageDetails.md) |  | [optional] 
 **cover_image_url** | **str** |  | [optional] 
 **duration** | **float** | Duration (in milliseconds) | [optional] 

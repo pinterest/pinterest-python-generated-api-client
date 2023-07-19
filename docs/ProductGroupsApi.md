@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 Get catalog product groups
 
-Get a list of catalog product groups used by the feed profile ID.
+This endpoint is completely deprecated. Please use <a href='/docs/api/v5/#operation/catalogs_product_groups/list'>List product groups</a> from Catalogs API instead.
 
 ### Example
 

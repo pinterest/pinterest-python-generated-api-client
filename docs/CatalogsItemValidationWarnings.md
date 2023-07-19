@@ -20,7 +20,6 @@ Name | Type | Description | Notes
 **country_does_not_map_to_currency** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 
 **custom_label_length_too_long** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 
 **description_length_too_long** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 
-**duplicate_products** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 
 **expiration_date_invalid** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 
 **gender_invalid** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 
 **gender_normalized** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 

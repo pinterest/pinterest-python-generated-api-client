@@ -29,6 +29,7 @@ from openapi_generated.pinterest_client.api.customer_lists_api import CustomerLi
 from openapi_generated.pinterest_client.api.integrations_api import IntegrationsApi
 from openapi_generated.pinterest_client.api.interests_api import InterestsApi
 from openapi_generated.pinterest_client.api.keywords_api import KeywordsApi
+from openapi_generated.pinterest_client.api.lead_forms_api import LeadFormsApi
 from openapi_generated.pinterest_client.api.media_api import MediaApi
 from openapi_generated.pinterest_client.api.oauth_api import OauthApi
 from openapi_generated.pinterest_client.api.order_lines_api import OrderLinesApi

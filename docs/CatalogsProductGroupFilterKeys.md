@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **custom_label_3** | **CatalogsProductGroupMultipleStringCriteria** |  | [optional] 
 **custom_label_4** | **CatalogsProductGroupMultipleStringCriteria** |  | [optional] 
 **item_group_id** | **CatalogsProductGroupMultipleStringCriteria** |  | [optional] 
-**gender** | **CatalogsProductGroupMultipleStringCriteria** |  | [optional] 
+**gender** | **CatalogsProductGroupMultipleGenderCriteria** |  | [optional] 
 **product_type_4** | **CatalogsProductGroupMultipleStringListCriteria** |  | [optional] 
 **product_type_3** | **CatalogsProductGroupMultipleStringListCriteria** |  | [optional] 
 **product_type_2** | **CatalogsProductGroupMultipleStringListCriteria** |  | [optional] 

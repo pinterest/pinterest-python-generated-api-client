@@ -5,6 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **item_type** | **str** |  | [optional] 
+**title** | **str, none_type** |  | [optional] 
+**description** | **str, none_type** |  | [optional] 
+**link** | **str, none_type** |  | [optional] 
 **images** | [**{str: (ImageDetails,)}**](ImageDetails.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **default_country** | [**Country**](Country.md) |  | [optional] 
 **default_availability** | [**ProductAvailabilityType**](ProductAvailabilityType.md) |  | [optional] 
 **default_currency** | [**NullableCurrency**](NullableCurrency.md) |  | [optional] 
-**default_locale** | **str** | The locale used within a feed for product descriptions. | [optional] 
+**default_locale** | **bool, date, datetime, dict, float, int, list, str, none_type** | The locale used within a feed for product descriptions. | [optional] 
 **credentials** | [**CatalogsFeedCredentials**](CatalogsFeedCredentials.md) |  | [optional] 
 **preferred_processing_schedule** | [**CatalogsFeedProcessingSchedule**](CatalogsFeedProcessingSchedule.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

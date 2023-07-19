@@ -5,7 +5,7 @@ All URIs are relative to *https://api.pinterest.com/v5*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**order_lines_get**](OrderLinesApi.md#order_lines_get) | **GET** /ad_accounts/{ad_account_id}/order_lines/{order_line_id} | Get order line
-[**order_lines_list**](OrderLinesApi.md#order_lines_list) | **GET** /ad_accounts/{ad_account_id}/order_lines | Get Order Lines
+[**order_lines_list**](OrderLinesApi.md#order_lines_list) | **GET** /ad_accounts/{ad_account_id}/order_lines | Get order lines
 
 
 # **order_lines_get**
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 # **order_lines_list**
 > bool, date, datetime, dict, float, int, list, str, none_type order_lines_list(ad_account_id)
 
-Get Order Lines
+Get order lines
 
 List existing order lines associated with an ad account.
 
@@ -136,7 +136,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get Order Lines
+        # Get order lines
         api_response = api_instance.order_lines_list(ad_account_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
@@ -145,7 +145,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Get Order Lines
+        # Get order lines
         api_response = api_instance.order_lines_list(ad_account_id, page_size=page_size, order=order, bookmark=bookmark)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:

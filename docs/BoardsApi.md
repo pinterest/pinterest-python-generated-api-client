@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 Create board section
 
-Create a board section on a board owned by the \"operation user_account\" - or on a group board that has been shared with this account. - By default, the \"operation user_account\" is the token user_account.
+Create a board section on a board owned by the \"operation user_account\" - or on a group board that has been shared with this account. Optional: Business Access: Specify an ad_account_id to use the owner of that ad_account as the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.
 
 ### Example
 
@@ -60,11 +60,21 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     board_section = BoardSection(
         name="Salads",
     ) # BoardSection | Create a board section.
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Create board section
         api_response = api_instance.board_sections_create(board_id, board_section)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling BoardsApi->board_sections_create: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Create board section
+        api_response = api_instance.board_sections_create(board_id, board_section, ad_account_id=ad_account_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->board_sections_create: %s\n" % e)
@@ -77,6 +87,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **board_id** | **str**| Unique identifier of a board. |
  **board_section** | [**BoardSection**](BoardSection.md)| Create a board section. |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -110,7 +121,7 @@ Name | Type | Description  | Notes
 
 Delete board section
 
-Delete a board section on a board owned by the \"operation user_account\" - or on a group board that has been shared with this account. - By default, the \"operation user_account\" is the token user_account.
+Delete a board section on a board owned by the \"operation user_account\" - or on a group board that has been shared with this account. Optional: Business Access: Specify an ad_account_id to use the owner of that ad_account as the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.
 
 ### Example
 
@@ -145,11 +156,20 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     api_instance = boards_api.BoardsApi(api_client)
     board_id = "4" # str | Unique identifier of a board.
     section_id = "4" # str | Unique identifier of a board section.
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Delete board section
         api_instance.board_sections_delete(board_id, section_id)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling BoardsApi->board_sections_delete: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Delete board section
+        api_instance.board_sections_delete(board_id, section_id, ad_account_id=ad_account_id)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->board_sections_delete: %s\n" % e)
 ```
@@ -161,6 +181,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **board_id** | **str**| Unique identifier of a board. |
  **section_id** | **str**| Unique identifier of a board section. |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -193,7 +214,7 @@ void (empty response body)
 
 List board sections
 
-Get a list of all board sections from a board owned by the \"operation user_account\" - or a group board that has been shared with this account. - By default, the \"operation user_account\" is the token user_account.
+Get a list of all board sections from a board owned by the \"operation user_account\" - or a group board that has been shared with this account. Optional: Business Access: Specify an ad_account_id to use the owner of that ad_account as the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.
 
 ### Example
 
@@ -228,6 +249,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = boards_api.BoardsApi(api_client)
     board_id = "4" # str | Unique identifier of a board.
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
     page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
 
@@ -243,7 +265,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List board sections
-        api_response = api_instance.board_sections_list(board_id, bookmark=bookmark, page_size=page_size)
+        api_response = api_instance.board_sections_list(board_id, ad_account_id=ad_account_id, bookmark=bookmark, page_size=page_size)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->board_sections_list: %s\n" % e)
@@ -255,6 +277,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **board_id** | **str**| Unique identifier of a board. |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
  **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
 
@@ -286,7 +309,7 @@ Name | Type | Description  | Notes
 
 List Pins on board section
 
-Get a list of the Pins on a board section of a board owned by the \"operation user_account\" - or on a group board that has been shared with this account. - By default, the \"operation user_account\" is the token user_account.
+Get a list of the Pins on a board section of a board owned by the \"operation user_account\" - or on a group board that has been shared with this account. Optional: Business Access: Specify an ad_account_id to use the owner of that ad_account as the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.
 
 ### Example
 
@@ -322,6 +345,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     api_instance = boards_api.BoardsApi(api_client)
     board_id = "4" # str | Unique identifier of a board.
     section_id = "4" # str | Unique identifier of a board section.
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
     page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
 
@@ -337,7 +361,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Pins on board section
-        api_response = api_instance.board_sections_list_pins(board_id, section_id, bookmark=bookmark, page_size=page_size)
+        api_response = api_instance.board_sections_list_pins(board_id, section_id, ad_account_id=ad_account_id, bookmark=bookmark, page_size=page_size)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->board_sections_list_pins: %s\n" % e)
@@ -350,6 +374,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **board_id** | **str**| Unique identifier of a board. |
  **section_id** | **str**| Unique identifier of a board section. |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
  **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
 
@@ -384,7 +409,7 @@ Name | Type | Description  | Notes
 
 Update board section
 
-Update a board section on a board owned by the \"operation user_account\" - or on a group board that has been shared with this account. - By default, the \"operation user_account\" is the token user_account.
+Update a board section on a board owned by the \"operation user_account\" - or on a group board that has been shared with this account. Optional: Business Access: Specify an ad_account_id to use the owner of that ad_account as the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.
 
 ### Example
 
@@ -423,11 +448,21 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     board_section = BoardSection(
         name="Salads",
     ) # BoardSection | Update a board section.
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Update board section
         api_response = api_instance.board_sections_update(board_id, section_id, board_section)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling BoardsApi->board_sections_update: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Update board section
+        api_response = api_instance.board_sections_update(board_id, section_id, board_section, ad_account_id=ad_account_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->board_sections_update: %s\n" % e)
@@ -441,6 +476,7 @@ Name | Type | Description  | Notes
  **board_id** | **str**| Unique identifier of a board. |
  **section_id** | **str**| Unique identifier of a board section. |
  **board_section** | [**BoardSection**](BoardSection.md)| Update a board section. |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -473,7 +509,7 @@ Name | Type | Description  | Notes
 
 Create board
 
-Create a board owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.
+Create a board owned by the \"operation user_account\". Optional: Business Access: Specify an ad_account_id to use the owner of that ad_account as the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.
 
 ### Example
 
@@ -512,11 +548,21 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
         description="My favorite summer recipes",
         privacy="PUBLIC",
     ) # Board | Create a board using a single board json object.
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Create board
         api_response = api_instance.boards_create(board)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling BoardsApi->boards_create: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Create board
+        api_response = api_instance.boards_create(board, ad_account_id=ad_account_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->boards_create: %s\n" % e)
@@ -528,6 +574,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **board** | [**Board**](Board.md)| Create a board using a single board json object. |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -558,7 +605,7 @@ Name | Type | Description  | Notes
 
 Delete board
 
-Delete a board owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.
+Delete a board owned by the \"operation user_account\". - Optional: Business Access: Specify an ad_account_id to use the owner of that ad_account as the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.
 
 ### Example
 
@@ -592,11 +639,20 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = boards_api.BoardsApi(api_client)
     board_id = "4" # str | Unique identifier of a board.
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Delete board
         api_instance.boards_delete(board_id)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling BoardsApi->boards_delete: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Delete board
+        api_instance.boards_delete(board_id, ad_account_id=ad_account_id)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->boards_delete: %s\n" % e)
 ```
@@ -607,6 +663,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **board_id** | **str**| Unique identifier of a board. |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -640,7 +697,7 @@ void (empty response body)
 
 Get board
 
-Get a board owned by the operation user_account - or a group board that has been shared with this account. - By default, the \"operation user_account\" is the token user_account.
+Get a board owned by the operation user_account - or a group board that has been shared with this account. - Optional: Business Access: Specify an ad_account_id to use the owner of that ad_account as the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.
 
 ### Example
 
@@ -675,11 +732,21 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = boards_api.BoardsApi(api_client)
     board_id = "4" # str | Unique identifier of a board.
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Get board
         api_response = api_instance.boards_get(board_id)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling BoardsApi->boards_get: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get board
+        api_response = api_instance.boards_get(board_id, ad_account_id=ad_account_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->boards_get: %s\n" % e)
@@ -691,6 +758,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **board_id** | **str**| Unique identifier of a board. |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -721,7 +789,7 @@ Name | Type | Description  | Notes
 
 List boards
 
-Get a list of the boards owned by the \"operation user_account\" + group boards where this account is a collaborator  Optional: Specify a privacy type (public, protected, or secret) to indicate which boards to return. - If no privacy is specified, all boards that can be returned (based on the scopes of the token and ad_account role if applicable) will be returned.
+Get a list of the boards owned by the \"operation user_account\" + group boards where this account is a collaborator Optional: Business Access: Specify an ad_account_id to use the owner of that ad_account as the \"operation user_account\". Optional: Specify a privacy type (public, protected, or secret) to indicate which boards to return. - If no privacy is specified, all boards that can be returned (based on the scopes of the token and ad_account role if applicable) will be returned.
 
 ### Example
 
@@ -755,6 +823,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = boards_api.BoardsApi(api_client)
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
     page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
     privacy = "PUBLIC" # str | Privacy setting for a board. (optional)
@@ -763,7 +832,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List boards
-        api_response = api_instance.boards_list(bookmark=bookmark, page_size=page_size, privacy=privacy)
+        api_response = api_instance.boards_list(ad_account_id=ad_account_id, bookmark=bookmark, page_size=page_size, privacy=privacy)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->boards_list: %s\n" % e)
@@ -774,6 +843,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
  **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
  **privacy** | **str**| Privacy setting for a board. | [optional]
@@ -806,7 +876,7 @@ Name | Type | Description  | Notes
 
 List Pins on board
 
-Get a list of the Pins on a board owned by the \"operation user_account\" - or on a group board that has been shared with this account. - By default, the \"operation user_account\" is the token user_account.
+Get a list of the Pins on a board owned by the \"operation user_account\" - or on a group board that has been shared with this account. - Optional: Business Access: Specify an ad_account_id to use the owner of that ad_account as the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.
 
 ### Example
 
@@ -843,6 +913,10 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     board_id = "4" # str | Unique identifier of a board.
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
     page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
+    creative_types = [
+        "REGULAR",
+    ] # [str] | Pin creative types filter. </p><strong>Note:</strong> SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. (optional)
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -856,7 +930,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Pins on board
-        api_response = api_instance.boards_list_pins(board_id, bookmark=bookmark, page_size=page_size)
+        api_response = api_instance.boards_list_pins(board_id, bookmark=bookmark, page_size=page_size, creative_types=creative_types, ad_account_id=ad_account_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->boards_list_pins: %s\n" % e)
@@ -870,6 +944,8 @@ Name | Type | Description  | Notes
  **board_id** | **str**| Unique identifier of a board. |
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
  **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
+ **creative_types** | **[str]**| Pin creative types filter. &lt;/p&gt;&lt;strong&gt;Note:&lt;/strong&gt; SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. | [optional]
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
@@ -900,7 +976,7 @@ Name | Type | Description  | Notes
 
 Update board
 
-Update a board owned by the \"operating user_account\".
+Update a board owned by the \"operating user_account\". - Optional: Business Access: Specify an ad_account_id to use the owner of that ad_account as the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.
 
 ### Example
 
@@ -941,11 +1017,21 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
         description="My favorite summer recipes",
         privacy="PUBLIC",
     ) # BoardUpdate | Update a board.
+    ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Update board
         api_response = api_instance.boards_update(board_id, board_update)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling BoardsApi->boards_update: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Update board
+        api_response = api_instance.boards_update(board_id, board_update, ad_account_id=ad_account_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->boards_update: %s\n" % e)
@@ -958,6 +1044,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **board_id** | **str**| Unique identifier of a board. |
  **board_update** | [**BoardUpdate**](BoardUpdate.md)| Update a board. |
+ **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
 
