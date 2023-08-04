@@ -467,11 +467,12 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = user_account_api.UserAccountApi(api_client)
-    start_date = dateutil_parser('1970-01-01').date() # date | Metric report start date (UTC). Format: YYYY-MM-DD
-    end_date = dateutil_parser('1970-01-01').date() # date | Metric report end date (UTC). Format: YYYY-MM-DD
+    start_date = dateutil_parser('1970-01-01').date() # date | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today.
+    end_date = dateutil_parser('1970-01-01').date() # date | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date.
     from_claimed_content = "BOTH" # str | Filter on Pins that match your claimed domain. (optional) if omitted the server will use the default value of "BOTH"
     pin_format = "ALL" # str | Pin formats to get data for, default is all. (optional) if omitted the server will use the default value of "ALL"
     app_types = "ALL" # str | Apps or devices to get data for, default is all. (optional) if omitted the server will use the default value of "ALL"
+    source = "ALL" # str | Filter to activity from Pins created and saved by your, or activity created and saved by others from your claimed accounts (optional) if omitted the server will use the default value of "ALL"
     metric_types = [
         "ENGAGEMENT",
     ] # [str] | Metric types to get data for, default is all.  (optional)
@@ -490,7 +491,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get user account analytics
-        api_response = api_instance.user_account_analytics(start_date, end_date, from_claimed_content=from_claimed_content, pin_format=pin_format, app_types=app_types, metric_types=metric_types, split_field=split_field, ad_account_id=ad_account_id)
+        api_response = api_instance.user_account_analytics(start_date, end_date, from_claimed_content=from_claimed_content, pin_format=pin_format, app_types=app_types, source=source, metric_types=metric_types, split_field=split_field, ad_account_id=ad_account_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling UserAccountApi->user_account_analytics: %s\n" % e)
@@ -501,11 +502,12 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **start_date** | **date**| Metric report start date (UTC). Format: YYYY-MM-DD |
- **end_date** | **date**| Metric report end date (UTC). Format: YYYY-MM-DD |
+ **start_date** | **date**| Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+ **end_date** | **date**| Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
  **from_claimed_content** | **str**| Filter on Pins that match your claimed domain. | [optional] if omitted the server will use the default value of "BOTH"
  **pin_format** | **str**| Pin formats to get data for, default is all. | [optional] if omitted the server will use the default value of "ALL"
  **app_types** | **str**| Apps or devices to get data for, default is all. | [optional] if omitted the server will use the default value of "ALL"
+ **source** | **str**| Filter to activity from Pins created and saved by your, or activity created and saved by others from your claimed accounts | [optional] if omitted the server will use the default value of "ALL"
  **metric_types** | **[str]**| Metric types to get data for, default is all.  | [optional]
  **split_field** | **str**| How to split the data into groups. Not including this param means data won&#39;t be split. | [optional] if omitted the server will use the default value of "NO_SPLIT"
  **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
@@ -574,12 +576,14 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = user_account_api.UserAccountApi(api_client)
-    start_date = dateutil_parser('1970-01-01').date() # date | Metric report start date (UTC). Format: YYYY-MM-DD
-    end_date = dateutil_parser('1970-01-01').date() # date | Metric report end date (UTC). Format: YYYY-MM-DD
+    start_date = dateutil_parser('1970-01-01').date() # date | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today.
+    end_date = dateutil_parser('1970-01-01').date() # date | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date.
     sort_by = "ENGAGEMENT" # str | Specify sorting order for metrics
     from_claimed_content = "BOTH" # str | Filter on Pins that match your claimed domain. (optional) if omitted the server will use the default value of "BOTH"
     pin_format = "ALL" # str | Pin formats to get data for, default is all. (optional) if omitted the server will use the default value of "ALL"
     app_types = "ALL" # str | Apps or devices to get data for, default is all. (optional) if omitted the server will use the default value of "ALL"
+    content_type = "ALL" # str | Filter to paid or organic data. Default is all. (optional) if omitted the server will use the default value of "ALL"
+    source = "ALL" # str | Filter to activity from Pins created and saved by your, or activity created and saved by others from your claimed accounts (optional) if omitted the server will use the default value of "ALL"
     metric_types = [
         "ENGAGEMENT",
     ] # [str] | Metric types to get data for, default is all.  (optional)
@@ -599,7 +603,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get user account top pins analytics
-        api_response = api_instance.user_account_analytics_top_pins(start_date, end_date, sort_by, from_claimed_content=from_claimed_content, pin_format=pin_format, app_types=app_types, metric_types=metric_types, num_of_pins=num_of_pins, created_in_last_n_days=created_in_last_n_days, ad_account_id=ad_account_id)
+        api_response = api_instance.user_account_analytics_top_pins(start_date, end_date, sort_by, from_claimed_content=from_claimed_content, pin_format=pin_format, app_types=app_types, content_type=content_type, source=source, metric_types=metric_types, num_of_pins=num_of_pins, created_in_last_n_days=created_in_last_n_days, ad_account_id=ad_account_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling UserAccountApi->user_account_analytics_top_pins: %s\n" % e)
@@ -610,12 +614,14 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **start_date** | **date**| Metric report start date (UTC). Format: YYYY-MM-DD |
- **end_date** | **date**| Metric report end date (UTC). Format: YYYY-MM-DD |
+ **start_date** | **date**| Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+ **end_date** | **date**| Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
  **sort_by** | **str**| Specify sorting order for metrics |
  **from_claimed_content** | **str**| Filter on Pins that match your claimed domain. | [optional] if omitted the server will use the default value of "BOTH"
  **pin_format** | **str**| Pin formats to get data for, default is all. | [optional] if omitted the server will use the default value of "ALL"
  **app_types** | **str**| Apps or devices to get data for, default is all. | [optional] if omitted the server will use the default value of "ALL"
+ **content_type** | **str**| Filter to paid or organic data. Default is all. | [optional] if omitted the server will use the default value of "ALL"
+ **source** | **str**| Filter to activity from Pins created and saved by your, or activity created and saved by others from your claimed accounts | [optional] if omitted the server will use the default value of "ALL"
  **metric_types** | **[str]**| Metric types to get data for, default is all.  | [optional]
  **num_of_pins** | **int**| Number of pins to include, default is 10. Max is 50. | [optional] if omitted the server will use the default value of 10
  **created_in_last_n_days** | **int**| Get metrics for pins created in the last \&quot;n\&quot; days. | [optional] if omitted the server will use the default value of 30
@@ -684,12 +690,14 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = user_account_api.UserAccountApi(api_client)
-    start_date = dateutil_parser('1970-01-01').date() # date | Metric report start date (UTC). Format: YYYY-MM-DD
-    end_date = dateutil_parser('1970-01-01').date() # date | Metric report end date (UTC). Format: YYYY-MM-DD
+    start_date = dateutil_parser('1970-01-01').date() # date | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today.
+    end_date = dateutil_parser('1970-01-01').date() # date | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date.
     sort_by = "IMPRESSION" # str | Specify sorting order for video metrics
     from_claimed_content = "BOTH" # str | Filter on Pins that match your claimed domain. (optional) if omitted the server will use the default value of "BOTH"
     pin_format = "ALL" # str | Pin formats to get data for, default is all. (optional) if omitted the server will use the default value of "ALL"
     app_types = "ALL" # str | Apps or devices to get data for, default is all. (optional) if omitted the server will use the default value of "ALL"
+    content_type = "ALL" # str | Filter to paid or organic data. Default is all. (optional) if omitted the server will use the default value of "ALL"
+    source = "ALL" # str | Filter to activity from Pins created and saved by your, or activity created and saved by others from your claimed accounts (optional) if omitted the server will use the default value of "ALL"
     metric_types = [
         "IMPRESSION",
     ] # [str] | Metric types to get video data for, default is all.  (optional)
@@ -709,7 +717,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get user account top video pins analytics
-        api_response = api_instance.user_account_analytics_top_video_pins(start_date, end_date, sort_by, from_claimed_content=from_claimed_content, pin_format=pin_format, app_types=app_types, metric_types=metric_types, num_of_pins=num_of_pins, created_in_last_n_days=created_in_last_n_days, ad_account_id=ad_account_id)
+        api_response = api_instance.user_account_analytics_top_video_pins(start_date, end_date, sort_by, from_claimed_content=from_claimed_content, pin_format=pin_format, app_types=app_types, content_type=content_type, source=source, metric_types=metric_types, num_of_pins=num_of_pins, created_in_last_n_days=created_in_last_n_days, ad_account_id=ad_account_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling UserAccountApi->user_account_analytics_top_video_pins: %s\n" % e)
@@ -720,12 +728,14 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **start_date** | **date**| Metric report start date (UTC). Format: YYYY-MM-DD |
- **end_date** | **date**| Metric report end date (UTC). Format: YYYY-MM-DD |
+ **start_date** | **date**| Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+ **end_date** | **date**| Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
  **sort_by** | **str**| Specify sorting order for video metrics |
  **from_claimed_content** | **str**| Filter on Pins that match your claimed domain. | [optional] if omitted the server will use the default value of "BOTH"
  **pin_format** | **str**| Pin formats to get data for, default is all. | [optional] if omitted the server will use the default value of "ALL"
  **app_types** | **str**| Apps or devices to get data for, default is all. | [optional] if omitted the server will use the default value of "ALL"
+ **content_type** | **str**| Filter to paid or organic data. Default is all. | [optional] if omitted the server will use the default value of "ALL"
+ **source** | **str**| Filter to activity from Pins created and saved by your, or activity created and saved by others from your claimed accounts | [optional] if omitted the server will use the default value of "ALL"
  **metric_types** | **[str]**| Metric types to get video data for, default is all.  | [optional]
  **num_of_pins** | **int**| Number of pins to include, default is 10. Max is 50. | [optional] if omitted the server will use the default value of 10
  **created_in_last_n_days** | **int**| Get metrics for pins created in the last \&quot;n\&quot; days. | [optional] if omitted the server will use the default value of 30

@@ -4,12 +4,12 @@ All URIs are relative to *https://api.pinterest.com/v5*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**catalogs_product_group_pins_list**](CatalogsApi.md#catalogs_product_group_pins_list) | **GET** /catalogs/product_groups/{product_group_id}/products | List products
+[**catalogs_product_group_pins_list**](CatalogsApi.md#catalogs_product_group_pins_list) | **GET** /catalogs/product_groups/{product_group_id}/products | List products for a Product Group
 [**catalogs_product_groups_create**](CatalogsApi.md#catalogs_product_groups_create) | **POST** /catalogs/product_groups | Create product group
 [**catalogs_product_groups_delete**](CatalogsApi.md#catalogs_product_groups_delete) | **DELETE** /catalogs/product_groups/{product_group_id} | Delete product group
 [**catalogs_product_groups_get**](CatalogsApi.md#catalogs_product_groups_get) | **GET** /catalogs/product_groups/{product_group_id} | Get product group
 [**catalogs_product_groups_list**](CatalogsApi.md#catalogs_product_groups_list) | **GET** /catalogs/product_groups | List product groups
-[**catalogs_product_groups_product_counts_get**](CatalogsApi.md#catalogs_product_groups_product_counts_get) | **GET** /catalogs/product_groups/{product_group_id}/product_counts | Get product counts
+[**catalogs_product_groups_product_counts_get**](CatalogsApi.md#catalogs_product_groups_product_counts_get) | **GET** /catalogs/product_groups/{product_group_id}/product_counts | Get product counts for a Product Group
 [**catalogs_product_groups_update**](CatalogsApi.md#catalogs_product_groups_update) | **PATCH** /catalogs/product_groups/{product_group_id} | Update product group
 [**feed_processing_results_list**](CatalogsApi.md#feed_processing_results_list) | **GET** /catalogs/feeds/{feed_id}/processing_results | List processing results for a given feed
 [**feeds_create**](CatalogsApi.md#feeds_create) | **POST** /catalogs/feeds | Create feed
@@ -27,7 +27,7 @@ Method | HTTP request | Description
 # **catalogs_product_group_pins_list**
 > bool, date, datetime, dict, float, int, list, str, none_type catalogs_product_group_pins_list(product_group_id)
 
-List products
+List products for a Product Group
 
 Get a list of product pins for a given Catalogs Product Group Id owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
 
@@ -70,7 +70,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # List products
+        # List products for a Product Group
         api_response = api_instance.catalogs_product_group_pins_list(product_group_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
@@ -79,7 +79,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # List products
+        # List products for a Product Group
         api_response = api_instance.catalogs_product_group_pins_list(product_group_id, bookmark=bookmark, page_size=page_size, ad_account_id=ad_account_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
@@ -510,7 +510,7 @@ Name | Type | Description  | Notes
 # **catalogs_product_groups_product_counts_get**
 > CatalogsProductGroupProductCounts catalogs_product_groups_product_counts_get(product_group_id)
 
-Get product counts
+Get product counts for a Product Group
 
 Get a product counts for a given Catalogs Product Group owned by the \"operation user_account\". - By default, the \"operation user_account\" is the token user_account.  Optional: Business Access: Specify an <code>ad_account_id</code> (obtained via <a href='/docs/api/v5/#operation/ad_accounts/list'>List ad accounts</a>) to use the owner of that ad_account as the \"operation user_account\". In order to do this, the token user_account must have one of the following <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a> roles on the ad_account: Owner, Admin, Catalogs Manager.  <a href='/docs/shopping/catalog/'>Learn more</a>
 
@@ -551,7 +551,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get product counts
+        # Get product counts for a Product Group
         api_response = api_instance.catalogs_product_groups_product_counts_get(product_group_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
@@ -560,7 +560,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Get product counts
+        # Get product counts for a Product Group
         api_response = api_instance.catalogs_product_groups_product_counts_get(product_group_id, ad_account_id=ad_account_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
@@ -645,7 +645,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
         name="name_example",
         description="description_example",
         is_featured=True,
-        filters=CatalogsProductGroupFiltersAllOfRequest(),
+        filters=CatalogsProductGroupFiltersRequest(),
     ) # CatalogsProductGroupUpdateRequest | Request object used to Update a catalogs product group.
     ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
@@ -848,7 +848,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
         default_currency=NullableCurrency("USD"),
         name="name_example",
         format=CatalogsFormat("TSV"),
-        default_locale="en_US",
+        default_locale=None,
         credentials=CatalogsFeedCredentials(
             password="password_example",
             username="username_example",

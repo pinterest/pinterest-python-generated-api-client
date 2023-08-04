@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **description** | **str, none_type** | Pin description - 500 characters maximum. | [optional] 
 **link** | **str, none_type** | URL viewer is taken to when they click pin. | [optional] 
 **title** | **str, none_type** | The native pin title that creators explicitly prefer to display. | [optional] 
+**carousel_slots** | [**[PinUpdateCarouselSlots]**](PinUpdateCarouselSlots.md) | Carousel Pin slots data. | [optional] 
+**note** | **str, none_type** | Private note for this Pin. &lt;a href&#x3D;\&quot;https://help.pinterest.com/en/article/add-notes-to-your-pins\&quot;&gt;Learn more&lt;/a&gt;. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

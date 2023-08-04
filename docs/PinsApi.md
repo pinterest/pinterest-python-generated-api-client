@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **pins_analytics**
-> AnalyticsResponse pins_analytics(pin_id, start_date, end_date, metric_types)
+> PinAnalyticsResponse pins_analytics(pin_id, start_date, end_date, metric_types)
 
 Get Pin analytics
 
@@ -29,7 +29,7 @@ import time
 import openapi_generated.pinterest_client
 from openapi_generated.pinterest_client.api import pins_api
 from openapi_generated.pinterest_client.model.error import Error
-from openapi_generated.pinterest_client.model.analytics_response import AnalyticsResponse
+from openapi_generated.pinterest_client.model.pin_analytics_response import PinAnalyticsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
@@ -53,8 +53,8 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pins_api.PinsApi(api_client)
     pin_id = "pin_id_example" # str | Unique identifier of a Pin.
-    start_date = dateutil_parser('1970-01-01').date() # date | Metric report start date (UTC). Format: YYYY-MM-DD
-    end_date = dateutil_parser('1970-01-01').date() # date | Metric report end date (UTC). Format: YYYY-MM-DD
+    start_date = dateutil_parser('1970-01-01').date() # date | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today.
+    end_date = dateutil_parser('1970-01-01').date() # date | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date.
     metric_types = [
         None,
     ] # [bool, date, datetime, dict, float, int, list, str, none_type] | Pin metric types to get data for, default is all.
@@ -86,8 +86,8 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pin_id** | **str**| Unique identifier of a Pin. |
- **start_date** | **date**| Metric report start date (UTC). Format: YYYY-MM-DD |
- **end_date** | **date**| Metric report end date (UTC). Format: YYYY-MM-DD |
+ **start_date** | **date**| Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+ **end_date** | **date**| Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
  **metric_types** | [**[bool, date, datetime, dict, float, int, list, str, none_type]**](bool, date, datetime, dict, float, int, list, str, none_type.md)| Pin metric types to get data for, default is all. |
  **app_types** | **str**| Apps or devices to get data for, default is all. | [optional] if omitted the server will use the default value of "ALL"
  **split_field** | **str**| How to split the data into groups. Not including this param means data won&#39;t be split. | [optional] if omitted the server will use the default value of "NO_SPLIT"
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AnalyticsResponse**](AnalyticsResponse.md)
+[**PinAnalyticsResponse**](PinAnalyticsResponse.md)
 
 ### Authorization
 
@@ -169,6 +169,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
         board_section_id="4",
         media_source={},
         parent_pin_id="4",
+        note="note_example",
     ) # PinCreate | Create a new Pin.
     ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
@@ -451,13 +452,16 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     pin_filter = "exclude_native" # str | Pin filter. (optional)
     include_protected_pins = False # bool | Specify if return pins from protected boards (optional) if omitted the server will use the default value of False
     pin_type = "PRIVATE" # str | The type of pins to return, currently only enabled for private pins (optional) if omitted the server will use the default value of "PRIVATE"
+    creative_types = [
+        "REGULAR",
+    ] # [str] | Pin creative types filter. </p><strong>Note:</strong> SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. (optional)
     ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # List Pins
-        api_response = api_instance.pins_list(bookmark=bookmark, pin_filter=pin_filter, include_protected_pins=include_protected_pins, pin_type=pin_type, ad_account_id=ad_account_id)
+        api_response = api_instance.pins_list(bookmark=bookmark, pin_filter=pin_filter, include_protected_pins=include_protected_pins, pin_type=pin_type, creative_types=creative_types, ad_account_id=ad_account_id)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling PinsApi->pins_list: %s\n" % e)
@@ -472,6 +476,7 @@ Name | Type | Description  | Notes
  **pin_filter** | **str**| Pin filter. | [optional]
  **include_protected_pins** | **bool**| Specify if return pins from protected boards | [optional] if omitted the server will use the default value of False
  **pin_type** | **str**| The type of pins to return, currently only enabled for private pins | [optional] if omitted the server will use the default value of "PRIVATE"
+ **creative_types** | **[str]**| Pin creative types filter. &lt;/p&gt;&lt;strong&gt;Note:&lt;/strong&gt; SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. | [optional]
  **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
 
 ### Return type
@@ -645,6 +650,14 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
         description="description_example",
         link="https://www.pinterest.com/",
         title="title_example",
+        carousel_slots=[
+            PinUpdateCarouselSlots(
+                title="title_example",
+                description="description_example",
+                link="link_example",
+            ),
+        ],
+        note="note_example",
     ) # PinUpdate | 
     ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
 

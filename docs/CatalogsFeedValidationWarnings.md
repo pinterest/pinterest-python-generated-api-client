@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **size_type_invalid** | **int** | Some items have size type values that are formatted incorrectly, which may limit visibility in recommendations, search results and shopping experiences. | [optional] 
 **size_system_invalid** | **int** | Some items have size system values which are not one of the supported size systems. | [optional] 
 **link_format_warning** | **int** | Some items have an invalid product link which contains invalid UTM tracking paramaters. | [optional] 
-**duplicate_products** | **int** | Some products are duplicated. | [optional] 
 **sales_price_invalid** | **int** | Some items have sale price values that are higher than the original price of the item. | [optional] 
 **product_category_depth_warning** | **int** | Some items only have 1 or 2 levels of google_product_category values, which may limit visibility in recommendations, search results and shopping experiences. | [optional] 
 **adwords_format_warning** | **int** | Some items have adwords_redirect links that are formatted incorrectly. | [optional] 

@@ -12,11 +12,12 @@ Method | HTTP request | Description
 
 Send conversion events to the Pinterest API for Conversions
 
-The Pinterest API offers advertisers a way to send Pinterest their conversion information (including web conversions, in-app conversions, or even offline conversions) based on their <code>ad_account_id</code>. The request body should be a JSON object. - This endpoint requires an <code>access_token</code> be generated through Ads Manager. Review the <a href=\"/docs/conversions/conversion-management/#Authenticating%20for%20the%20Conversion%20Tracking%20endpoint\">Conversions Guide</a> for more details. - The token's <code>user_account</code> must either be the Owner of the specified ad account, or have one of the necessary roles granted to them via <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a>: Admin, Analyst, Audience, Campaign. - If the merchant is submitting this information using both Pinterest conversion tags and the Pinterest API, Pinterest will remove duplicate information before reporting. (Note that events that took place offline cannot be deduplicated.)
+The Pinterest API offers advertisers a way to send Pinterest their conversion information (including web conversions, in-app conversions, or even offline conversions) based on their <code>ad_account_id</code>. The request body should be a JSON object. - This endpoint requires an <code>access_token</code> be generated through Ads Manager. Review the <a href=\"/docs/conversions/conversions/\">Conversions Guide</a> for more details. - The token's <code>user_account</code> must either be the Owner of the specified ad account, or have one of the necessary roles granted to them via <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a>: Admin, Analyst, Audience, Campaign. (Note that the token can be used across multiple ad accounts under an user ID.) - This endpoint has a rate limit of 5,000 calls per minute per ad account. - If the merchant is submitting this information using both Pinterest conversion tags and the Pinterest API, Pinterest will remove duplicate information before reporting. (Note that events that took place offline cannot be deduplicated.)
 
 ### Example
 
 * Bearer Authentication (conversion_token):
+* OAuth Authentication (pinterest_oauth2):
 
 ```python
 import time
@@ -42,6 +43,12 @@ configuration = openapi_generated.pinterest_client.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
+# Configure OAuth2 access token for authorization: pinterest_oauth2
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # Enter a context with an instance of the API client
 with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -54,9 +61,9 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
                 action_source="app_ios",
                 event_time=1451431341,
                 event_id="eventId0001",
-                event_source_url="https://example.org/",
+                event_source_url="https://www.my-clothing-shop.org/",
                 opt_out=False,
-                partner_name="ss-companyname",
+                partner_name="ss-partnername",
                 user_data=ConversionEventsUserData(
                     ph=["45df139772a81b6011bdc1c9cc3d1cb408fc0b10ec0c5cb9d4d4e107f0ddc49d"],
                     ge=["0d248e82c62c9386878327d491c762a002152d42ab2c391a31c44d9f62675ddf"],
@@ -72,10 +79,14 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
                 ),
                 custom_data=ConversionEventsCustomData(
                     currency="USD",
-                    value="425325.89",
-                    content_ids=["my_product_id_1","my_product_id_2"],
+                    value="72.39",
+                    content_ids=["red-pinterest-shirt-logo-1","purple-pinterest-shirt-logo-3"],
+                    content_name="pinterest-themed-clothing",
+                    content_category="shirts",
+                    content_brand="pinterest-brand",
                     contents=[
                         ConversionEventsCustomDataContents(
+                            id="red-pinterest-shirt-logo-1",
                             item_price="1325.12",
                             quantity=5,
                         ),
@@ -134,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[conversion_token](../README.md#conversion_token)
+[conversion_token](../README.md#conversion_token), [pinterest_oauth2](../README.md#pinterest_oauth2)
 
 ### HTTP request headers
 
@@ -148,6 +159,9 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Success |  -  |
 **400** | The request was invalid. |  -  |
+**401** | Not authorized to send conversion events |  -  |
+**403** | Unauthorized access. |  -  |
+**429** | This request exceeded a rate limit. This can happen if the client exceeds one of the published rate limits within a short time window. |  -  |
 **503** | The endpoint has been ramped down and is currently not accepting any traffic. |  -  |
 **0** | Unexpected errors |  -  |
 

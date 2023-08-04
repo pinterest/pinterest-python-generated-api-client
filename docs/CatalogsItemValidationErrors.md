@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **availability_invalid** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 
 **blocklisted_image_signature** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 
 **description_missing** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 
+**duplicate_products** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 
 **image_link_invalid** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 
 **image_link_length_too_long** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 
 **image_link_missing** | [**CatalogsItemValidationDetails**](CatalogsItemValidationDetails.md) |  | [optional] 
