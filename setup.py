@@ -22,7 +22,7 @@ if _IS_TEST_BUILD:
     print("* Test build enable")
     VERSION = datetime.today().strftime('%m%d%Y%H%M%S')
 
-NAME = "Pinterest Generated Client"
+NAME = "Pinterest_Generated_Client"
 # To install the library, run the following
 #
 # python setup.py install
