@@ -20,9 +20,10 @@ Name | Type | Description | Notes
 **media** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | [optional] [readonly] 
 **media_source** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | [optional] 
 **parent_pin_id** | **str, none_type** | The source pin id if this pin was saved from another pin. &lt;a href&#x3D;\&quot;https://help.pinterest.com/article/save-pins-on-pinterest\&quot;&gt;Learn more&lt;/a&gt;. | [optional] 
-**is_standard** | **bool** | Whether the Pin is standard or not. See documentation on &lt;a href&#x3D;\&quot;https://developers.pinterest.com/docs/content/update/\&quot;&gt;Changes to Pin creation&lt;/a&gt; for more information. | [optional] 
+**is_standard** | **bool** | Whether the Pin is standard or not. See documentation on &lt;a href&#x3D;\&quot;/docs/api-features/content-overview/\&quot;&gt;Changes to Pin creation&lt;/a&gt; for more information. | [optional] 
 **has_been_promoted** | **bool** | Whether the Pin has been promoted or not. | [optional] [readonly] 
 **note** | **str, none_type** | Private note for this Pin. &lt;a href&#x3D;\&quot;https://help.pinterest.com/en/article/add-notes-to-your-pins\&quot;&gt;Learn more&lt;/a&gt;. | [optional] 
+**pin_metrics** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** | Pin metrics with associated time intervals if any. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

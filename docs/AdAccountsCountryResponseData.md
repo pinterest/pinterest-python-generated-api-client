@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | [**Country**](Country.md) |  | [optional] 
+**code** | [**AdCountry**](AdCountry.md) |  | [optional] 
 **currency** | **str** | Country currency. | [optional] 
 **index** | **float** | Country index | [optional] 
 **name** | **str** | Country name | [optional] 

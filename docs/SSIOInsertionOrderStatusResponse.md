@@ -1,0 +1,14 @@
+# SSIOInsertionOrderStatusResponse
+
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**pin_order_id** | **str** | Salesforce order id | [optional] 
+**status** | **str** | Salesforce insertion order status | [optional] 
+**creation_time** | **str, none_type** | Salesforce insertion order creation time | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

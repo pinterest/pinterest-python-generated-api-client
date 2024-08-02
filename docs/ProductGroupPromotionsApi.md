@@ -55,25 +55,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     product_group_promotion_create_request = ProductGroupPromotionCreateRequest(
         ad_group_id="2680059592705",
         product_group_promotion=[
-            ProductGroupPromotion(
-                id="2680059592705",
-                ad_group_id="2680059592705",
-                bid_in_micro_currency=14000000,
-                included=True,
-                definition="*/product_type_0='kitchen'/product_type_1='beverage appliances'",
-                relative_definition="product_type_1='beverage appliances'",
-                parent_id="1231234",
-                slideshow_collections_title="slideshow title",
-                slideshow_collections_description="slideshow description",
-                is_mdl=True,
-                status=EntityStatus("ACTIVE"),
-                tracking_url="https://www.pinterest.com",
-                catalog_product_group_id="1231235",
-                catalog_product_group_name="catalogProductGroupName",
-                creative_type=CreativeType("REGULAR"),
-                collections_hero_pin_id="123123",
-                collections_hero_destination_url="http://www.pinterest.com",
-            ),
+            ProductGroupPromotionCreateRequestElement(),
         ],
     ) # ProductGroupPromotionCreateRequest | List of Product Group Promotions to create, size limit [1, 30].
 
@@ -216,6 +198,7 @@ import openapi_generated.pinterest_client
 from openapi_generated.pinterest_client.api import product_group_promotions_api
 from openapi_generated.pinterest_client.model.error import Error
 from openapi_generated.pinterest_client.model.paginated import Paginated
+from openapi_generated.pinterest_client.model.product_group_promotion_response_item import ProductGroupPromotionResponseItem
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
@@ -244,7 +227,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     ] # [str] | List of Product group promotion Ids. (optional)
     entity_statuses = ["ACTIVE","PAUSED"] # [str] | Entity status (optional) if omitted the server will use the default value of ["ACTIVE","PAUSED"]
     ad_group_id = "123123123" # str | Ad group Id. (optional)
-    page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
+    page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/reference/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
     order = "ASCENDING" # str | The order in which to sort the items returned: “ASCENDING” or “DESCENDING” by ID. Note that higher-value IDs are associated with more-recently added items. (optional)
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
 
@@ -275,7 +258,7 @@ Name | Type | Description  | Notes
  **product_group_promotion_ids** | **[str]**| List of Product group promotion Ids. | [optional]
  **entity_statuses** | **[str]**| Entity status | [optional] if omitted the server will use the default value of ["ACTIVE","PAUSED"]
  **ad_group_id** | **str**| Ad group Id. | [optional]
- **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
+ **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/reference/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
  **order** | **str**| The order in which to sort the items returned: “ASCENDING” or “DESCENDING” by ID. Note that higher-value IDs are associated with more-recently added items. | [optional]
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
 
@@ -361,9 +344,9 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
                 tracking_url="https://www.pinterest.com",
                 catalog_product_group_id="1231235",
                 catalog_product_group_name="catalogProductGroupName",
-                creative_type=CreativeType("REGULAR"),
                 collections_hero_pin_id="123123",
                 collections_hero_destination_url="http://www.pinterest.com",
+                grid_click_type=GridClickType("CLOSEUP"),
             ),
         ],
     ) # ProductGroupPromotionUpdateRequest | Parameters to update Product group promotions

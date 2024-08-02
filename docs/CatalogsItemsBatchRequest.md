@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **operation** | [**BatchOperation**](BatchOperation.md) |  | 
 **country** | [**Country**](Country.md) |  | [optional] 
-**language** | [**Language**](Language.md) |  | [optional] 
+**language** | **bool, date, datetime, dict, float, int, list, str, none_type** | We recommend using the CatalogsLocale values. | [optional] 
 **items** | [**[ItemDeleteBatchRecord]**](ItemDeleteBatchRecord.md) | Array with catalogs items | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

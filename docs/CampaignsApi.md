@@ -29,7 +29,7 @@ import openapi_generated.pinterest_client
 from openapi_generated.pinterest_client.api import campaigns_api
 from openapi_generated.pinterest_client.model.error import Error
 from openapi_generated.pinterest_client.model.granularity import Granularity
-from openapi_generated.pinterest_client.model.ads_analytics_targeting_type import AdsAnalyticsTargetingType
+from openapi_generated.pinterest_client.model.ads_analytics_campaign_targeting_type import AdsAnalyticsCampaignTargetingType
 from openapi_generated.pinterest_client.model.conversion_report_attribution_type import ConversionReportAttributionType
 from openapi_generated.pinterest_client.model.metrics_response import MetricsResponse
 from pprint import pprint
@@ -61,8 +61,8 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     start_date = dateutil_parser('1970-01-01').date() # date | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today.
     end_date = dateutil_parser('1970-01-01').date() # date | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date.
     targeting_types = [
-        AdsAnalyticsTargetingType("APPTYPE"),
-    ] # [AdsAnalyticsTargetingType] | Targeting type breakdowns for the report. The reporting per targeting type <br> is independent from each other.
+        AdsAnalyticsCampaignTargetingType("APPTYPE"),
+    ] # [AdsAnalyticsCampaignTargetingType] | Targeting type breakdowns for the report. The reporting per targeting type <br> is independent from each other. [\"AGE_BUCKET_AND_GENDER\"] is in BETA and not yet available to all users.
     columns = [
         "TOTAL_CONVERSIONS",
     ] # [str] | Columns to retrieve, encoded as a comma-separated string. **NOTE**: Any metrics defined as MICRO_DOLLARS returns a value based on the advertiser profile's currency field. For USD,($1/1,000,000, or $0.000001 - one one-ten-thousandth of a cent). it's microdollars. Otherwise, it's in microunits of the advertiser's currency.<br/>For example, if the advertiser's currency is GBP (British pound sterling), all MICRO_DOLLARS fields will be in GBP microunits (1/1,000,000 British pound).<br/>If a column has no value, it may not be returned
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
  **campaign_ids** | **[str]**| List of Campaign Ids to use to filter the results. |
  **start_date** | **date**| Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
  **end_date** | **date**| Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
- **targeting_types** | [**[AdsAnalyticsTargetingType]**](AdsAnalyticsTargetingType.md)| Targeting type breakdowns for the report. The reporting per targeting type &lt;br&gt; is independent from each other. |
+ **targeting_types** | [**[AdsAnalyticsCampaignTargetingType]**](AdsAnalyticsCampaignTargetingType.md)| Targeting type breakdowns for the report. The reporting per targeting type &lt;br&gt; is independent from each other. [\&quot;AGE_BUCKET_AND_GENDER\&quot;] is in BETA and not yet available to all users. |
  **columns** | **[str]**| Columns to retrieve, encoded as a comma-separated string. **NOTE**: Any metrics defined as MICRO_DOLLARS returns a value based on the advertiser profile&#39;s currency field. For USD,($1/1,000,000, or $0.000001 - one one-ten-thousandth of a cent). it&#39;s microdollars. Otherwise, it&#39;s in microunits of the advertiser&#39;s currency.&lt;br/&gt;For example, if the advertiser&#39;s currency is GBP (British pound sterling), all MICRO_DOLLARS fields will be in GBP microunits (1/1,000,000 British pound).&lt;br/&gt;If a column has no value, it may not be returned |
  **granularity** | **Granularity**| TOTAL - metrics are aggregated over the specified date range.&lt;br&gt; DAY - metrics are broken down daily.&lt;br&gt; HOUR - metrics are broken down hourly.&lt;br&gt;WEEKLY - metrics are broken down weekly.&lt;br&gt;MONTHLY - metrics are broken down monthly |
  **click_window_days** | **int**| Number of days to use as the conversion attribution window for a pin click action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to &#x60;30&#x60; days. | [optional] if omitted the server will use the default value of 30
@@ -428,6 +428,7 @@ import time
 import openapi_generated.pinterest_client
 from openapi_generated.pinterest_client.api import campaigns_api
 from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.campaign_response import CampaignResponse
 from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
@@ -456,7 +457,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
         "4",
     ] # [str] | List of Campaign Ids to use to filter the results. (optional)
     entity_statuses = ["ACTIVE","PAUSED"] # [str] | Entity status (optional) if omitted the server will use the default value of ["ACTIVE","PAUSED"]
-    page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
+    page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/reference/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
     order = "ASCENDING" # str | The order in which to sort the items returned: “ASCENDING” or “DESCENDING” by ID. Note that higher-value IDs are associated with more-recently added items. (optional)
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
 
@@ -486,7 +487,7 @@ Name | Type | Description  | Notes
  **ad_account_id** | **str**| Unique identifier of an ad account. |
  **campaign_ids** | **[str]**| List of Campaign Ids to use to filter the results. | [optional]
  **entity_statuses** | **[str]**| Entity status | [optional] if omitted the server will use the default value of ["ACTIVE","PAUSED"]
- **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
+ **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/reference/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
  **order** | **str**| The order in which to sort the items returned: “ASCENDING” or “DESCENDING” by ID. Note that higher-value IDs are associated with more-recently added items. | [optional]
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
 

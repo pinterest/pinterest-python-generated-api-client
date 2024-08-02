@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**integrations_commerce_post**](IntegrationsApi.md#integrations_commerce_post) | **POST** /integrations/commerce | Create commerce integration
 [**integrations_get_by_id**](IntegrationsApi.md#integrations_get_by_id) | **GET** /integrations/{id} | Get integration metadata
 [**integrations_get_list**](IntegrationsApi.md#integrations_get_list) | **GET** /integrations | Get integration metadata list
+[**integrations_logs_post**](IntegrationsApi.md#integrations_logs_post) | **POST** /integrations/logs | Receives batched logs from integration applications.
 
 
 # **integrations_commerce_del**
@@ -17,7 +18,7 @@ Method | HTTP request | Description
 
 Delete commerce integration
 
-Delete commerce integration metadata for the given external business ID.
+Delete commerce integration metadata for the given external business ID. Note: If you're interested in joining the beta, please reach out to your Pinterest account manager.
 
 ### Example
 
@@ -95,7 +96,7 @@ void (empty response body)
 
 Get commerce integration
 
-Get commerce integration metadata associated with the given external business ID
+Get commerce integration metadata associated with the given external business ID. Note: If you're interested in joining the beta, please reach out to your Pinterest account manager.
 
 ### Example
 
@@ -177,7 +178,7 @@ Name | Type | Description  | Notes
 
 Update commerce integration
 
-Update commerce integration metadata for the given external business ID
+Update commerce integration metadata for the given external business ID. Note: If you're interested in joining the beta, please reach out to your Pinterest account manager.
 
 ### Example
 
@@ -284,7 +285,7 @@ Name | Type | Description  | Notes
 
 Create commerce integration
 
-Create commerce integration metadata to link an external business ID with a Pinterest merchant & ad account.
+Create commerce integration metadata to link an external business ID with a Pinterest merchant & ad account. Note: If you're interested in joining the beta, please reach out to your Pinterest account manager.
 
 ### Example
 
@@ -328,8 +329,8 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
         partner_access_token="partner_access_token_example",
         partner_refresh_token="partner_refresh_token_example",
         partner_primary_email="partner_primary_email_example",
-        partner_access_token_expiry=3.14,
-        partner_refresh_token_expiry=3.14,
+        partner_access_token_expiry=1,
+        partner_refresh_token_expiry=1,
         scopes="scopes_example",
         additional_id_1="additional_id_1_example",
         partner_metadata="partner_metadata_example",
@@ -382,7 +383,7 @@ Name | Type | Description  | Notes
 
 Get integration metadata
 
-Get integration metadata by ID.
+Get integration metadata by ID. Note: If you're interested in joining the beta, please reach out to your Pinterest account manager.
 
 ### Example
 
@@ -463,7 +464,7 @@ Name | Type | Description  | Notes
 
 Get integration metadata list
 
-Get integration metadata list.
+Get integration metadata list. Note: If you're interested in joining the beta, please reach out to your Pinterest account manager.
 
 ### Example
 
@@ -475,6 +476,7 @@ import openapi_generated.pinterest_client
 from openapi_generated.pinterest_client.api import integrations_api
 from openapi_generated.pinterest_client.model.error import Error
 from openapi_generated.pinterest_client.model.paginated import Paginated
+from openapi_generated.pinterest_client.model.integration_record import IntegrationRecord
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
@@ -498,7 +500,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = integrations_api.IntegrationsApi(api_client)
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
-    page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
+    page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/reference/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
 
     # example passing only required values which don't have defaults set
     # and optional values
@@ -516,7 +518,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
- **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
+ **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/reference/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
 
 ### Return type
 
@@ -538,6 +540,128 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Success |  -  |
 **0** | Unexpected error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **integrations_logs_post**
+> IntegrationLogsSuccessResponse integrations_logs_post(integration_logs_request)
+
+Receives batched logs from integration applications.
+
+This endpoint receives batched logs from integration applications on partner platforms. Note: If you're interested in joining the beta, please reach out to your Pinterest account manager.
+
+### Example
+
+* OAuth Authentication (pinterest_oauth2):
+
+```python
+import time
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import integrations_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.integration_logs_success_response import IntegrationLogsSuccessResponse
+from openapi_generated.pinterest_client.model.detailed_error import DetailedError
+from openapi_generated.pinterest_client.model.integration_logs_request import IntegrationLogsRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.pinterest.com/v5
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: pinterest_oauth2
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = integrations_api.IntegrationsApi(api_client)
+    integration_logs_request = IntegrationLogsRequest(
+        logs=[
+            IntegrationLog(
+                client_timestamp=1,
+                event_type="APP",
+                log_level="INFO",
+                external_business_id="external_business_id_example",
+                advertiser_id="advertiser_id_example",
+                merchant_id="merchant_id_example",
+                tag_id="tag_id_example",
+                feed_profile_id="feed_profile_id_example",
+                message="message_example",
+                app_version_number="app_version_number_example",
+                platform_version_number="platform_version_number_example",
+                error=IntegrationLogClientError(
+                    cause="cause_example",
+                    column_number=1,
+                    file_name="file_name_example",
+                    line_number=1,
+                    message="message_example",
+                    message_detail="message_detail_example",
+                    name="name_example",
+                    number=1,
+                    stack_trace="stack_trace_example",
+                ),
+                request=IntegrationLogClientRequest(
+                    method="GET",
+                    host="host_example",
+                    path="path_example",
+                    request_headers={
+                        "key": "key_example",
+                    },
+                    response_headers={
+                        "key": "key_example",
+                    },
+                    response_status_code=1,
+                ),
+            ),
+        ],
+    ) # IntegrationLogsRequest | Ingest log information from external integration application.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Receives batched logs from integration applications.
+        api_response = api_instance.integrations_logs_post(integration_logs_request)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling IntegrationsApi->integrations_logs_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **integration_logs_request** | [**IntegrationLogsRequest**](IntegrationLogsRequest.md)| Ingest log information from external integration application. |
+
+### Return type
+
+[**IntegrationLogsSuccessResponse**](IntegrationLogsSuccessResponse.md)
+
+### Authorization
+
+[pinterest_oauth2](../README.md#pinterest_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success. |  -  |
+**400** | Bad request. |  -  |
+**0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

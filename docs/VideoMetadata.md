@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **item_type** | **str** |  | [optional] 
 **cover_image_url** | **str** |  | [optional] 
+**video_url** | **str, none_type** | Video url (720p). &lt;/p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This field is limited and not available to all apps. | [optional] 
 **duration** | **float** | Duration (in milliseconds) | [optional] 
 **height** | **int** | Height (in pixels) | [optional] 
 **width** | **int** | Width (in pixels) | [optional] 

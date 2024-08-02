@@ -277,6 +277,7 @@ import openapi_generated.pinterest_client
 from openapi_generated.pinterest_client.api import audiences_api
 from openapi_generated.pinterest_client.model.error import Error
 from openapi_generated.pinterest_client.model.paginated import Paginated
+from openapi_generated.pinterest_client.model.audience import Audience
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
@@ -301,8 +302,9 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     api_instance = audiences_api.AudiencesApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
-    order = "ASCENDING" # str | The order in which to sort the items returned: “ASCENDING” or “DESCENDING” by ID. Note that higher-value IDs are associated with more-recently added items. (optional)
-    page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
+    order = "ASCENDING" # str | The order in which to sort the items returned: “ASCENDING” or “DESCENDING” by ID. For received audiences, it is sorted by sharing event time. Note that higher-value IDs are associated with more-recently added items. (optional)
+    page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/reference/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
+    ownership_type = "OWNED" # str | Filter audiences by ownership type. (optional) if omitted the server will use the default value of "OWNED"
 
     # example passing only required values which don't have defaults set
     try:
@@ -316,7 +318,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List audiences
-        api_response = api_instance.audiences_list(ad_account_id, bookmark=bookmark, order=order, page_size=page_size)
+        api_response = api_instance.audiences_list(ad_account_id, bookmark=bookmark, order=order, page_size=page_size, ownership_type=ownership_type)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling AudiencesApi->audiences_list: %s\n" % e)
@@ -329,8 +331,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ad_account_id** | **str**| Unique identifier of an ad account. |
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
- **order** | **str**| The order in which to sort the items returned: “ASCENDING” or “DESCENDING” by ID. Note that higher-value IDs are associated with more-recently added items. | [optional]
- **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
+ **order** | **str**| The order in which to sort the items returned: “ASCENDING” or “DESCENDING” by ID. For received audiences, it is sorted by sharing event time. Note that higher-value IDs are associated with more-recently added items. | [optional]
+ **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/reference/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
+ **ownership_type** | **str**| Filter audiences by ownership type. | [optional] if omitted the server will use the default value of "OWNED"
 
 ### Return type
 
@@ -398,7 +401,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     api_instance = audiences_api.AudiencesApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
     audience_id = "4" # str | Unique identifier of an audience
-    audience_update_request = AudienceUpdateRequest(None) # AudienceUpdateRequest | The audience to be updated. (optional)
+    audience_update_request = AudienceUpdateRequest() # AudienceUpdateRequest | The audience to be updated. (optional)
 
     # example passing only required values which don't have defaults set
     try:

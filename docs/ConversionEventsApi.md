@@ -4,15 +4,15 @@ All URIs are relative to *https://api.pinterest.com/v5*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**events_create**](ConversionEventsApi.md#events_create) | **POST** /ad_accounts/{ad_account_id}/events | Send conversion events to the Pinterest API for Conversions
+[**events_create**](ConversionEventsApi.md#events_create) | **POST** /ad_accounts/{ad_account_id}/events | Send conversions
 
 
 # **events_create**
 > ConversionApiResponse events_create(ad_account_id, conversion_events)
 
-Send conversion events to the Pinterest API for Conversions
+Send conversions
 
-The Pinterest API offers advertisers a way to send Pinterest their conversion information (including web conversions, in-app conversions, or even offline conversions) based on their <code>ad_account_id</code>. The request body should be a JSON object. - This endpoint requires an <code>access_token</code> be generated through Ads Manager. Review the <a href=\"/docs/conversions/conversions/\">Conversions Guide</a> for more details. - The token's <code>user_account</code> must either be the Owner of the specified ad account, or have one of the necessary roles granted to them via <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a>: Admin, Analyst, Audience, Campaign. (Note that the token can be used across multiple ad accounts under an user ID.) - This endpoint has a rate limit of 5,000 calls per minute per ad account. - If the merchant is submitting this information using both Pinterest conversion tags and the Pinterest API, Pinterest will remove duplicate information before reporting. (Note that events that took place offline cannot be deduplicated.)
+The Pinterest API offers advertisers a way to send Pinterest their conversion information (including web conversions, in-app conversions, or even offline conversions) based on their <code>ad_account_id</code>. The request body should be a JSON object. - This endpoint requires an <code>access_token</code> be generated through Ads Manager. Review the <a href=\"/docs/api-features/conversion-overview/\">Conversions Guide</a> for more details. (Note that the authorization header required is <code>Authorization: Bearer &lt;access_token&gt;</code>). - The token's <code>user_account</code> must either be the Owner of the specified ad account, or have one of the necessary roles granted to them via <a href=\"https://help.pinterest.com/en/business/article/share-and-manage-access-to-your-ad-accounts\">Business Access</a>: Admin, Analyst, Audience, Campaign. (Note that the token can be used across multiple ad accounts under an user ID.) - This endpoint has a rate limit of 5,000 calls per minute per ad account. - If the merchant is submitting this information using both Pinterest conversion tags and the Pinterest API, Pinterest will remove duplicate information before reporting. (Note that events that took place offline cannot be deduplicated.)
 
 ### Example
 
@@ -25,6 +25,7 @@ import openapi_generated.pinterest_client
 from openapi_generated.pinterest_client.api import conversion_events_api
 from openapi_generated.pinterest_client.model.conversion_events import ConversionEvents
 from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.detailed_error import DetailedError
 from openapi_generated.pinterest_client.model.conversion_api_response import ConversionApiResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
@@ -76,6 +77,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
                     country=["9b202ecbc6d45c6d8901d989a918878397a3eb9d00e8f48022fc051b19d21a1d"],
                     external_id=["6a7a73766627eb611720883d5a11cc62b5bfee237b00a6658d78c50032ec4aee"],
                     click_id="dj0yJnU9b2JDcFFHekV4SHJNcmVrbFBkUEdqakh0akdUT1VjVVUmcD0yJm49cnNBQ3F2Q2dOVDBXWWhkWklrUGxBUSZ0PUFBQUFBR1BaY3Bv",
+                    partner_id="BUJrTlRRzGJmWhRXFZdkioV6wKPBve7Lom__GU9J74hq2NIQj4O3nOZJrp3mcUr5MptkXsI14juMOIM9mNZnM4zEUFT2JLVaFhcOfuuWz3IWEDtBf6I0DPc",
                 ),
                 custom_data=ConversionEventsCustomData(
                     currency="USD",
@@ -89,6 +91,9 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
                             id="red-pinterest-shirt-logo-1",
                             item_price="1325.12",
                             quantity=5,
+                            item_name="pinterest-clothing-shirt",
+                            item_category="pinterest-entertainment",
+                            item_brand="pinterest",
                         ),
                     ],
                     num_items=2,
@@ -114,7 +119,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Send conversion events to the Pinterest API for Conversions
+        # Send conversions
         api_response = api_instance.events_create(ad_account_id, conversion_events)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
@@ -123,7 +128,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Send conversion events to the Pinterest API for Conversions
+        # Send conversions
         api_response = api_instance.events_create(ad_account_id, conversion_events, test=test)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
@@ -161,6 +166,7 @@ Name | Type | Description  | Notes
 **400** | The request was invalid. |  -  |
 **401** | Not authorized to send conversion events |  -  |
 **403** | Unauthorized access. |  -  |
+**422** | Not all events were successfully processed. |  -  |
 **429** | This request exceeded a rate limit. This can happen if the client exceeds one of the published rate limits within a short time window. |  -  |
 **503** | The endpoint has been ramped down and is currently not accepting any traffic. |  -  |
 **0** | Unexpected errors |  -  |

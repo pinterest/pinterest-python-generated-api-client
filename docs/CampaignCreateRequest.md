@@ -4,18 +4,16 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ad_account_id** | **str** | Campaign&#39;s Advertiser ID. | 
+**ad_account_id** | **str** | Campaign&#39;s Advertiser ID. If you want to create a campaign in a Business Account shared account you need to specify the Business Access advertiser ID in both the query path param as well as the request body schema. | 
 **name** | **str** | Campaign name. | 
 **objective_type** | [**ObjectiveType**](ObjectiveType.md) |  | 
 **status** | **str** |  | [optional]  if omitted the server will use the default value of "ACTIVE"
-**lifetime_spend_cap** | **int, none_type** | Campaign total spending cap. | [optional] 
-**daily_spend_cap** | **int, none_type** | Campaign daily spending cap. | [optional] 
+**lifetime_spend_cap** | **int, none_type** | Campaign total spending cap. Required for Campaign Budget Optimization (CBO) campaigns. This and \&quot;daily_spend_cap\&quot; cannot be set at the same time. | [optional] 
+**daily_spend_cap** | **int, none_type** | Campaign daily spending cap. Required for Campaign Budget Optimization (CBO) campaigns. This and \&quot;lifetime_spend_cap\&quot; cannot be set at the same time. | [optional] 
 **order_line_id** | **str, none_type** | Order line ID that appears on the invoice. | [optional] 
 **tracking_urls** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 
 **start_time** | **int, none_type** | Campaign start time. Unix timestamp in seconds. Only used for Campaign Budget Optimization (CBO) campaigns. | [optional] 
 **end_time** | **int, none_type** | Campaign end time. Unix timestamp in seconds. Only used for Campaign Budget Optimization (CBO) campaigns. | [optional] 
-**summary_status** | **str** | Summary status for campaigns | [optional] 
-**is_campaign_budget_optimization** | **bool** |  | [optional]  if omitted the server will use the default value of False
 **is_flexible_daily_budgets** | **bool** |  | [optional]  if omitted the server will use the default value of False
 **default_ad_group_budget_in_micro_currency** | **int, none_type** | When transitioning from campaign budget optimization to non-campaign budget optimization, the default_ad_group_budget_in_micro_currency will propagate to each child ad groups daily budget. Unit is micro currency of the associated advertiser account. | [optional] 
 **is_automated_campaign** | **bool** |  | [optional]  if omitted the server will use the default value of False

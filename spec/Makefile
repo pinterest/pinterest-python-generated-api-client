@@ -22,7 +22,7 @@ ifeq ($(DEBUG_OPS),1)
 GENERATOR_FLAGS += --global-property debugOperations=true
 endif
 
-all: download_spec validate_spec generate_client  ## General external client
+all: validate_spec generate_client  ## General external client
 
 download_spec:						## Download openapi.yaml from public pinterest github repo
 	@echo ====Download openapi.yaml from public pinterest github repo====

@@ -22,6 +22,7 @@ This endpoint is completely deprecated. Please use <a href='/docs/api/v5/#operat
 import time
 import openapi_generated.pinterest_client
 from openapi_generated.pinterest_client.api import product_groups_api
+from openapi_generated.pinterest_client.model.catalog_product_group import CatalogProductGroup
 from openapi_generated.pinterest_client.model.error import Error
 from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint

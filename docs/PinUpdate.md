@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **alt_text** | **str, none_type** | Pin&#39;s alternative text. | [optional] 
 **board_id** | **str, none_type** | The id of the board to move the Pin onto. | [optional] 
 **board_section_id** | **str, none_type** | &lt;a href&#x3D;\&quot;https://help.pinterest.com/en/article/create-a-board-section\&quot;&gt;Board section&lt;/a&gt; ID. | [optional] 
-**description** | **str, none_type** | Pin description - 500 characters maximum. | [optional] 
+**description** | **str, none_type** | Pin description - 800 characters maximum. | [optional] 
 **link** | **str, none_type** | URL viewer is taken to when they click pin. | [optional] 
 **title** | **str, none_type** | The native pin title that creators explicitly prefer to display. | [optional] 
 **carousel_slots** | [**[PinUpdateCarouselSlots]**](PinUpdateCarouselSlots.md) | Carousel Pin slots data. | [optional] 

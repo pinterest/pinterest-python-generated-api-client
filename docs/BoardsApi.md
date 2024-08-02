@@ -218,6 +218,7 @@ Get a list of all board sections from a board owned by the \"operation user_acco
 
 ### Example
 
+* OAuth Authentication (client_credentials):
 * OAuth Authentication (pinterest_oauth2):
 
 ```python
@@ -226,6 +227,7 @@ import openapi_generated.pinterest_client
 from openapi_generated.pinterest_client.api import boards_api
 from openapi_generated.pinterest_client.model.error import Error
 from openapi_generated.pinterest_client.model.paginated import Paginated
+from openapi_generated.pinterest_client.model.board_section import BoardSection
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
@@ -237,6 +239,12 @@ configuration = openapi_generated.pinterest_client.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: client_credentials
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
 configuration = openapi_generated.pinterest_client.Configuration(
@@ -251,7 +259,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     board_id = "4" # str | Unique identifier of a board.
     ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
-    page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
+    page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/reference/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
 
     # example passing only required values which don't have defaults set
     try:
@@ -279,7 +287,7 @@ Name | Type | Description  | Notes
  **board_id** | **str**| Unique identifier of a board. |
  **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
- **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
+ **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/reference/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
 
 ### Return type
 
@@ -287,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[pinterest_oauth2](../README.md#pinterest_oauth2)
+[client_credentials](../README.md#client_credentials), [pinterest_oauth2](../README.md#pinterest_oauth2)
 
 ### HTTP request headers
 
@@ -313,6 +321,7 @@ Get a list of the Pins on a board section of a board owned by the \"operation us
 
 ### Example
 
+* OAuth Authentication (client_credentials):
 * OAuth Authentication (pinterest_oauth2):
 
 ```python
@@ -320,6 +329,7 @@ import time
 import openapi_generated.pinterest_client
 from openapi_generated.pinterest_client.api import boards_api
 from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.pin import Pin
 from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
@@ -332,6 +342,12 @@ configuration = openapi_generated.pinterest_client.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: client_credentials
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
 configuration = openapi_generated.pinterest_client.Configuration(
@@ -347,7 +363,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     section_id = "4" # str | Unique identifier of a board section.
     ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
-    page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
+    page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/reference/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
 
     # example passing only required values which don't have defaults set
     try:
@@ -376,7 +392,7 @@ Name | Type | Description  | Notes
  **section_id** | **str**| Unique identifier of a board section. |
  **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
- **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
+ **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/reference/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
 
 ### Return type
 
@@ -384,7 +400,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[pinterest_oauth2](../README.md#pinterest_oauth2)
+[client_credentials](../README.md#client_credentials), [pinterest_oauth2](../README.md#pinterest_oauth2)
 
 ### HTTP request headers
 
@@ -701,6 +717,7 @@ Get a board owned by the operation user_account - or a group board that has been
 
 ### Example
 
+* OAuth Authentication (client_credentials):
 * OAuth Authentication (pinterest_oauth2):
 
 ```python
@@ -720,6 +737,12 @@ configuration = openapi_generated.pinterest_client.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: client_credentials
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Configure OAuth2 access token for authorization: pinterest_oauth2
 configuration = openapi_generated.pinterest_client.Configuration(
@@ -766,7 +789,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[pinterest_oauth2](../README.md#pinterest_oauth2)
+[client_credentials](../README.md#client_credentials), [pinterest_oauth2](../README.md#pinterest_oauth2)
 
 ### HTTP request headers
 
@@ -793,6 +816,7 @@ Get a list of the boards owned by the \"operation user_account\" + group boards 
 
 ### Example
 
+* OAuth Authentication (client_credentials):
 * OAuth Authentication (pinterest_oauth2):
 
 ```python
@@ -800,6 +824,7 @@ import time
 import openapi_generated.pinterest_client
 from openapi_generated.pinterest_client.api import boards_api
 from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.board import Board
 from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
@@ -813,6 +838,12 @@ configuration = openapi_generated.pinterest_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure OAuth2 access token for authorization: client_credentials
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # Configure OAuth2 access token for authorization: pinterest_oauth2
 configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
@@ -825,8 +856,8 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     api_instance = boards_api.BoardsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
-    page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
-    privacy = "PUBLIC" # str | Privacy setting for a board. (optional)
+    page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/reference/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
+    privacy = "ALL" # str | Privacy setting for a board. (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
@@ -845,7 +876,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
- **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
+ **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/reference/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
  **privacy** | **str**| Privacy setting for a board. | [optional]
 
 ### Return type
@@ -854,7 +885,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[pinterest_oauth2](../README.md#pinterest_oauth2)
+[client_credentials](../README.md#client_credentials), [pinterest_oauth2](../README.md#pinterest_oauth2)
 
 ### HTTP request headers
 
@@ -880,6 +911,7 @@ Get a list of the Pins on a board owned by the \"operation user_account\" - or o
 
 ### Example
 
+* OAuth Authentication (client_credentials):
 * OAuth Authentication (pinterest_oauth2):
 
 ```python
@@ -887,6 +919,7 @@ import time
 import openapi_generated.pinterest_client
 from openapi_generated.pinterest_client.api import boards_api
 from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.pin import Pin
 from openapi_generated.pinterest_client.model.paginated import Paginated
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
@@ -900,6 +933,12 @@ configuration = openapi_generated.pinterest_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure OAuth2 access token for authorization: client_credentials
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # Configure OAuth2 access token for authorization: pinterest_oauth2
 configuration = openapi_generated.pinterest_client.Configuration(
     host = "https://api.pinterest.com/v5"
@@ -912,11 +951,12 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     api_instance = boards_api.BoardsApi(api_client)
     board_id = "4" # str | Unique identifier of a board.
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
-    page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
+    page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/reference/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
     creative_types = [
         "REGULAR",
     ] # [str] | Pin creative types filter. </p><strong>Note:</strong> SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. (optional)
     ad_account_id = "4" # str | Unique identifier of an ad account. (optional)
+    pin_metrics = False # bool | Specify whether to return 90d and lifetime Pin metrics. Total comments and total reactions are only available with lifetime Pin metrics. If Pin was created before <code>2023-03-20</code> lifetime metrics will only be available for Video and Idea Pin formats. Lifetime metrics are available for all Pin formats since then. (optional) if omitted the server will use the default value of False
 
     # example passing only required values which don't have defaults set
     try:
@@ -930,7 +970,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Pins on board
-        api_response = api_instance.boards_list_pins(board_id, bookmark=bookmark, page_size=page_size, creative_types=creative_types, ad_account_id=ad_account_id)
+        api_response = api_instance.boards_list_pins(board_id, bookmark=bookmark, page_size=page_size, creative_types=creative_types, ad_account_id=ad_account_id, pin_metrics=pin_metrics)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BoardsApi->boards_list_pins: %s\n" % e)
@@ -943,9 +983,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **board_id** | **str**| Unique identifier of a board. |
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
- **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
+ **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/reference/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
  **creative_types** | **[str]**| Pin creative types filter. &lt;/p&gt;&lt;strong&gt;Note:&lt;/strong&gt; SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. | [optional]
  **ad_account_id** | **str**| Unique identifier of an ad account. | [optional]
+ **pin_metrics** | **bool**| Specify whether to return 90d and lifetime Pin metrics. Total comments and total reactions are only available with lifetime Pin metrics. If Pin was created before &lt;code&gt;2023-03-20&lt;/code&gt; lifetime metrics will only be available for Video and Idea Pin formats. Lifetime metrics are available for all Pin formats since then. | [optional] if omitted the server will use the default value of False
 
 ### Return type
 
@@ -953,7 +994,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[pinterest_oauth2](../README.md#pinterest_oauth2)
+[client_credentials](../README.md#client_credentials), [pinterest_oauth2](../README.md#pinterest_oauth2)
 
 ### HTTP request headers
 

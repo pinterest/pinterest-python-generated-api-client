@@ -1,10 +1,12 @@
 # CatalogsProduct
 
+Catalogs product for all verticals
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**metadata** | [**CatalogsProductMetadata**](CatalogsProductMetadata.md) |  | 
+**catalog_type** | [**CatalogsType**](CatalogsType.md) |  | 
+**metadata** | [**CatalogsCreativeAssetsProductMetadata**](CatalogsCreativeAssetsProductMetadata.md) |  | 
 **pin** | [**Pin**](Pin.md) |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

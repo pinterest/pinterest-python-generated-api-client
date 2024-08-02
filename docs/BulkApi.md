@@ -151,11 +151,21 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     api_instance = bulk_api.BulkApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
     bulk_request_id = "bulk_request_id_example" # str | Unique identifier of a bulk upsert request.
+    include_details = False # bool | if set to True then attach the errors/details to all the requests (optional) if omitted the server will use the default value of False
 
     # example passing only required values which don't have defaults set
     try:
         # Download advertiser entities in bulk
         api_response = api_instance.bulk_request_get(ad_account_id, bulk_request_id)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling BulkApi->bulk_request_get: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Download advertiser entities in bulk
+        api_response = api_instance.bulk_request_get(ad_account_id, bulk_request_id, include_details=include_details)
         pprint(api_response)
     except openapi_generated.pinterest_client.ApiException as e:
         print("Exception when calling BulkApi->bulk_request_get: %s\n" % e)
@@ -168,6 +178,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ad_account_id** | **str**| Unique identifier of an ad account. |
  **bulk_request_id** | **str**| Unique identifier of a bulk upsert request. |
+ **include_details** | **bool**| if set to True then attach the errors/details to all the requests | [optional] if omitted the server will use the default value of False
 
 ### Return type
 
@@ -239,34 +250,16 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
                 CampaignCreateRequest(),
             ],
             ad_groups=[
-                AdGroupCreateRequest(None),
+                AdGroupCreateRequest(),
             ],
             ads=[
-                AdCreateRequest(None),
+                AdCreateRequest(),
             ],
             product_groups=[
                 ProductGroupPromotionCreateRequest(
                     ad_group_id="2680059592705",
                     product_group_promotion=[
-                        ProductGroupPromotion(
-                            id="2680059592705",
-                            ad_group_id="2680059592705",
-                            bid_in_micro_currency=14000000,
-                            included=True,
-                            definition="*/product_type_0='kitchen'/product_type_1='beverage appliances'",
-                            relative_definition="product_type_1='beverage appliances'",
-                            parent_id="1231234",
-                            slideshow_collections_title="slideshow title",
-                            slideshow_collections_description="slideshow description",
-                            is_mdl=True,
-                            status=EntityStatus("ACTIVE"),
-                            tracking_url="https://www.pinterest.com",
-                            catalog_product_group_id="1231235",
-                            catalog_product_group_name="catalogProductGroupName",
-                            creative_type=CreativeType("REGULAR"),
-                            collections_hero_pin_id="123123",
-                            collections_hero_destination_url="http://www.pinterest.com",
-                        ),
+                        ProductGroupPromotionCreateRequestElement(),
                     ],
                 ),
             ],
@@ -274,7 +267,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
                 KeywordsRequest(
                     keywords=[
                         KeywordsCommon(
-                            bid=200000,
+                            bid=1,
                             match_type=MatchTypeResponse("BROAD"),
                             value="value_example",
                         ),
@@ -288,10 +281,10 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
                 CampaignUpdateRequest(),
             ],
             ad_groups=[
-                AdGroupUpdateRequest(None),
+                AdGroupUpdateRequest(),
             ],
             ads=[
-                AdUpdateRequest(None),
+                AdUpdateRequest(),
             ],
             product_groups=[
                 ProductGroupPromotionUpdateRequest(
@@ -312,9 +305,9 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
                             tracking_url="https://www.pinterest.com",
                             catalog_product_group_id="1231235",
                             catalog_product_group_name="catalogProductGroupName",
-                            creative_type=CreativeType("REGULAR"),
                             collections_hero_pin_id="123123",
                             collections_hero_destination_url="http://www.pinterest.com",
+                            grid_click_type=GridClickType("CLOSEUP"),
                         ),
                     ],
                 ),
@@ -323,7 +316,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
                 KeywordUpdate(
                     id="2886364308355",
                     archived=False,
-                    bid=200000,
+                    bid=1,
                 ),
             ],
         ),

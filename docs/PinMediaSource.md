@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **cover_image_content_type** | **str** | Content type for cover image Base64. | [optional] 
 **cover_image_data** | **str** | Cover image Base64. | [optional] 
 **index** | **int** |  | [optional] 
+**is_affiliate_link** | **bool** | This is an affiliate link or sponsored product. The FTC requires disclosure for paid partnerships and affiliate products. | [optional]  if omitted the server will use the default value of False
 **content_type** | **str** |  | [optional] 
 **data** | **str** |  | [optional] 
 **url** | **str** |  | [optional] 

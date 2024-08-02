@@ -5,6 +5,7 @@ All URIs are relative to *https://api.pinterest.com/v5*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ad_groups_analytics**](AdGroupsApi.md#ad_groups_analytics) | **GET** /ad_accounts/{ad_account_id}/ad_groups/analytics | Get ad group analytics
+[**ad_groups_audience_sizing**](AdGroupsApi.md#ad_groups_audience_sizing) | **POST** /ad_accounts/{ad_account_id}/ad_groups/audience_sizing | Get audience sizing
 [**ad_groups_bid_floor_get**](AdGroupsApi.md#ad_groups_bid_floor_get) | **POST** /ad_accounts/{ad_account_id}/bid_floor | Get bid floors
 [**ad_groups_create**](AdGroupsApi.md#ad_groups_create) | **POST** /ad_accounts/{ad_account_id}/ad_groups | Create ad groups
 [**ad_groups_get**](AdGroupsApi.md#ad_groups_get) | **GET** /ad_accounts/{ad_account_id}/ad_groups/{ad_group_id} | Get ad group
@@ -122,6 +123,150 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Success |  -  |
 **400** | Invalid ad account group analytics parameters. |  -  |
+**0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ad_groups_audience_sizing**
+> AdGroupAudienceSizingResponse ad_groups_audience_sizing(ad_account_id)
+
+Get audience sizing
+
+Get potential audience size for an ad group with given targeting criteria.  Potential audience size estimates the number of people you may be able to reach per month with your campaign.  It is based on historical advertising data and the targeting criteria you select. It does not guarantee results or take into account factors such as bid, budget, schedule, seasonality or product experiments.
+
+### Example
+
+* OAuth Authentication (pinterest_oauth2):
+
+```python
+import time
+import openapi_generated.pinterest_client
+from openapi_generated.pinterest_client.api import ad_groups_api
+from openapi_generated.pinterest_client.model.error import Error
+from openapi_generated.pinterest_client.model.ad_group_audience_sizing_request import AdGroupAudienceSizingRequest
+from openapi_generated.pinterest_client.model.ad_group_audience_sizing_response import AdGroupAudienceSizingResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.pinterest.com/v5
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: pinterest_oauth2
+configuration = openapi_generated.pinterest_client.Configuration(
+    host = "https://api.pinterest.com/v5"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = ad_groups_api.AdGroupsApi(api_client)
+    ad_account_id = "4" # str | Unique identifier of an ad account.
+    ad_group_audience_sizing_request = AdGroupAudienceSizingRequest(
+        auto_targeting_enabled=True,
+        placement_group="placement_group_example",
+        creative_types=[
+            "REGULAR",
+        ],
+        targeting_spec=TargetingSpec(
+            age_bucket=["35-44","50-54"],
+            apptype=["ipad","iphone"],
+            audience_exclude=[
+                "4",
+            ],
+            audience_include=[
+                "4",
+            ],
+            gender=[
+                "unknown",
+            ],
+            geo=[
+                "geo_example",
+            ],
+            interest=[
+                "interest_example",
+            ],
+            locale=[
+                "locale_example",
+            ],
+            location=[
+                "location_example",
+            ],
+            shopping_retargeting=[
+                TargetingSpecSHOPPINGRETARGETING(
+                    lookback_window=30,
+                    tag_types=[0,6],
+                    exclusion_window=14,
+                ),
+            ],
+            targeting_strategy=[
+                "CHOOSE_YOUR_OWN",
+            ],
+        ),
+        product_group_ids=[
+            "23423422123",
+        ],
+        keywords=[
+            AdGroupAudienceSizingRequestKeywords(
+                match_type=MatchTypeResponse("BROAD"),
+                value="value_example",
+            ),
+        ],
+    ) # AdGroupAudienceSizingRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get audience sizing
+        api_response = api_instance.ad_groups_audience_sizing(ad_account_id)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling AdGroupsApi->ad_groups_audience_sizing: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get audience sizing
+        api_response = api_instance.ad_groups_audience_sizing(ad_account_id, ad_group_audience_sizing_request=ad_group_audience_sizing_request)
+        pprint(api_response)
+    except openapi_generated.pinterest_client.ApiException as e:
+        print("Exception when calling AdGroupsApi->ad_groups_audience_sizing: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ad_account_id** | **str**| Unique identifier of an ad account. |
+ **ad_group_audience_sizing_request** | [**AdGroupAudienceSizingRequest**](AdGroupAudienceSizingRequest.md)|  | [optional]
+
+### Return type
+
+[**AdGroupAudienceSizingResponse**](AdGroupAudienceSizingResponse.md)
+
+### Authorization
+
+[pinterest_oauth2](../README.md#pinterest_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | Invalid ad group audience sizing parameters. |  -  |
+**403** | No access to requested audience list or product group. |  -  |
 **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -319,7 +464,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     api_instance = ad_groups_api.AdGroupsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
     ad_group_create_request = [
-        AdGroupCreateRequest(None),
+        AdGroupCreateRequest(),
     ] # [AdGroupCreateRequest] | List of ad groups to create, size limit [1, 30].
 
     # example passing only required values which don't have defaults set
@@ -461,6 +606,7 @@ import openapi_generated.pinterest_client
 from openapi_generated.pinterest_client.api import ad_groups_api
 from openapi_generated.pinterest_client.model.error import Error
 from openapi_generated.pinterest_client.model.paginated import Paginated
+from openapi_generated.pinterest_client.model.ad_group_response import AdGroupResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.pinterest.com/v5
 # See configuration.py for a list of all supported configuration parameters.
@@ -491,7 +637,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
         "4",
     ] # [str] | List of Ad group Ids to use to filter the results. (optional)
     entity_statuses = ["ACTIVE","PAUSED"] # [str] | Entity status (optional) if omitted the server will use the default value of ["ACTIVE","PAUSED"]
-    page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/getting-started/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
+    page_size = 25 # int | Maximum number of items to include in a single page of the response. See documentation on <a href='/docs/reference/pagination/'>Pagination</a> for more information. (optional) if omitted the server will use the default value of 25
     order = "ASCENDING" # str | The order in which to sort the items returned: “ASCENDING” or “DESCENDING” by ID. Note that higher-value IDs are associated with more-recently added items. (optional)
     bookmark = "bookmark_example" # str | Cursor used to fetch the next page of items (optional)
     translate_interests_to_names = False # bool | Return interests as text names (if value is true) rather than topic IDs. (optional) if omitted the server will use the default value of False
@@ -523,7 +669,7 @@ Name | Type | Description  | Notes
  **campaign_ids** | **[str]**| List of Campaign Ids to use to filter the results. | [optional]
  **ad_group_ids** | **[str]**| List of Ad group Ids to use to filter the results. | [optional]
  **entity_statuses** | **[str]**| Entity status | [optional] if omitted the server will use the default value of ["ACTIVE","PAUSED"]
- **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/getting-started/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
+ **page_size** | **int**| Maximum number of items to include in a single page of the response. See documentation on &lt;a href&#x3D;&#39;/docs/reference/pagination/&#39;&gt;Pagination&lt;/a&gt; for more information. | [optional] if omitted the server will use the default value of 25
  **order** | **str**| The order in which to sort the items returned: “ASCENDING” or “DESCENDING” by ID. Note that higher-value IDs are associated with more-recently added items. | [optional]
  **bookmark** | **str**| Cursor used to fetch the next page of items | [optional]
  **translate_interests_to_names** | **bool**| Return interests as text names (if value is true) rather than topic IDs. | [optional] if omitted the server will use the default value of False
@@ -602,7 +748,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     end_date = dateutil_parser('1970-01-01').date() # date | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date.
     targeting_types = [
         AdsAnalyticsTargetingType("APPTYPE"),
-    ] # [AdsAnalyticsTargetingType] | Targeting type breakdowns for the report. The reporting per targeting type <br> is independent from each other.
+    ] # [AdsAnalyticsTargetingType] | Targeting type breakdowns for the report. The reporting per targeting type <br> is independent from each other. [\"AGE_BUCKET_AND_GENDER\"] is in BETA and not yet available to all users.
     columns = [
         "TOTAL_CONVERSIONS",
     ] # [str] | Columns to retrieve, encoded as a comma-separated string. **NOTE**: Any metrics defined as MICRO_DOLLARS returns a value based on the advertiser profile's currency field. For USD,($1/1,000,000, or $0.000001 - one one-ten-thousandth of a cent). it's microdollars. Otherwise, it's in microunits of the advertiser's currency.<br/>For example, if the advertiser's currency is GBP (British pound sterling), all MICRO_DOLLARS fields will be in GBP microunits (1/1,000,000 British pound).<br/>If a column has no value, it may not be returned
@@ -640,7 +786,7 @@ Name | Type | Description  | Notes
  **ad_group_ids** | **[str]**| List of Ad group Ids to use to filter the results. |
  **start_date** | **date**| Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
  **end_date** | **date**| Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
- **targeting_types** | [**[AdsAnalyticsTargetingType]**](AdsAnalyticsTargetingType.md)| Targeting type breakdowns for the report. The reporting per targeting type &lt;br&gt; is independent from each other. |
+ **targeting_types** | [**[AdsAnalyticsTargetingType]**](AdsAnalyticsTargetingType.md)| Targeting type breakdowns for the report. The reporting per targeting type &lt;br&gt; is independent from each other. [\&quot;AGE_BUCKET_AND_GENDER\&quot;] is in BETA and not yet available to all users. |
  **columns** | **[str]**| Columns to retrieve, encoded as a comma-separated string. **NOTE**: Any metrics defined as MICRO_DOLLARS returns a value based on the advertiser profile&#39;s currency field. For USD,($1/1,000,000, or $0.000001 - one one-ten-thousandth of a cent). it&#39;s microdollars. Otherwise, it&#39;s in microunits of the advertiser&#39;s currency.&lt;br/&gt;For example, if the advertiser&#39;s currency is GBP (British pound sterling), all MICRO_DOLLARS fields will be in GBP microunits (1/1,000,000 British pound).&lt;br/&gt;If a column has no value, it may not be returned |
  **granularity** | **Granularity**| TOTAL - metrics are aggregated over the specified date range.&lt;br&gt; DAY - metrics are broken down daily.&lt;br&gt; HOUR - metrics are broken down hourly.&lt;br&gt;WEEKLY - metrics are broken down weekly.&lt;br&gt;MONTHLY - metrics are broken down monthly |
  **click_window_days** | **int**| Number of days to use as the conversion attribution window for a pin click action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to &#x60;30&#x60; days. | [optional] if omitted the server will use the default value of 30
@@ -714,7 +860,7 @@ with openapi_generated.pinterest_client.ApiClient(configuration) as api_client:
     api_instance = ad_groups_api.AdGroupsApi(api_client)
     ad_account_id = "4" # str | Unique identifier of an ad account.
     ad_group_update_request = [
-        AdGroupUpdateRequest(None),
+        AdGroupUpdateRequest(),
     ] # [AdGroupUpdateRequest] | List of ad groups to update, size limit [1, 30].
 
     # example passing only required values which don't have defaults set

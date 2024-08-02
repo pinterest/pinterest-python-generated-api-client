@@ -1,6 +1,6 @@
 # CatalogsFeedCredentials
 
-Use this if your feed file requires username and password.
+This field is **OPTIONAL**. Use this if your feed file requires username and password.
 
 ## Properties
 Name | Type | Description | Notes

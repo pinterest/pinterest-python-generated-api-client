@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **custom_label_4** | **CatalogsProductGroupMultipleStringCriteria** |  | [optional] 
 **item_group_id** | **CatalogsProductGroupMultipleStringCriteria** |  | [optional] 
 **gender** | **CatalogsProductGroupMultipleGenderCriteria** |  | [optional] 
+**media_type** | **CatalogsProductGroupMultipleMediaTypesCriteria** |  | [optional] 
 **product_type_4** | **CatalogsProductGroupMultipleStringListCriteria** |  | [optional] 
 **product_type_3** | **CatalogsProductGroupMultipleStringListCriteria** |  | [optional] 
 **product_type_2** | **CatalogsProductGroupMultipleStringListCriteria** |  | [optional] 
@@ -30,6 +31,7 @@ Name | Type | Description | Notes
 **google_product_category_2** | **CatalogsProductGroupMultipleStringListCriteria** |  | [optional] 
 **google_product_category_1** | **CatalogsProductGroupMultipleStringListCriteria** |  | [optional] 
 **google_product_category_0** | **CatalogsProductGroupMultipleStringListCriteria** |  | [optional] 
+**product_group** | **CatalogsProductGroupMultipleStringCriteria** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
