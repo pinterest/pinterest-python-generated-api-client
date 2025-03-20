@@ -1,18 +1,6 @@
 SHELL:=bash
 OPENAPI_GENERATOR_VERSION:=5.4.0
-OPENAPI_GENERATOR_COMMAND:=openapi-generator-cli
-
-ifeq (, $(shell which $(OPENAPI_GENERATOR_COMMAND)))
-OPENAPI_GENERATOR_COMMAND = openapi-generator
-endif
-
-ifeq (, $(shell which $(OPENAPI_GENERATOR_COMMAND)))
-$(error Error: Command '$(OPENAPI_GENERATOR_COMMAND)' not found, make sure 'openapi-generator' is installed globablly)
-endif
-
-ifneq ($(shell OPENAPI_GENERATOR_VERSION=$(OPENAPI_GENERATOR_VERSION) $(OPENAPI_GENERATOR_COMMAND) version), $(OPENAPI_GENERATOR_VERSION))
-$(error Error: Expected $(OPENAPI_GENERATOR_COMMAND) version $(OPENAPI_GENERATOR_VERSION) (found $(shell $(OPENAPI_GENERATOR_COMMAND) version)))
-endif
+OPENAPI_GENERATOR_COMMAND:=local-openapi-generator-cli
 
 # Additional debugging output can be enabled by setting e.g. DEBUG_MODELS=1.
 ifeq ($(DEBUG_MODELS),1)
@@ -30,12 +18,17 @@ download_spec:						## Download openapi.yaml from public pinterest github repo
 
 validate_spec: 						## Validates the openapi spec: sdk.yaml
 	@echo ====Validates the openapi spec: sdk.yaml====
-	openapi-generator validate -i openapi.yaml
+	./local-open-generator-cli validate -i openapi.yaml
 
 generate_client:			## Generates a python client
 	@echo ====Generates a python client using the sdk.yaml spec====
-	openapi-generator generate -c config.yml -o ..
+	./local-open-generator-cli generate -c config.yml -o ..
 	rm -rf ../test ../.gitlab-ci.yml ../.travis.yml ../git_push.sh
+
+
+generate_client:			## Patch the generated client
+	@echo ====Execiting patches====
+	python ./patches/remove_bool_none_type.py
 
 help:								## Show list of targets and purposes.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
