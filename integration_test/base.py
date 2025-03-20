@@ -11,6 +11,8 @@ from openapi_generated.pinterest_client.model.board import Board
 from openapi_generated.pinterest_client.model.campaign_create_request import CampaignCreateRequest
 from openapi_generated.pinterest_client.model.objective_type import ObjectiveType
 from openapi_generated.pinterest_client.model.pin_create import PinCreate
+from openapi_generated.pinterest_client.model.targeting_spec import TargetingSpec
+
 from .config import DEFAULT_AD_ACCOUNT_ID
 from .config import DEFAULT_AD_ACCOUNT_COUNTRY
 from .config import DEFAULT_AD_ACCOUNT_NAME
@@ -116,6 +118,10 @@ class BaseIntegrationTest(unittest.TestCase):
                         billable_event=action_type,
                         tracking_url=None,
                         bid_in_micro_currency=5000000,
+                        targeting_spec=TargetingSpec(
+                            age_bucket=["35-44"],
+                            location=[DEFAULT_AD_ACCOUNT_COUNTRY],
+                        )
                     )],
             )
             self._ad_group = parse_to_object(response)
