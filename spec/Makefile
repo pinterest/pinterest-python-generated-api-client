@@ -10,7 +10,7 @@ ifeq ($(DEBUG_OPS),1)
 GENERATOR_FLAGS += --global-property debugOperations=true
 endif
 
-all: validate_spec generate_client  ## General external client
+all: download_spec validate_spec generate_client patch_client ## General external client
 
 download_spec:						## Download openapi.yaml from public pinterest github repo
 	@echo ====Download openapi.yaml from public pinterest github repo====
@@ -25,8 +25,7 @@ generate_client:			## Generates a python client
 	./local-open-generator-cli generate -c config.yml -o ..
 	rm -rf ../test ../.gitlab-ci.yml ../.travis.yml ../git_push.sh
 
-
-generate_client:			## Patch the generated client
+patch_client:			## Patch the generated client
 	@echo ====Execiting patches====
 	python ./patches/remove_bool_none_type.py
 
