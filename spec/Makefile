@@ -13,8 +13,9 @@ endif
 all: download_spec validate_spec generate_client patch_client ## General external client
 
 download_spec:						## Download openapi.yaml from public pinterest github repo
+	# TODO: update to use the main branch; last supported spec is 5.14.0
 	@echo ====Download openapi.yaml from public pinterest github repo====
-	python utils/download_file.py https://raw.githubusercontent.com/pinterest/api-description/main/v5/openapi.yaml  './openapi.yaml'
+	python utils/download_file.py https://raw.githubusercontent.com/pinterest/api-description/774983b2025d0f29ff11bab1bb3d215404abe3e8/v5/openapi.yaml  './openapi.yaml'
 
 validate_spec: 						## Validates the openapi spec: sdk.yaml
 	@echo ====Validates the openapi spec: sdk.yaml====
