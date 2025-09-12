@@ -26,8 +26,9 @@ generate_client:			## Generates a python client
 	rm -rf ../test ../.gitlab-ci.yml ../.travis.yml ../git_push.sh
 
 patch_client:			## Patch the generated client
-	@echo ====Execiting patches====
+	@echo ====Executing patches====
 	python ./patches/remove_bool_none_type.py
+	python ./patches/fix_urllib3_deprecations.py
 
 help:								## Show list of targets and purposes.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
