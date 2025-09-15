@@ -94,7 +94,7 @@ class BaseIntegrationTest(unittest.TestCase):
                         start_time=None,
                         end_time=None,
                         objective_type=ObjectiveType("AWARENESS"),
-                        is_campaign_budget_optimization=False,
+                        is_campaign_budget_optimization=True,
                         is_flexible_daily_budgets=False,
                         default_ad_group_budget_in_micro_currency=None,
                         is_automated_campaign=False,

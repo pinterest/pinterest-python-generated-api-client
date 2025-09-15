@@ -221,7 +221,7 @@ class ApiClient(object):
         if response_type:
             if response_type != (file_type,):
                 encoding = "utf-8"
-                content_type = response_data.getheader('content-type')
+                content_type = response_data.urllib3_response.headers.get('content-type')
                 if content_type is not None:
                     match = re.search(r"charset=([a-zA-Z\-\d]+)[\s\;]?", content_type)
                     if match:
@@ -240,7 +240,7 @@ class ApiClient(object):
             return (return_data)
         else:
             return (return_data, response_data.status,
-                    response_data.getheaders())
+                    response_data.urllib3_response.headers)
 
     def parameters_to_multipart(self, params, collection_types):
         """Get parameters as list of tuples, formatting as json if value is collection_types
@@ -317,7 +317,7 @@ class ApiClient(object):
         # handle file downloading
         # save response body into a tmp file and return the instance
         if response_type == (file_type,):
-            content_disposition = response.getheader("Content-Disposition")
+            content_disposition = response.urllib3_response.headers.get("Content-Disposition")
             return deserialize_file(response.data, self.configuration,
                                     content_disposition=content_disposition)
 

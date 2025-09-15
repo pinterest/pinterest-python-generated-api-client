@@ -15,7 +15,7 @@ from pathlib import Path
 
 import os
 
-VERSION = "0.1.10"
+VERSION = "0.1.11"
 _IS_TEST_BUILD = os.environ.get("IS_TEST_BUILD", 0)
 
 if _IS_TEST_BUILD:
@@ -31,7 +31,7 @@ NAME = "Pinterest_Generated_Client"
 # http://pypi.python.org/pypi/setuptools
 
 REQUIRES = [
-  "urllib3==1.26.20",
+  "urllib3>=1.26,<3",
   "python-dateutil",
 ]
 

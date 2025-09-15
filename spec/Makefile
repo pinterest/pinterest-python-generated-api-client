@@ -13,8 +13,9 @@ endif
 all: download_spec validate_spec generate_client patch_client ## General external client
 
 download_spec:						## Download openapi.yaml from public pinterest github repo
+	# TODO: update to use the main branch; last supported spec is 5.14.0
 	@echo ====Download openapi.yaml from public pinterest github repo====
-	python utils/download_file.py https://raw.githubusercontent.com/pinterest/api-description/main/v5/openapi.yaml  './openapi.yaml'
+	python utils/download_file.py https://raw.githubusercontent.com/pinterest/api-description/774983b2025d0f29ff11bab1bb3d215404abe3e8/v5/openapi.yaml  './openapi.yaml'
 
 validate_spec: 						## Validates the openapi spec: sdk.yaml
 	@echo ====Validates the openapi spec: sdk.yaml====
@@ -26,8 +27,9 @@ generate_client:			## Generates a python client
 	rm -rf ../test ../.gitlab-ci.yml ../.travis.yml ../git_push.sh
 
 patch_client:			## Patch the generated client
-	@echo ====Execiting patches====
+	@echo ====Executing patches====
 	python ./patches/remove_bool_none_type.py
+	python ./patches/fix_urllib3_deprecations.py
 
 help:								## Show list of targets and purposes.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
